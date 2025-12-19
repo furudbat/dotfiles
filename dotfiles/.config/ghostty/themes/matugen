@@ -1,0 +1,11 @@
+palette = 0=#101418
+palette = 10=#99ccfa
+palette = 13=#001d31
+palette = 15=#e0e2e8
+
+background = #101418
+foreground = #e0e2e8
+cursor-color = #e0e2e8
+cursor-text = #c2c7ce
+selection-foreground = #23323f
+selection-background = #b8c8da

@@ -67,13 +67,19 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
 
     yay_installed="false"
     paru_installed="false"
+    cachyos_hello_installed="false"
+    if [[ $(_checkCommandExists "cachyos-hello") == 0 ]]; then
+        cachyos_hello_installed="true"
+    fi
     if [[ $(_checkCommandExists "yay") == 0 ]]; then
         yay_installed="true"
     fi
     if [[ $(_checkCommandExists "paru") == 0 ]]; then
         paru_installed="true"
     fi
-    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
+    if [[ $cachyos_hello_installed == "true" ]]; then
+        cachyos-hello fix update-system
+    elif [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
         yay
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
         paru -Syu --noconfirm

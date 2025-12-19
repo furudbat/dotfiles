@@ -18,5 +18,24 @@ finder() {
 # Fastfetch
 # -----------------------------------------------------
 if [[ $(tty) == *"pts"* ]]; then
-    fastfetch
+    case "$TERM" in
+        *kitty*)
+            # Kitty → Pokémon fastfetch
+            pokemon-colorscripts --no-title -s -r | \
+                fastfetch \
+                    -c "$HOME/.config/fastfetch/pkmn.config.jsonc" \
+                    --logo-type file-raw \
+                    --logo-height 10 \
+                    --logo-width 5 \
+                    --logo -
+            ;;
+        *ghost*)
+            # Ghostty → normal fastfetch
+            fastfetch -c "$HOME/.config/fastfetch/config.jsonc"
+            ;;
+        *)
+            # All other terminals → normal fastfetch
+            fastfetch -c "$HOME/.config/fastfetch/config.jsonc"
+            ;;
+    esac
 fi

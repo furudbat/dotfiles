@@ -53,10 +53,12 @@ window {
     spacing:                     0em;
     padding:                     0em;
     border:                      @border-width;
-    border-color:                @primary;
+    border-color:                @tertiary;
     border-radius:               @border-radius;
-    background-color:            @background;
+    background-color:            @blur-background8;
 }
+
+* { current-image: url("./sprite.png", height); }
 
 mainbox {
     enabled:                     true;
@@ -64,19 +66,25 @@ mainbox {
     padding:                     0em;
     orientation:                 horizontal;
     children:                    [ "imagebox" , "listbox" ];
-    background-color:            transparent;
-    background-image:            @current-image;
+    background-color:            @background;
+    /*background-color:            transparent;*/
+    /*background-image:            @current-image;*/
 }
 
 imagebox {
     padding:                     20px;
-    background-color:            transparent;
+    background-color:            @on-secondary;
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
+    border-radius:               0;
 }
 
 dummy {
+    enabled: true;
+    width: 180px;        /* sprite width */
+    height: 260px;       /* sprite height */
     background-color:            transparent;
+    background-image:            @current-image;
 }
 
 // Modes //
@@ -91,7 +99,7 @@ mode-switcher {
 
 button {
     padding:                     15px;
-    border-radius:               2em;
+    border-radius:               4px;
     border:                      0;    
     cursor:                      pointer;
     background-color:            @background;
@@ -100,7 +108,7 @@ button {
 
 button selected {
     padding:                     15px;
-    border-radius:               2em;    
+    border-radius:               4px;    
     background-color:            @surface;
     text-color:                  @on-surface;
 }
@@ -110,7 +118,7 @@ inputbar {
     enabled:                     true;
     margin: 1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    border-radius:               2em;
+    border-radius:               4px;
     background-color:            @surface;
 }
 
@@ -140,7 +148,8 @@ listbox {
     spacing:                     0em;
     orientation:                 horizontal;
     children:                    [ "listview" ];
-    background-color:            @background;
+    background-color:            @on-primary;
+    border-radius:               2px;
 }
 
 listview {
@@ -175,7 +184,7 @@ element {
 element selected.normal {
     background-color:            @surface;
     text-color:                  @on-surface;
-    border-radius:               1.5em;
+    border-radius:               8px;
 }
 
 element normal.normal {
@@ -223,7 +232,7 @@ element-icon {
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
-    border-radius:               0em;
+    border-radius:               0px;
 }
 
 element-text {
