@@ -93,18 +93,16 @@
     "tooltip-format": "Left: Open clipboard Manager\nRight: Delete an entry\nMiddle: Clear list"
   },
   // Updates Count
-	"custom/updates": {
+  "custom/updates": {
     "format": "  {}",
-		"escape": true,
-		"return-type": "json",
-		"exec": "~/.config/ml4w/scripts/updates.sh",
-		"restart-interval": 1,
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/ml4w/scripts/updates.sh",
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,
-		"on-click": "~/.config/ml4w/scripts/installupdates.sh",
-		"on-click-right": "~/.config/ml4w/settings/software.sh"
-	},
+    "on-click": "~/.config/ml4w/settings/installupdates.sh"
+  },
   // Wallpaper
   "custom/wallpaper": {
     "format": "",
@@ -220,7 +218,7 @@
   },
   // Clock
   "clock": {
-        "format": "{:%a %Od.%Om.%Y - %H:%M}",
+    "format": "{:%H:%M %a}",
     "on-click": "flatpak run com.ml4w.calendar",
     "timezone": "",
     "tooltip": false
@@ -378,12 +376,15 @@
   },
   // Bluetooth
   "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "",
-    "format-off": "",
-    "interval": 30,
-    "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
-    "format-no-controller": ""
+  "format": " {status}",
+  "format-disabled": "",
+  "format-off": "",
+  "interval": 30,
+  "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
+  "tooltip-format-connected": "Connected devices: {num_connections} connected\n\n{device_enumerate}",
+  "tooltip-format-enumerate-connected": "{device_alias}",
+  "tooltip-format-enumerate-connected-battery": "{device_alias}\t| Battery life: {device_battery_percentage}%",
+  "format-no-controller": ""
   },
   // Other
   "user": {
