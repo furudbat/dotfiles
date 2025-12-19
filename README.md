@@ -1,8 +1,14 @@
-# ML4W Dotfiles for Hyprland
+# ML4W Dotfiles for Hyprland - Digimon & Pokemon theme
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/78651d4d-95b6-4919-8fa6-49be0702d930" />
+![screenshot 1](assets/screenshot1.png)
+
+![screenshot 2](assets/screenshot2.jpg)
+
+![screenshot 3](assets/screenshot3.jpg)
+
+![screenshot 4](assets/screenshot4.jpg)
 
 ## Installation and Documentation
 
@@ -48,3 +54,42 @@ The following projects have inspired me:
 - https://github.com/dianaw353/hyprland-configuration-rootfs
 
 and many more...
+
+---
+
+## Install hyprland plugins
+
+- https://github.com/shezdy/hyprsplit
+- https://github.com/hyprwm/hyprland-plugins
+
+```bash
+hyprpm update
+```
+
+```bash
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm add https://github.com/shezdy/hyprsplit
+```
+
+### enable plugins
+
+```bash
+hyprpm enable hyprsplit
+```
+
+## Desktop pets
+
+https://github.com/furudbat/wayland-vpets
+
+![Digimon Greymon - Demo animated](https://raw.githubusercontent.com/furudbat/wayland-vpets/refs/heads/main/assets/digimon-demo.gif)  
+
+## Resources and Wallpapers
+
+- https://digimon.fandom.com/wiki/DigiCode
+- https://www.artstation.com/neocity222
+- https://danbooru.donmai.us/posts/2113430
+- https://danbooru.donmai.us/posts/2255142
+- https://x.com/rastadog77/status/1713937342728433946
+- https://www.artstation.com/sinobali
+- https://x.com/bixclowart/status/1891526837957709948
+- https://x.com/Akamine_Naoki/status/1800832906853752899
