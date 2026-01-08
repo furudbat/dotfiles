@@ -1,0 +1,65 @@
+[colors.primary]
+background = "{{colors.surface.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+dim_foreground = "#7f849c"
+bright_foreground = "#EEFCFE"
+
+[colors.cursor]
+text = "{{colors.on_surface_variant.default.hex}}"
+cursor = "{{colors.on_surface.default.hex}}"
+
+[colors.vi_mode_cursor]
+text = "{{colors.surface.default.hex}}"
+cursor = "#b4befe"
+
+[colors.search.matches]
+foreground = "{{colors.surface.default.hex}}"
+background = "#a6adc8"
+
+[colors.search.focused_match]
+foreground = "{{colors.surface.default.hex}}"
+background = "#3BCA37"
+
+[colors.footer_bar]
+foreground = "{{colors.surface.default.hex}}"
+background = "#a6adc8"
+
+[colors.hints.start]
+foreground = "{{colors.surface.default.hex}}"
+background = "#FFE700"
+
+[colors.hints.end]
+foreground = "{{colors.surface.default.hex}}"
+background = "#a6adc8"
+
+[colors.selection]
+text = "{{colors.on_secondary.default.hex}}"
+background = "{{colors.secondary_fixed_dim.default.hex}}"
+
+[colors.normal]
+black = "#45475a"
+red = "#D60150"
+green = "#3BCA37"
+yellow = "#FFE700"
+blue = "#0065B5"
+magenta = "#F289B7"
+cyan = "#2CA19A"
+white = "#bac2de"
+
+[colors.bright]
+black = "#585b70"
+red = "#D60150"
+green = "#3BCA37"
+yellow = "#FFE700"
+blue = "#0065B5"
+magenta = "#F289B7"
+cyan = "#2CA19A"
+white = "#a6adc8"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fab387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#FFE700"

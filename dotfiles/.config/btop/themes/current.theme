@@ -1,0 +1,95 @@
+# Matugen template for btop
+# Styled to match other Symphony themes
+
+
+# Colors should be in 6 or 2 character hexadecimal or single spaced rgb decimal: "#RRGGBB", "#BW" or "0-255 0-255 0-255"
+# example for white: "#ffffff", "#ff" or "255 255 255".
+
+# All graphs and meters can be gradients
+# For single color graphs leave "mid" and "end" variable empty.
+# Use "start" and "end" variables for two color gradient
+# Use "start", "mid" and "end" for three color gradient
+
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]=""
+
+# Main text color
+theme[main_fg]="#e0e2e8"
+
+# Title color for boxes - accent color
+theme[title]="#99ccfa"
+
+# Highlight color for keyboard shortcuts - accent color
+theme[hi_fg]="#99ccfa"
+
+# Background color of selected item in processes box - muted surface, not vibrant
+theme[selected_bg]="#1c2024"
+
+# Foreground color of selected item in processes box - normal foreground
+theme[selected_fg]="#e0e2e8"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#8c9198"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#d2bfe7"
+
+# Cpu box outline color - subtle
+theme[cpu_box]="#42474e"
+
+# Memory/disks box outline color
+theme[mem_box]="#42474e"
+
+# Net up/down box outline color
+theme[net_box]="#42474e"
+
+# Processes box outline color
+theme[proc_box]="#42474e"
+
+# Box divider line and small boxes line color
+theme[div_line]="#42474e"
+
+# Temperature graph colors
+theme[temp_start]="#d2bfe7"
+theme[temp_mid]="#99ccfa"
+theme[temp_end]="#ffb4ab"
+
+# CPU graph colors
+theme[cpu_start]="#99ccfa"
+theme[cpu_mid]="#b8c8da"
+theme[cpu_end]="#d2bfe7"
+
+# Mem/Disk free meter
+theme[free_start]="#d2bfe7"
+theme[free_mid]=""
+theme[free_end]="#d2bfe7"
+
+# Mem/Disk cached meter
+theme[cached_start]="#b8c8da"
+theme[cached_mid]=""
+theme[cached_end]="#b8c8da"
+
+# Mem/Disk available meter
+theme[available_start]="#99ccfa"
+theme[available_mid]=""
+theme[available_end]="#99ccfa"
+
+# Mem/Disk used meter
+theme[used_start]="#ffb4ab"
+theme[used_mid]=""
+theme[used_end]="#ffb4ab"
+
+# Download graph colors
+theme[download_start]="#d2bfe7"
+theme[download_mid]="#99ccfa"
+theme[download_end]="#b8c8da"
+
+# Upload graph colors
+theme[upload_start]="#b8c8da"
+theme[upload_mid]="#99ccfa"
+theme[upload_end]="#d2bfe7"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#d2bfe7"
+theme[process_mid]="#99ccfa"
+theme[process_end]="#ffb4ab"

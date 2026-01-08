@@ -7,7 +7,7 @@
 {
     "label" : "logout",
     "action" : "~/.config/hypr/scripts/power.sh exit",
-    "text" : "Log Out",
+    "text" : "Logout",
     "keybind" : "e"
 }
 {
@@ -17,14 +17,14 @@
     "keybind" : "u"
 }
 {
-    "label" : "reboot",
-    "action" : "~/.config/hypr/scripts/power.sh reboot",
-    "text" : "Restart",
-    "keybind" : "r"
-}
-{
     "label" : "shutdown",
     "action" : "~/.config/hypr/scripts/power.sh shutdown",
     "text" : "Power Off",
     "keybind" : "s"
+}
+{
+    "label" : "reboot",
+    "action" : "~/.config/hypr/scripts/power.sh reboot",
+    "text" : "Restart",
+    "keybind" : "r"
 }

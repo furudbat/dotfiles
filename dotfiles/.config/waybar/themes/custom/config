@@ -1,0 +1,203 @@
+[
+	{
+		// General Settings
+		"layer": "top",
+		"position": "top",
+		"output": [
+			"HDMI-A-1"
+		],
+		"name": "left-bar",
+		"margin-bottom": 0,
+		"margin-left": 0,
+		"margin-right": 0,
+		"spacing": 0,
+		// Load Modules
+		"include": [
+			"~/.config/waybar/themes/custom/modules.json",
+			"~/.config/ml4w/settings/waybar-quicklinks.json",
+			"~/.config/waybar/modules.json"
+		],
+		// Modules Left
+		"modules-left": [
+			"custom/left-border",
+			"custom/appmenuicon",
+			"hyprland/workspaces",
+			//"group/quicklinks",
+			"custom/empty"
+		],
+		// Modules Center
+		"modules-center": [
+			"hyprland/window",
+			"custom/empty"
+		],
+		// Modules Right    
+		"modules-right": [
+			"group/hardware",
+			"custom/updates",
+			"custom/audio",
+			//"backlight",
+			//"bluetooth",
+			"network",
+			//"battery",
+			//"power-profiles-daemon",
+			//"group/tools",
+			"tray",
+			"custom/notification",
+			"custom/ml4w-welcome",
+			"clock",
+			"custom/exit",
+			"custom/right-border"
+		]
+	},
+	{
+		// General Settings
+		"layer": "top",
+		"position": "top",
+		"output": [
+			"DP-1"
+		],
+		"name": "middle-bar",
+		"margin-bottom": 0,
+		"margin-left": 0,
+		"margin-right": 0,
+		"spacing": 0,
+		// Load Modules
+		"include": [
+			"~/.config/waybar/themes/custom/modules.json",
+			"~/.config/ml4w/settings/waybar-quicklinks.json",
+			"~/.config/waybar/modules.json"
+		],
+		// Modules Left
+		"modules-left": [
+			"custom/left-border",
+			"custom/appmenuicon",
+			"hyprland/workspaces",
+			//"group/quicklinks",
+			"custom/empty"
+		],
+		// Modules Center
+		"modules-center": [
+			"hyprland/window",
+			"custom/empty"
+		],
+		// Modules Right    
+		"modules-right": [
+			//"custom/updates",
+			"custom/audio",
+			//"backlight",
+			//"bluetooth",
+			"network",
+			//"battery",
+			"power-profiles-daemon",
+			"custom/space",
+			"group/hardware#extended",
+			//"group/tools",
+			//"tray",
+			"custom/notification",
+			"custom/ml4w-welcome",
+			"clock",
+			"custom/exit",
+			"custom/right-border"
+		]
+	},
+	{
+		// General Settings
+		"layer": "top",
+		"position": "top",
+		"output": [
+			"DP-2"
+		],
+		"name": "right-bar",
+		"margin-bottom": 0,
+		"margin-left": 0,
+		"margin-right": 0,
+		"spacing": 0,
+		// Load Modules
+		"include": [
+			"~/.config/waybar/themes/custom/modules.json",
+			"~/.config/ml4w/settings/waybar-quicklinks.json",
+			"~/.config/waybar/modules.json"
+		],
+		// Modules Left
+		"modules-left": [
+			"custom/appmenuicon",
+			"hyprland/workspaces",
+			//"group/quicklinks",
+			"custom/empty"
+		],
+		// Modules Center
+		"modules-center": [
+			"hyprland/window",
+			"custom/empty"
+		],
+		// Modules Right    
+		"modules-right": [
+			"group/hardware",
+			//"custom/updates",
+			//"pulseaudio",
+			//"backlight",
+			//"bluetooth",
+			//"network",
+			//"battery",
+			//"power-profiles-daemon",
+			//"group/tools",
+			"tray",
+			"custom/notification",
+			"custom/ml4w-welcome",
+			"clock",
+			"custom/exit",
+			"custom/right-border"
+		]
+	},
+	{
+		// General Settings
+		"layer": "top",
+		"position": "bottom",
+		"output": [
+			"DP-3"
+		],
+		"name": "tablet-bar",
+		"margin-bottom": 0,
+		"margin-left": 0,
+		"margin-right": 0,
+		"spacing": 0,
+		// Load Modules
+		"include": [
+			"~/.config/waybar/themes/custom/modules.json",
+			"~/.config/ml4w/settings/waybar-quicklinks.json",
+			"~/.config/waybar/modules.json"
+		],
+		// Modules Left
+		"modules-left": [
+			"custom/appmenuicon",
+			"hyprland/workspaces",
+			//"group/quicklinks",
+			"custom/empty"
+		],
+		// Modules Center
+		"modules-center": [
+			"hyprland/window",
+			"custom/empty"
+		],
+		// Modules Right    
+		"modules-right": [
+			//"custom/updates",
+			//"tray",
+			"custom/audio",
+			//"backlight",
+			//"bluetooth",
+			//"network",
+			//"battery",
+			//"power-profiles-daemon",
+			//"custom/space",
+			"custom/space",
+			"group/hardware#extended",
+			//"group/tools",
+			"custom/notification",
+			"custom/ml4w-welcome",
+			"clock",
+			"custom/exit",
+			"custom/right-border"
+		]
+	},
+]

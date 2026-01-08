@@ -1,0 +1,308 @@
+{
+	// Workspaces
+	"hyprland/workspaces": {
+		"sort-by-number": true,
+		"on-click": "activate",
+		"format": "{icon}",
+		"format-icons": {
+			// Monitor 2
+			"1": "󰖟 ",
+			"2": " ",
+			"3": "󰓓 ",
+			"4": "󰋄 ",
+			"5": "󰃣 ",
+			// Monitor 1
+			"6": "󰖟 ",
+			"7": " ",
+			"8": "󰓓 ",
+			"9": "󰋄 ",
+			"10": "󰃣 ",
+			// Monitor 3
+			"11": "󰖟 ",
+			"12": " ",
+			"13": "󰓓 ",
+			"14": "󰋄 ",
+			"15": "󰃣 ",
+			// Monitor 4
+			"16": "󰖟 ",
+			"17": " ",
+			"18": "󰓓 ",
+			"19": "󰋄 ",
+			"20": "󰃣 ",
+			// default
+			"urgent": " ",
+			"visible": " ",
+			"active": " ",
+			"default": " ",
+			"empty": " "
+		},
+		"disable-scroll": true,
+		//"on-scroll-up": "hyprctl dispatch split:workspace r+1",
+		//"on-scroll-down": "hyprctl dispatch split:workspace r-1",
+		"tooltip": true,
+		"tooltip-format": "{name}",
+		"all-outputs": false,
+		"active-only": false,
+		"outputs": [
+			"HDMI-A-1",
+			"DP-1",
+			"DP-2",
+			"DP-3"
+		],
+		"persistent-workspaces": {
+			"HDMI-A-1": [
+				6,
+				7,
+				8,
+				9,
+				10
+			],
+			"DP-1": [
+				1,
+				2,
+				3,
+				4,
+				5
+			],
+			"DP-2": [
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"DP-3": [
+				16,
+				17,
+				18,
+				19,
+				20
+			]
+		}
+	},
+	"custom/space": {
+		"format": " ",
+		"tooltip": false,
+	},
+	// Updates Count
+	"custom/updates": {
+		"format": " {}",
+		"escape": true,
+		"return-type": "json",
+		"exec": "~/.config/ml4w/scripts/updates.sh",
+		"restart-interval": 60,
+		"interval": 1800,
+		"signal": 1,
+		"hide-empty-text": true,
+		"on-click": "~/.config/ml4w/settings/installupdates.sh",
+		"on-click-right": "~/.config/ml4w/settings/software.sh"
+	},
+	// Pulseaudio
+	"pulseaudio": {
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
+			"default": [
+				" ",
+				" ",
+				" "
+			]
+		},
+		"on-click": "pavucontrol",
+		"on-click-right": "~/.config/hypr/scripts/switch-audio.sh",
+		"on-click-middle": "~/.config/hypr/scripts/volume.sh --toggle",
+		"on-scroll-up": "~/.config/hypr/scripts/volume.sh --inc",
+		"on-scroll-down": "~/.config/hypr/scripts/volume.sh --dec",
+		"tooltip-format": "{icon} {desc} | {volume}%",
+		"smooth-scrolling-threshold": 1
+	},
+	"pulseaudio#no-icon": {
+		"scroll-step": 5,
+		"format": "{volume}%",
+		"format-bluetooth": "{volume}%  {format_source}",
+		"format-bluetooth-muted": " {format_source}",
+		"format-muted": "{format_source}",
+		"format-source": "{volume}%",
+		"on-click": "pavucontrol",
+		"on-click-right": "~/.config/hypr/scripts/switch-audio.sh",
+		"on-click-middle": "~/.config/hypr/scripts/volume.sh --toggle",
+		"on-scroll-up": "~/.config/hypr/scripts/volume.sh --inc",
+		"on-scroll-down": "~/.config/hypr/scripts/volume.sh --dec",
+		"tooltip-format": "{icon} {desc} | {volume}%",
+		"smooth-scrolling-threshold": 1
+	},
+	"custom/audio": {
+		"exec": "~/.config/hypr/scripts/get-audio-status.sh",
+		"interval": 2,
+		"return-type": "json",
+		"on-click": "pavucontrol",
+		"on-click-right": "~/.config/hypr/scripts/switch-audio.sh",
+		"on-click-middle": "~/.config/hypr/scripts/volume.sh --toggle",
+		"on-scroll-up": "~/.config/hypr/scripts/volume.sh --inc",
+		"on-scroll-down": "~/.config/hypr/scripts/volume.sh --dec"
+	},
+	"custom/left-border": {
+		"format": " ",
+		"tooltip": false
+	},
+	"custom/right-border": {
+		"format": "",
+		"tooltip": false
+	},
+	"cpu#bars": {
+		"interval": 5,
+		"format": "  {icon0} {icon1} {icon2} {icon3} <span>{usage}</span>%",
+		"format-icons": [
+			"▁",
+			"▂",
+			"▃",
+			"▄",
+			"▅",
+			"▆",
+			"▇",
+			"█"
+		],
+		"tooltip": true,
+		"on-click": "~/.config/ml4w/settings/system-monitor.sh"
+	},
+	"cpu#mini": {
+		"format": "  <span>{usage}</span>%",
+		"tooltip": true,
+		"on-click": "~/.config/ml4w/settings/system-monitor.sh"
+	},
+	"memory#usage": {
+		"format": "  <span>{used:0.1f}</span>G",
+		"tooltip": true,
+		"on-click": "~/.config/ml4w/settings/system-monitor.sh"
+	},
+	// Battery
+	"battery": {
+		"interval": 1,
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-warning": "<span foreground='#FEA82B'>{icon} </span> {capacity}%",
+		"format-critical": "<span foreground='#EF1C1B'>{icon} </span> {capacity}%",
+		"format-charging": "  {capacity}%",
+		"format-plugged": "  {capacity}%",
+		"format-full": "<span foreground='#1BC822'> </span>{capacity}%",
+		"format-alt": "{icon}  {time}",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+	// Network
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": " {signalStrength}%",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "Disconnected ⚠",
+		"tooltip-format": " {ifname} via {gwaddri}",
+		"tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+		"tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+		"on-click": "~/.config/ml4w/settings/networkmanager.sh",
+		"on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
+	},
+	"network#speed": {
+		"interval": 5,
+		"format": "{ifname}",
+		"format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-disconnected": "󰌙",
+		"tooltip-format": "{ipaddr}",
+		"format-linked": "󰈁 {ifname} (No IP)",
+		"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+		"tooltip-format-ethernet": "{ifname} 󰌘",
+		"tooltip-format-disconnected": "󰌙 Disconnected",
+		"min-length": 24,
+		"max-length": 24,
+		"format-icons": [
+			"󰤯",
+			"󰤟",
+			"󰤢",
+			"󰤥",
+			"󰤨"
+		]
+	},
+	"group/hardware#extended": {
+		"orientation": "horizontal",
+		"modules": [
+			"cpu#bars",
+			"memory#usage"
+		]
+	},
+	"keyboard-state#numlock": {
+		"numlock": true,
+		"capslock": true,
+		"format": {
+			"numlock": "󰎣 ",
+			"capslock": "󰪛 ",
+		},
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"hyprland/language#icon": {
+		"format": "{short}",
+		"max-length": 18
+	},
+	"group/keyboard#icons": {
+		"orientation": "horizontal",
+		"modules": [
+			"keyboard-state#unlock",
+			"hyprland/language#icon"
+		]
+	},
+	"clock#with-tooltip": {
+		"format": "{:%a %d.%m.%Y %H:%M}",
+		"on-click": "flatpak run com.ml4w.calendar",
+		"tooltip-format": "<span>{calendar}</span>",
+		"calendar": {
+			"mode": "month",
+			"format": {
+				"months": "<span color='#1B5FD7'><big>{}</big></span>",
+				"days": "<span color='#AF5AA3'><b>{}</b></span>",
+				"weekdays": "<span color='#21C46B'><b>{}</b></span>",
+				"today": "<span color='#FF5AA3'><b>{}</b></span>"
+			}
+		}
+	},
+	// Hyprland Window
+	"hyprland/window": {
+		"max-length": 60,
+		"rewrite": {
+			"(.*) - Brave": "$1",
+			"(.*) - Chromium": "$1",
+			"(.*) - Brave Search": "$1",
+			"(.*) - Outlook": "$1",
+			"(.*) Microsoft Teams": "$1"
+		},
+		"separate-outputs": true,
+		"icon": true,
+		"tooltip": true,
+		"tooltip-format": "{class}"
+	},
+}
