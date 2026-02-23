@@ -52,13 +52,13 @@ _installParu() {
     if [[ ! $(_isInstalled "git") == 0 ]]; then
         sudo pacman --noconfirm -S "git"
     fi
-    if [ -d $HOME/Downloads/paru-bin ]; then
-        rm -rf $HOME/Downloads/paru-bin
+    if [ -d $HOME/Downloads/paru ]; then
+        rm -rf $HOME/Downloads/paru
     fi
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/paru-bin.git $HOME/Downloads/paru-bin
-    cd $HOME/Downloads/paru-bin
+    git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
+    cd $HOME/Downloads/paru
     makepkg -si
     cd $temp_path
     echo ":: paru has been installed successfully."
