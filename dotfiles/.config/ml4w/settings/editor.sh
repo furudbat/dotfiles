@@ -1,1 +1,1 @@
-gnome-text-editor
+flatpak run org.gnome.TextEditor

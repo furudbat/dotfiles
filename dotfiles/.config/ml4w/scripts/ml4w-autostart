@@ -4,6 +4,7 @@
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
+WALLPAPER_APP_FILE="$HOME/.config/ml4w/settings/wallpaper-app"
 
 # Colors for UI
 RED='\033[0;31m'
@@ -25,9 +26,14 @@ if [ ! -f $CACHE_FILE ]; then
     touch $CACHE_FILE
     echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
     info "Cache file created"
+
+    ~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
+else
+    $(cat $WALLPAPER_APP_FILE) --restore
+    sleep 0.75
+    info "Wallpapers restored"
 fi
 
-~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
 
 # Start Quickshell
 killall qs

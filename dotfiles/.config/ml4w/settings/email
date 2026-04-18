@@ -1,1 +1,1 @@
-evolution
+flatpak run org.mozilla.Thunderbird

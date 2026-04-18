@@ -1,9 +1,9 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/raabe/.gtkrc-2.0.mine"
-gtk-theme-name="Adwaita"
-gtk-icon-theme-name="kora"
+include "~/.gtkrc-2.0.mine"
+gtk-theme-name="adw-gtk3-dark"
+gtk-icon-theme-name="Colloid-Dark"
 gtk-font-name="Fira Sans Semi-Bold 11"
 gtk-cursor-theme-name="Bibata-Modern-Ice"
 gtk-cursor-theme-size=24

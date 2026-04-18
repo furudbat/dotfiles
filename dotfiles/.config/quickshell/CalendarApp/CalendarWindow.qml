@@ -20,7 +20,7 @@ PanelWindow {
 
     // Anchored to the Upper Side
     anchors {
-        left: true
+        right: true
         top: true
     }
 
@@ -72,17 +72,18 @@ PanelWindow {
     }
     
     // Animate between your specific 87px top margin and off-screen (-800)
-    property real currentTopMargin: isOpen ? 87 : -800 
+    property real currentTopMargin: isOpen ? 60 : -800 
 
     margins { 
         top: root.currentTopMargin
         left: 20
+        right: 8
     }
 
     Behavior on currentTopMargin {
         NumberAnimation {
             id: slideAnim
-            duration: 350
+            duration: 250
             easing.type: Easing.OutQuint 
             
             // Unmap the window ONLY after the hide animation completely finishes
@@ -121,7 +122,7 @@ PanelWindow {
             color: "transparent"
             border.color: Theme.primary
             border.width: 1
-            radius: 8
+            radius: 2
         }
         contentItem: Text {
             text: parent.text
@@ -131,8 +132,8 @@ PanelWindow {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             padding: 4
-            leftPadding: 10
-            rightPadding: 10
+            leftPadding: 8
+            rightPadding: 8
         }
     }
 
@@ -217,14 +218,14 @@ PanelWindow {
             color: Theme.background
             border.color: Theme.primary
             border.width: 2
-            radius: 10
+            radius: 2
             opacity: 0.95 // Only the background is transparent
         }
 
         ColumnLayout {
             anchors.fill: parent
             anchors.margins: 20
-            spacing: 15
+            spacing: 14
 
             // --- HEADER: MONTH NAVIGATION & TODAY BUTTON ---
             Item {
@@ -350,7 +351,7 @@ PanelWindow {
                             Rectangle {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                radius: width / 2 
+                                radius: width / 8 
                                 color: model.isToday ? Theme.primary : "transparent"
                                 
                                 Text {

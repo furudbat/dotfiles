@@ -67,8 +67,9 @@ window {
     anchor:                       northeast;
     fullscreen:                   false;
     enabled:                      true;
+    border-color:                 @active-border;
     border-radius:                @border-radius;
-    background-color:             transparent;
+    background-color:             @blur-background8;
 }
 
 mainbox {
@@ -88,6 +89,8 @@ listbox {
     orientation:                 vertical;
     children:                    [ "listview" , "message" ];
     background-color:            @background;
+    /*background-color:            transparent;*/
+    /*background-image:            @current-image;*/
 }
 
 listview {
@@ -117,13 +120,13 @@ element {
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @on-surface;
-    border-radius:               1.1em;
+    border-radius:               0.25em;
 }
 
 element selected.normal {
     background-color:            @surface;
     text-color:                  @on-surface;
-    border-radius:               1.5em;
+    border-radius:               0.3em;
 }
 
 element normal.normal {

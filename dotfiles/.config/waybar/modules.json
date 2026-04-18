@@ -222,7 +222,7 @@
   },
   // Clock
   "clock": {
-    "format": "{:%H:%M %a}",
+    "format": "{:%a %Od.%Om.%Y - %H:%M}",
     "on-click": "qs ipc call calendar toggle",
     "timezone": "",
     "tooltip": false
@@ -289,7 +289,7 @@
     "modules": [
       "custom/tools",
       "custom/cliphist",
-      "custom/hypridle",
+//      "custom/hypridle",
       "custom/hyprshade",
       "power-profiles-daemon"
     ]

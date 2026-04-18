@@ -1,0 +1,19 @@
+[window]
+opacity = 0.80
+dynamic_title = false
+startup_mode = "Maximized"
+
+[font]
+normal.family = "digifont"
+normal.style = "Bold"
+bold.family = "digifont"
+bold.style = "Bold"
+size = 16
+
+[colors.primary]
+background = "#02091E"
+foreground = "#0065B5"
+
+[colors.cursor]
+text = "#02091E"
+cursor = "#FED07C"

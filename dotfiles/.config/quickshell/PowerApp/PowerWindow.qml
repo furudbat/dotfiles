@@ -4,7 +4,9 @@ import Quickshell.Hyprland // <-- Added native Hyprland integration
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 import qs.CustomTheme
+import QtQuick.Controls
 
 PanelWindow {
     id: root
@@ -19,6 +21,7 @@ PanelWindow {
 
     anchors {
         right: true
+        top: true
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
@@ -49,7 +52,8 @@ PanelWindow {
     visible: isOpen || slideAnim.running
     
     margins {
-        right: root.currentMargin
+        right: 8
+        top: root.currentMargin * 2 + 6
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.
@@ -81,39 +85,42 @@ PanelWindow {
     // ==========================================
     Item {
         id: panelBg
-        implicitWidth: 80 
-        implicitHeight: buttonLayout.implicitHeight + 40 
+        implicitWidth: buttonLayout.implicitWidth + 40 
+        implicitHeight: 80
 
         Rectangle {
             anchors.fill: parent
             color: Theme.background
             border.color: Theme.primary
             border.width: 2
-            radius: 40
-            opacity: 0.9 // Only the background is transparent
+            radius: 1
+            opacity: 0.95 // Only the background is transparent
         }
 
         // ==========================================
         // BUTTON LAYOUT
         // ==========================================
-        ColumnLayout {
+        RowLayout {
             id: buttonLayout
             anchors.centerIn: parent
             spacing: 20 
 
             component PowerButton: Rectangle {
                 id: btn
-                property string iconTxt: ""
+                //property string iconTxt: ""
+                property string iconSource: ""
                 property string cmd: ""
+                property string tooltipText: "" 
                 
                 implicitWidth: 50
                 implicitHeight: 50
-                radius: 25 
+                radius: 4 
                 
                 color: mouseArea.containsMouse ? Theme.primary : "transparent"
                 border.color: Theme.primary
                 border.width: 1
 
+                /*
                 Text {
                     anchors.centerIn: parent
                     text: btn.iconTxt
@@ -121,24 +128,65 @@ PanelWindow {
                     font.pixelSize: 20
                     color: mouseArea.containsMouse ? Theme.background : Theme.primary
                 }
+                */
+
+                // Icon with automatic tint
+                ColorOverlay {
+                    anchors.centerIn: parent
+                    width: 24
+                    height: 24
+                    source: Image {
+                        source: btn.iconSource
+                        fillMode: Image.PreserveAspectFit
+                    }
+                    color: mouseArea.containsMouse 
+                        ? (Theme ? Theme.background : "#1e1e2e")  // darker tint on hover
+                        : (Theme ? Theme.primary : "#89b4fa")     // normal tint
+                }
 
                 MouseArea {
                     id: mouseArea
                     anchors.fill: parent
                     hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor 
+
                     onClicked: {
                         powerProcess.command = ["bash", "-c", btn.cmd]
                         powerProcess.running = true
                         root.isOpen = false // Trigger the slide-out animation!
                     }
                 }
+
+                ToolTip.visible: mouseArea.containsMouse
+                ToolTip.text: btn.tooltipText
+                ToolTip.delay: 500   // optional (ms)
             }
 
-            PowerButton { iconTxt: ""; cmd: "pidof hyprlock || hyprlock" }
-            PowerButton { iconTxt: ""; cmd: "systemctl suspend" }
-            PowerButton { iconTxt: ""; cmd: "hyprctl dispatch exit" }
-            PowerButton { iconTxt: ""; cmd: "systemctl reboot" }
-            PowerButton { iconTxt: ""; cmd: "systemctl poweroff" }
+            PowerButton { 
+                iconSource: "icons/lock.png"
+                cmd: "pidof hyprlock || hyprlock"
+                tooltipText: "Lock"
+            }
+            PowerButton { 
+                iconSource: "icons/suspend.png"
+                cmd: "systemctl suspend"
+                tooltipText: "Suspend"
+            }
+            PowerButton { 
+                iconSource: "icons/logout.png"
+                cmd: "hyprctl dispatch exit"
+                tooltipText: "Logout"
+            }
+            PowerButton { 
+                iconSource: "icons/reboot.png"
+                cmd: "systemctl reboot"
+                tooltipText: "Reboot"
+            }
+            PowerButton { 
+                iconSource: "icons/power.png"
+                cmd: "systemctl poweroff"
+                tooltipText: "Power Off"
+            }
         }
     }
 }

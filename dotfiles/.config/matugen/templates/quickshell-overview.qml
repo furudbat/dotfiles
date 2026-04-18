@@ -38,4 +38,6 @@ QtObject {
     property color m3outlineVariant: "{{colors.outline_variant.default.hex}}"
 
     property color m3shadow: "#000000"
+
+    property color m3activeBorder: "#fed07c"
 }

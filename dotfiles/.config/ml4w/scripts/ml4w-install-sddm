@@ -183,6 +183,14 @@ copy_wallpaper_to_sddm() {
     fi
     echo ":: Wallpaper successfully copied to SDDM theme background."
     rm -f "$TEMP_JPG"
+
+    # Read the actual wallpaper path from the file
+    SDDM_CONF_PATH_FILE="$HOME/.cache/ml4w/hyprland-dotfiles/sddm.conf"
+    DEST_SDDM_CONF="/usr/share/sddm/themes/ml4w/configs/ml4w.conf"
+    if [ -f "$SDDM_CONF_PATH_FILE" ]; then
+        echo ":: Copying config to SDDM theme..." && sudo cp "$SDDM_CONF_PATH_FILE" "$DEST_SDDM_CONF"
+    fi
+
     return 0
 }
 

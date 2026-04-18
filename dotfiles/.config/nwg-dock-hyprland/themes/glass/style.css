@@ -7,7 +7,7 @@ window {
         linear-gradient(@primary,@on_primary) border-box;
     border: 2px solid transparent;	
     opacity:0.8;
-  	border-radius: 1em;
+  	border-radius: 0.5em;
 	margin:10px;
 }
 
@@ -39,7 +39,7 @@ button {
 
 button:hover {
 	background-color: @primary_container;
-	border-radius: 10px;
+	border-radius: 8px;
 }
 
 button:focus {

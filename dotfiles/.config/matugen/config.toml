@@ -1,4 +1,10 @@
 [config]
+version_check = false
+
+#fallback_color = "#99ccfa"
+#prefer = "closest-to-fallback" 
+
+import_json_files = ["./hyprlandsettings.json"]
 
 [templates.colorsjson]
 input_path = '~/.config/matugen/templates/colors.json'
@@ -21,22 +27,34 @@ post_hook = 'hyprctl reload'
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
 [templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk3-theme]
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.themes/Material-Gnome/gtk-3.0/colors.css'
+#post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+#post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme Material-Gnome'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
+[templates.gtk4-theme]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
+
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
 
 [templates.swaync]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -81,5 +99,83 @@ output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
-post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
+#post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
+post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/blueish.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/blueish.omp.json"
 
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'pkill -SIGUSR1 ghostty'
+
+
+[templates.micro]
+input_path = '~/.config/matugen/templates/micro.micro'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty-colors.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunstrc-colors'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'dunstctl reload'
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+
+[templates.obsidian]
+input_path = '~/.config/matugen/templates/obsidian-theme.css'
+output_path = '~/.config/obsidian/theme.css'
+
+#[templates.fish]
+#input_path = './templates/fish-colors.theme'
+#output_path = '~/.config/fish/themes/Matugen.theme'
+
+[templates.fish]
+input_path = './templates/colors.fish'
+output_path = '~/.config/fish/conf.d/magugen_colors.fish'
+
+[templates.neovim]
+input_path = './templates/neovim/template.lua'
+output_path = '~/.config/nvim/generated.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.qt5ct]
+input_path = './templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = './templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.kvantum_kvconfig]
+input_path = './templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = './templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+
+
+# Choose the modified discord client you use and copy one of the templates below accordingly, 
+# if you are using another client that is not here and you know where `quickcss.css` is, 
+# feel free to modify the `output_path` to your client's path.
+
+[templates.vesktop] # vesktop client
+input_path = './templates/midnight-discord.css'
+output_path = '~/.var/app/dev.vencord.Vesktop/config/vesktop/settings/quickCss.css' # for flatpak installation
+
+[templates.legcord] # legcord (old armcord) client
+input_path = './templates/midnight-discord.css'
+output_path = '~/.var/app/xyz.armcord.ArmCord/config/armcord/quickCss.css' # for flatpak installation
+
+[templates.material-discord]
+input_path = './templates/Material-Discord.theme.css'
+output_path = '~/.config/BetterDiscord/themes/Material-Discord.theme.css'
+
+[templates.sddm]
+input_path = '~/.config/matugen/templates/sddm.conf'
+output_path = '~/.cache/ml4w/hyprland-dotfiles/sddm.conf'

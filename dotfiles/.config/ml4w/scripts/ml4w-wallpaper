@@ -5,6 +5,8 @@ IMAGE_PATH=""
 EFFECT=""
 NOTIFICATIONS=false
 SKIP=false
+SKIP_THEMING=false
+TARGET_MONITOR=""
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
@@ -17,6 +19,7 @@ SETTINGS_BLUR="$HOME/.config/ml4w/settings/blur.sh"
 SETTINGS_WALLPAPER_FOLDER="$HOME/.config/ml4w/settings/wallpaper-folder"
 SETTINGS_WALLPAPER_EFFECT="$HOME/.config/ml4w/settings/wallpaper-effect"
 SETTINGS_TRANSITION_EFFECT=$(cat $HOME/.config/ml4w/settings/wallpaper-transition-effect)
+SETTINGS_PRIMARY_MONITOR="$HOME/.config/ml4w/settings/wallpaper-primary-monitor"
 # Blur
 BLUR="50x30"
 BLUR=$(cat $SETTINGS_BLUR)
@@ -81,6 +84,10 @@ while [[ $# -gt 0 ]]; do
             EFFECT="$2"
             shift 2
             ;;
+        --monitor)
+            TARGET_MONITOR="$2"
+            shift 2
+            ;;
         --random)
             if [[ -n "$2" && "$2" != -* ]]; then
                 RANDOM_FOLDER="$2"
@@ -136,6 +143,16 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+if [ -n "$TARGET_MONITOR" ] && [ -f "$SETTINGS_PRIMARY_MONITOR" ]; then
+    PRIMARY_MONITOR=$(cat "$SETTINGS_PRIMARY_MONITOR")
+    if [ "$PRIMARY_MONITOR" != "$TARGET_MONITOR" ]; then
+        CACHE_FILE="$CACHE_FOLDER/current_wallpaper_$TARGET_MONITOR"
+        BLURRED_WALLPAPER="$CACHE_FOLDER/blurred_wallpaper_$TARGET_MONITOR.png"
+        SQUARE_WALLPAPER="$CACHE_FOLDER/square_wallpaper_$TARGET_MONITOR.png"
+        RASI_FILE="$CACHE_FOLDER/current_wallpaper_$TARGET_MONITOR.rasi"
+    fi
+fi
+
 # ==========================================
 # Validation
 # ==========================================
@@ -182,11 +199,21 @@ if [ -f "$SETTINGS_WALLPAPER_EFFECT" ]; then
     if [ ! "$EFFECT" == "off" ]; then
         info "Applying Wallpaper Effect $EFFECT"
         # Check if processed image already exists
-        if [ -f "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")" ]; then
-            IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+
+        if [ -n "$TARGET_MONITOR" ]; then
+            if [ -f "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")-$TARGET_MONITOR" ]; then
+                IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")-$TARGET_MONITOR"
+            else
+                cp "$IMAGE_PATH" "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")-$TARGET_MONITOR"
+                IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")-$TARGET_MONITOR"
+            fi
         else
-            cp "$IMAGE_PATH" "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
-            IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+            if [ -f "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")" ]; then
+                IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+            else
+                cp "$IMAGE_PATH" "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+                IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+            fi
         fi
         source "$HOME/.config/hypr/effects/wallpaper/$EFFECT"
     fi
@@ -201,61 +228,74 @@ else
     awww img "$IMAGE_PATH" --transition-type $SETTINGS_TRANSITION_EFFECT
 fi
 
+SKIP_THEMING=false
+# Skip theming when not primary monitor
+if [ -n "$TARGET_MONITOR" ] && [ -f "$SETTINGS_PRIMARY_MONITOR" ]; then
+    PRIMARY_MONITOR=$(cat "$SETTINGS_PRIMARY_MONITOR")
+    if [ "$PRIMARY_MONITOR" != "$TARGET_MONITOR" ]; then
+        SKIP_THEMING=true
+    fi
+fi
+
 # Detect Theme
 SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
 THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
 
-# Execute matugen
-if [ "$THEME_PREF" -eq 1 ]; then
-    if [ -f $HOME/.cargo/bin/matugen ]; then
-        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    else
-        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    fi
+if [ "$SKIP_THEMING" = true ]; then
+    info "Theming skipped"
 else
-    if [ -f $HOME/.cargo/bin/matugen ]; then
-        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
+    # Execute matugen
+    if [ "$THEME_PREF" -eq 1 ]; then
+        if [ -f $HOME/.cargo/bin/matugen ]; then
+            $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+        else
+            matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+        fi
     else
-        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+        if [ -f $HOME/.cargo/bin/matugen ]; then
+            $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
+        else
+            matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+        fi
     fi
-fi
-info "Matugen updated"
+    info "Matugen updated"
 
-# Update Quickshell theme
-qs ipc call theme-manager reload
-info "Quickshell Theme updated"
+    # Update Quickshell theme
+    qs ipc call theme-manager reload
+    info "Quickshell Theme updated"
 
-# Update ML4W Dotfiles Settings theme
-qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
-info "ML4W Dotfiles Settings Theme updated"
+    # Update ML4W Dotfiles Settings theme
+    qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
+    info "ML4W Dotfiles Settings Theme updated"
 
-# Reload Waybar
-if pgrep -x "waybar" > /dev/null
-then
-    info "Waybar is currently running."
-    pkill -SIGUSR2 waybar
-else
-    info "Waybar is not running."
-    nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+    # Reload Waybar
+    if pgrep -x "waybar" > /dev/null
+    then
+        info "Waybar is currently running."
+        pkill -SIGUSR2 waybar
+    else
+        info "Waybar is not running."
+        nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+        disown
+    fi
+    info "Waybar reloaded"
+
+    # Reload nwg-dock-hyprland
+    nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
     disown
+    info "nwg-dock-hyprland reloaded"
+
+    # Update Pywalfox
+    if type pywalfox >/dev/null 2>&1; then
+        pywalfox update
+        info "pywalfox updated"
+    fi
+
+    # Update SwayNC
+    sleep 0.1
+    swaync-client -rs
+    info "SwayNC refreshed"
 fi
-info "Waybar reloaded"
-
-# Reload nwg-dock-hyprland
-nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
-disown
-info "nwg-dock-hyprland reloaded"
-
-# Update Pywalfox
-if type pywalfox >/dev/null 2>&1; then
-    pywalfox update
-    info "pywalfox updated"
-fi
-
-# Update SwayNC
-sleep 0.1
-swaync-client -rs
-info "SwayNC refreshed"
 
 # Create blurred image
 magick "$IMAGE_PATH" -resize 75% "$BLURRED_WALLPAPER"

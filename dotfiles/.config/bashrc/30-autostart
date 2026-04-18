@@ -24,8 +24,8 @@ finder() {
 # -----------------------------------------------------
 # Fastfetch
 # -----------------------------------------------------
-if [[ $(tty) == *"pts"* ]]; then
-    if [ ! -f $HOME/.config/ml4w/settings/hide-fastfetch ]; then
-        fastfetch
+if [ ! -f $HOME/.config/ml4w/settings/hide-fastfetch ]; then
+    if [[ $(tty) == *"pts"* ]]; then
+        fastfetch -c "$HOME/.config/fastfetch/minimal.jsonc"
     fi
 fi

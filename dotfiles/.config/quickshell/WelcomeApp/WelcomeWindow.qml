@@ -54,7 +54,7 @@ FloatingWindow {
             implicitHeight: 36
             // Apply theme color on hover
             color: control.highlighted ? Theme.primary : "transparent"
-            radius: 4
+            radius: 2
         }
     }
 
@@ -78,11 +78,11 @@ FloatingWindow {
         // ==========================================
         MenuBar {
             Layout.fillWidth: true
-            Layout.margins: 10
+            Layout.margins: 0
             background: Rectangle {
                 color: Theme.primary
                 border.color: Theme.primary
-                radius: 8
+                radius: 2
             }
 
             // --- SETTINGS MENU ---
@@ -90,7 +90,7 @@ FloatingWindow {
                 title: qsTr("Settings")
                 font.family: Theme.fontFamily
                 font.pixelSize: 14
-                padding:8
+                padding: 0
 
                 enter: Transition { NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200; easing.type: Easing.OutQuad } }
                 exit: Transition { NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 150; easing.type: Easing.InQuad } }
@@ -159,7 +159,7 @@ FloatingWindow {
                     color: Theme.background
                     border.color: Theme.primary
                     border.width: 1
-                    radius: 8
+                    radius: 2
                 }
             }
 
@@ -168,7 +168,7 @@ FloatingWindow {
                 title: qsTr("System")
                 font.family: Theme.fontFamily
                 font.pixelSize: 14
-                padding:8
+                padding: 0
                 
                 enter: Transition { NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200; easing.type: Easing.OutQuad } }
                 exit: Transition { NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 150; easing.type: Easing.InQuad } }
@@ -210,7 +210,7 @@ FloatingWindow {
                     color: Theme.background
                     border.color: Theme.primary
                     border.width: 1
-                    radius: 8
+                    radius: 2
                 }
             }
 
@@ -219,7 +219,7 @@ FloatingWindow {
                 title: qsTr("Help")
                 font.family: Theme.fontFamily
                 font.pixelSize: 14
-                padding:8
+                padding: 0
                 
                 enter: Transition { NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200; easing.type: Easing.OutQuad } }
                 exit: Transition { NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 150; easing.type: Easing.InQuad } }
@@ -262,7 +262,7 @@ FloatingWindow {
                     implicitWidth: 180
                     color: Theme.background
                     border.color: Theme.primary
-                    radius: 8
+                    radius: 2
                 }
             }
 
@@ -279,7 +279,7 @@ FloatingWindow {
                 }
                 background: Rectangle {
                     color: "transparent"
-                    radius: Theme.on_primary
+                    radius: 0
                 }
             }
         }
@@ -294,14 +294,14 @@ FloatingWindow {
 
             ColumnLayout {
                 anchors.fill: parent
-                anchors.margins: 10
+                anchors.margins: 8
                 spacing: 10
 
                 // --- MAIN HERO SECTION --- 
                 ColumnLayout {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: 5
-                    Layout.topMargin: 20
+                    Layout.topMargin: 10
 
                     Image {
                         Layout.alignment: Qt.AlignHCenter
@@ -344,14 +344,14 @@ FloatingWindow {
                             }
                             background: Rectangle {
                                 color: "transparent"
-                                radius: 10
+                                radius: 6
                                 border.color: Theme.primary
                             }
                             contentItem: Text {
                                 text: parent.text
                                 font.family: Theme.fontFamily
                                 color: Theme.primary
-                                padding: 8
+                                padding: 4
                             }
                         }
 
@@ -365,14 +365,14 @@ FloatingWindow {
                             }
                             background: Rectangle {
                                 color: "transparent"
-                                radius: 10
+                                radius: 4
                                 border.color: Theme.primary
                             }
                             contentItem: Text {
                                 text: parent.text
                                 font.family: Theme.fontFamily
                                 color: Theme.primary
-                                padding: 8
+                                padding: 4
                             }
                         }
                     }
@@ -396,7 +396,7 @@ FloatingWindow {
                         }
                         
                         delegate: RowLayout {
-                            spacing: 15
+                            spacing: 12
                             
                             Text {
                                 text: model.keys
@@ -420,7 +420,7 @@ FloatingWindow {
 
                     Button {
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.topMargin: 15
+                        Layout.topMargin: 10
                         text: "All keybindings"
 
                         onClicked: {
@@ -430,7 +430,7 @@ FloatingWindow {
                         background: Rectangle {
                             color: "transparent"
                             border.color: Theme.primary
-                            radius: 10
+                            radius: 4
                         }
                         contentItem: Text {
                             text: parent.text
@@ -517,7 +517,7 @@ FloatingWindow {
                         indicator: Rectangle {
                             implicitWidth: 48
                             implicitHeight: 26
-                            radius: 13
+                            radius: 6
                             
                             color: autostartSwitch.checked ? Theme.primary : Theme.background
                             border.color: Theme.primary
@@ -528,7 +528,7 @@ FloatingWindow {
                                 y: 2
                                 width: 22
                                 height: 22 
-                                radius: 11
+                                radius: 1
                                 color: autostartSwitch.checked ? Theme.background : Theme.on_primary
                                 Behavior on x { NumberAnimation { duration: 150 } }
                             }

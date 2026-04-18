@@ -141,7 +141,7 @@ PanelWindow {
         color: Theme.background
         border.color: Theme.primary
         border.width: 2
-        radius: 10
+        radius: 6
         opacity: 0.95
         clip: true
         
@@ -171,7 +171,7 @@ PanelWindow {
                     background: Rectangle {
                         anchors.fill: parent
                         color: Theme.background
-                        radius: 10
+                        radius: 8
                         border.color: Theme.primary
                         border.width: 1
                     }
@@ -192,7 +192,7 @@ PanelWindow {
                             color: Theme.background 
                             border.color: Theme.primary 
                             border.width: 1 
-                            radius: 8 
+                            radius: 6
                         }
                         
                         ML4WMenuItem { 
@@ -282,14 +282,14 @@ PanelWindow {
                         
                         border.color: mouseArea.containsMouse ? Theme.primary : "transparent"
                         border.width: 2
-                        radius: 10
+                        radius: 8
                         clip: true
 
                         Rectangle {
                             id: contentMask
                             anchors.fill: parent
                             anchors.margins: 2 
-                            radius: 8
+                            radius: 6
                             visible: false
                         }
 

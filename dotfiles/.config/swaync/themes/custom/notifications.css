@@ -1,0 +1,174 @@
+@import '../../colors.css';
+
+/* === Derived dynamic colors === */
+@define-color base alpha(@surface, 1.0);                      /* solid base */
+@define-color hovercolor alpha(@surface_container_high,0.95);
+@define-color activecolor @primary_container;
+
+@define-color buttoncolor alpha(@inverse_primary,0.45);
+@define-color hoverbutton alpha(@inverse_primary,0.75);
+@define-color activebutton @inverse_primary;
+
+@define-color bordercolor @primary;
+@define-color fontcolor @on_surface;
+@define-color text @on_surface;
+
+/* === Reset fonts and styles === */
+* {
+  font-size: 1rem;
+  font-weight: 900;
+  all: unset;
+  font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  transition: 200ms;
+}
+
+.widget-mpris {
+  all: unset;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Notification base style (shared by all) === */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification {
+    background-color: @surface;
+    border-radius: 2px;
+    opacity: 1.0;
+    margin: 10px;
+    margin-right: 18px;
+    box-shadow: 1px 1px 5px 1px @shadow;
+    min-height: 2.4em;
+}
+
+/* === Urgency-specific borders === */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
+    border: 2px solid @error;       /* red border */
+    background-color: @error_container;  /* slightly tinted background */
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.normal {
+    border: 2px solid @primary;     /* primary color border */
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.low {
+    border: 2px solid @outline;     /* outline color border */
+}
+
+/* === Notification content spacing === */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+    margin: 10px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+    min-height: 2.4em;
+}
+
+/* === Notification actions (buttons) === */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+    border-radius: 0.20rem;
+    background-color: alpha(@surface, 0.95);
+    margin: 0.4rem;
+    border: 1px solid transparent;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+    background-color: @surface_dim;
+    border: 1px solid @primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+    background-color: @primary;
+    color: @text;
+}
+
+/* === Summary and body text === */
+.summary {
+  font-weight: 800;
+  font-size: 1rem;
+  padding-left: 5px;
+}
+
+.body {
+  font-size: 0.8rem;
+  padding-left: 5px;
+}
+
+/* === Close button === */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+    background: transparent;
+    border-radius: 8px;
+    color: @text;
+    background-color: alpha(#fff, 0.5);
+    margin: 0;
+    padding: 2px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+    background-color: @primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
+    background-color: @primary;
+    color: @text;
+}
+
+/* === Progress bar colors === */
+.notification.critical progress {
+  background-color: @primary;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @primary;
+}

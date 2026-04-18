@@ -27,8 +27,8 @@ PanelWindow {
     }
 
     margins { 
-        top: 87
-        bottom: 20
+        top: 50
+        bottom: 30
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
@@ -57,7 +57,7 @@ PanelWindow {
     visible: isOpen || slideAnim.running
     
     margins { right: root.currentMargin }
-    property real currentMargin: isOpen ? 20 : -450 
+    property real currentMargin: isOpen ? 15 : -450 
 
     Behavior on currentMargin {
         NumberAnimation {
@@ -101,23 +101,28 @@ PanelWindow {
             implicitWidth: 200
             implicitHeight: 36
             color: control.highlighted ? Theme.primary : "transparent"
-            radius: 4
+            radius: 2
         }
     }
 
     component ML4WButton: Button {
         Layout.fillWidth: true
+
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
+        }
+
         background: Rectangle {
-            color: "transparent"
+            color: parent.hovered ? Theme.primary : "transparent"
             border.color: Theme.primary
             border.width: 1
-            radius: 10
+            radius: 2
         }
         contentItem: Text {
             text: parent.text
             font.family: Theme.fontFamily
             font.pixelSize: 16
-            color: Theme.primary
+            color: parent.hovered ? Theme.background : Theme.primary
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             padding: 8
@@ -131,7 +136,7 @@ PanelWindow {
         indicator: Rectangle {
             implicitWidth: 48
             implicitHeight: 26
-            radius: 13
+            radius: 6
             color: parent.checked ? Theme.primary : Theme.background
             border.color: Theme.primary
             border.width: 1
@@ -140,7 +145,7 @@ PanelWindow {
                 y: 2
                 implicitWidth: 22
                 implicitHeight: 22
-                radius: 11
+                radius: 1
                 color: parent.parent.checked ? Theme.background : Theme.on_primary
                 Behavior on x { NumberAnimation { duration: 150 } }
             }
@@ -183,7 +188,7 @@ PanelWindow {
             color: Theme.background
             border.color: Theme.primary
             border.width: 2
-            radius: 10
+            radius: 2
             opacity: 0.95 // Only the background is transparent
         }
 
@@ -268,7 +273,7 @@ PanelWindow {
                     policy: ScrollBar.AsNeeded
                     interactive: true
                     contentItem: Rectangle {
-                        implicitWidth: 6; radius: 3; color: Theme.primary
+                        implicitWidth: 6; radius: 2; color: Theme.primary
                         opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
                     }
                 }
@@ -343,7 +348,7 @@ PanelWindow {
                                     y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
                                     implicitWidth: 16
                                     implicitHeight: 16
-                                    radius: 8
+                                    radius: 6
                                     color: volumeSlider.pressed ? Theme.background : Theme.primary
                                     border.color: Theme.primary
                                     border.width: 1
@@ -393,7 +398,7 @@ PanelWindow {
                                     implicitHeight: 6
                                     width: brightnessSlider.availableWidth
                                     height: implicitHeight
-                                    radius: 3
+                                    radius: 2
                                     color: Theme.background
                                     border.color: Theme.primary
                                     border.width: 1
@@ -402,7 +407,7 @@ PanelWindow {
                                         width: brightnessSlider.visualPosition * parent.width
                                         height: parent.height
                                         color: Theme.primary
-                                        radius: 3
+                                        radius: 2
                                     }
                                 }
 
@@ -411,7 +416,7 @@ PanelWindow {
                                     y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
                                     implicitWidth: 16
                                     implicitHeight: 16
-                                    radius: 8
+                                    radius: 6
                                     color: brightnessSlider.pressed ? Theme.background : Theme.primary
                                     border.color: Theme.primary
                                     border.width: 1
@@ -445,7 +450,7 @@ PanelWindow {
                             policy: mprisListView.count > 2 ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
                             interactive: true
                             contentItem: Rectangle {
-                                implicitWidth: 6; radius: 3; color: Theme.primary
+                                implicitWidth: 6; radius: 2; color: Theme.primary
                                 opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
                             }
                         }
@@ -457,7 +462,7 @@ PanelWindow {
                             width: mprisListView.width - 16
                             implicitHeight: 100
                             
-                            radius: 10
+                            radius: 4
                             color: Theme.background
                             border.color: Theme.primary
                             border.width: 1
@@ -472,7 +477,7 @@ PanelWindow {
                                 Rectangle {
                                     implicitWidth: 80
                                     implicitHeight: 80
-                                    radius: 8
+                                    radius: 2
                                     color: "transparent"
                                     border.color: Theme.primary
                                     border.width: 1
@@ -778,6 +783,21 @@ PanelWindow {
                             }
                         }
                     }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 120  // adjust size
+
+                Image {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 50
+
+                    source: "../shared/sprites/agumon-hakase.png"
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
                 }
             }
         }
