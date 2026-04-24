@@ -17,12 +17,20 @@
           "type": "os"
         },
         {
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#111111",
+          "background": "#ffff66",
+          "template": ""
+        },
+        {
           "background": "#546E7A",
           "foreground": "#26C6DA",
           "powerline_symbol": "",
           "style": "powerline",
-          "template": " {{ .UserName }}@{{ .HostName }} ",
-          "type": "session"
+          "template": " {{ .Name }} ",
+          "type": "shell"
         },
         {
           "background": "#a2beef",
@@ -94,9 +102,17 @@
             "always_enabled": true
           },
           "style": "diamond",
-          "template": "  ",
+          "template": "  ",
           "trailing_diamond": "",
           "type": "status"
+        },
+        {
+          "type": "project",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#193549",
+          "background": "#ffeb3b",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
         }
       ],
       "type": "prompt"
