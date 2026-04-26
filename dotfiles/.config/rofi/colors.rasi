@@ -1,5 +1,9 @@
 * {
     background: rgba(34, 50, 63, 0.7);
+    blur-background: rgba(16, 20, 23, 0.3);
+    blur-background8: rgba(16, 20, 23, 0.8);
+    blur-background9: rgba(16, 20, 23, 0.95);
+
     primary: #98ccf9;
     primary-fixed: #cce5ff;
     primary-fixed-dim: #98ccf9;

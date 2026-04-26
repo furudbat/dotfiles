@@ -1,5 +1,9 @@
 * {
     background: {{colors.on_secondary.default.rgba | set_alpha: 0.7}};
+    blur-background: {{colors.surface.default.rgba | set_alpha: 0.3}};
+    blur-background8: {{colors.surface.default.rgba | set_alpha: 0.8}};
+    blur-background9: {{colors.surface.default.rgba | set_alpha: 0.95}};
+
     primary: {{colors.primary.default.hex}};
     primary-fixed: {{colors.primary_fixed.default.hex}};
     primary-fixed-dim: {{colors.primary_fixed_dim.default.hex}};
