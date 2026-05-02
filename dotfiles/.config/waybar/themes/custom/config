@@ -42,6 +42,7 @@
 			//"power-profiles-daemon",
 			//"group/tools",
 			"tray",
+			"custom/hypridle",
 			"custom/notification",
 			"custom/ml4w-welcome",
 			"clock#with-tooltip",
