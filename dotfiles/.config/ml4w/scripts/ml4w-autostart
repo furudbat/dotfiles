@@ -27,13 +27,12 @@ if [ ! -f $CACHE_FILE ]; then
     echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
     info "Cache file created"
 
-    ~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
+    ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
 else
     $(cat $WALLPAPER_APP_FILE) --restore
     sleep 0.75
     info "Wallpapers restored"
 fi
-
 
 # Start Quickshell
 killall qs
