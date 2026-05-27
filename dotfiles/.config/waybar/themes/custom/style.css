@@ -597,18 +597,103 @@ window#waybar.empty #window {
  * HDD LED
  * ----------------------------------------------------- */
 
+#custom-powerled,
 #custom-hddled {
     font-size: 14px;
     padding: 0 6px;
 }
 
-#custom-hddled.active {
+#custom-powerled {
+    margin-left: 10px;
+    margin-right: 6px;
+}
+#custom-hddled {
+    margin-right: 10px;
+}
+
+
+/* POWER LED */
+
+#custom-powerled {
     text-shadow:
-        0 0 2px #00ff66,
-        0 0 3px #00ff68,
-        0 0 4px #00ff70;
+        0 0 2px #ff0000,
+        0 0 6px #ff0000;
+
+    animation: powerpulse 2.4s ease-in-out infinite;
+}
+
+/* HDD LED STATES */
+
+#custom-hddled.blink1 {
+    text-shadow:
+        0 0 3px #00ff99,
+        0 0 8px #00ff99,
+        0 0 16px #00ff99;
+
+    animation: hddblink1 0.09s linear;
+}
+
+#custom-hddled.blink2 {
+    text-shadow:
+        0 0 3px #00ff44,
+        0 0 10px #00ff44;
+
+    animation: hddblink2 0.07s linear;
+}
+
+#custom-hddled.blink3 {
+    text-shadow:
+        0 0 4px #55ff00,
+        0 0 12px #55ff00;
+
+    animation: hddblink3 0.05s linear;
+}
+
+#custom-hddled.blink4 {
+    text-shadow:
+        0 0 2px #00cc66,
+        0 0 7px #00cc66;
+
+    animation: hddblink4 0.11s linear;
 }
 
 #custom-hddled.idle {
-    text-shadow: 0 0 2px #440000;
+    text-shadow:
+        0 0 1px #332211;
+
+    opacity: 0.75;
+}
+
+/* POWER */
+@keyframes powerpulse {
+    0%   { opacity: 0.85; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.85; }
+}
+
+/* HDD RETRO BLINKING */
+@keyframes hddblink1 {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.15; }
+    100% { opacity: 1; }
+}
+
+@keyframes hddblink2 {
+    0%   { opacity: 0.9; }
+    40%  { opacity: 0.25; }
+    100% { opacity: 0.9; }
+}
+
+@keyframes hddblink3 {
+    0%   { opacity: 1; }
+    25%  { opacity: 0.1; }
+    50%  { opacity: 1; }
+    75%  { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+@keyframes hddblink4 {
+    0%   { opacity: 0.8; }
+    50%  { opacity: 0.3; }
+    100% { opacity: 0.8; }
 }

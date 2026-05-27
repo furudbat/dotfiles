@@ -84,7 +84,8 @@
 		// Modules Right    
 		"modules-right": [
 			//"custom/updates",
-			"custom/hddled",
+			"custom/powerled-1",
+			"custom/hddled-1",
 			"custom/audio",
 			//"backlight",
 			//"bluetooth",

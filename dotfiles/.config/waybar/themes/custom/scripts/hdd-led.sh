@@ -7,10 +7,10 @@
 DEV="${1:-nvme0n1}"
 STATE="/tmp/waybar-hddled-$DEV"
 
-POLL_US=8333
 HOLD_MS=10
 
 # ----------------------------------------
+
 
 read_io() {
     awk '{print $3 + $7}' "/sys/block/$DEV/stat" 2>/dev/null
@@ -23,39 +23,59 @@ now_ms() {
 CUR=$(read_io)
 
 if [[ -z "$CUR" ]]; then
-    echo '{"text":"ERR","class":"error"}'
+    echo '{"text":"⬤","class":"off"}'
     exit 1
 fi
 
 NOW=$(now_ms)
 
-# TODO: move colors into CSS and style by theme
-
 if [[ ! -f "$STATE" ]]; then
-    echo "$CUR $NOW" > "$STATE"
-
-    echo '{"text":"<span foreground=\"#aa0000\">⬤</span> <span foreground=\"#002200\">⬤</span>","class":"idle"}'
+    echo "$CUR $NOW 0" > "$STATE"
+    echo '{"text":"<span foreground=\"#001100\">⬤</span>","class":"idle"}'
     exit 0
 fi
 
-read -r PREV LAST_ACTIVE < "$STATE"
+read -r PREV LAST_ACTIVE PHASE < "$STATE"
 
 ACTIVE=0
+
 if (( CUR != PREV )); then
     ACTIVE=1
     LAST_ACTIVE=$NOW
+    PHASE=$(( (PHASE + 1) % 4 ))
 fi
-# incandescent LED persistence
-if (( NOW - LAST_ACTIVE <= HOLD_MS )); then
+
+DELTA=$((NOW - LAST_ACTIVE))
+
+if (( DELTA <= HOLD_MS )); then
     ACTIVE=1
 fi
 
-echo "$CUR $LAST_ACTIVE" > "$STATE"
+echo "$CUR $LAST_ACTIVE $PHASE" > "$STATE"
 
 if (( ACTIVE )); then
-    echo '{"text":"<span foreground=\"#aa0000\">⬤</span> <span foreground=\"#00ff66\">⬤</span>","class":"active"}'
+    case "$PHASE" in
+        0)
+            COLOR="#00ff99"
+            CLASS="blink1"
+            ;;
+        1)
+            COLOR="#00ff44"
+            CLASS="blink2"
+            ;;
+        2)
+            COLOR="#55ff00"
+            CLASS="blink3"
+            ;;
+        *)
+            COLOR="#00cc66"
+            CLASS="blink4"
+            ;;
+    esac
+
 else
-    echo '{"text":"<span foreground=\"#aa0000\">⬤</span> <span foreground=\"#003300\">⬤</span>","class":"idle"}'
+    COLOR="#001100"
+    CLASS="idle"
 fi
 
-sleep 0.$POLL_US
+echo "{\"text\":\"<span foreground='$COLOR'>⬤</span>\",\"class\":\"$CLASS\"}"
