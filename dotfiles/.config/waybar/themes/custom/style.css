@@ -597,103 +597,104 @@ window#waybar.empty #window {
  * HDD LED
  * ----------------------------------------------------- */
 
-#custom-powerled,
-#custom-hddled {
+#custom-powerled-1,
+#custom-hddled-1,
+#custom-powerled-2,
+#custom-hddled-2 {
     font-size: 14px;
-    padding: 0 6px;
+    padding: 0 4px;
+    margin: 0px 10px 0px 0px;
+    min-width: 6px;
 }
 
-#custom-powerled {
-    margin-left: 10px;
-    margin-right: 6px;
+#custom-powerled-1,
+#custom-powerled-2 {
+    margin-left: 8px;
+    margin-right: 4px;
 }
-#custom-hddled {
-    margin-right: 10px;
+#custom-hddled-1,
+#custom-hddled-2 {
+    margin-right: 8px;
 }
 
 
 /* POWER LED */
 
-#custom-powerled {
+#custom-powerled-1,
+#custom-powerled-2 {
     text-shadow:
-        0 0 2px #ff0000,
-        0 0 6px #ff0000;
+        0 0 1px #ff0000,
+        0 0 2px #ff2200,
+        0 0 4px #ff3300;
 
-    animation: powerpulse 2.4s ease-in-out infinite;
+    animation: powersimmer 5.5s ease-in-out infinite;
+}
+
+@keyframes powersimmer {
+    0%   { opacity: 0.92; }
+    25%  { opacity: 1.0; }
+    50%  { opacity: 0.88; }
+    75%  { opacity: 0.96; }
+    100% { opacity: 0.92; }
 }
 
 /* HDD LED STATES */
 
-#custom-hddled.blink1 {
+#custom-hddled-1,
+#custom-hddled-2 {
+    font-size: 14px;
+    padding: 0 2px;
+}
+
+/* hottest pulse */
+#custom-hddled-1.flash3,
+#custom-hddled-2.flash3 {
     text-shadow:
-        0 0 3px #00ff99,
-        0 0 8px #00ff99,
-        0 0 16px #00ff99;
+        0 0 2px #66ff66,
+        0 0 6px #66ff66,
+        0 0 8px #66ff66;
 
-    animation: hddblink1 0.09s linear;
+    animation: ledflash1 0.03s linear;
 }
 
-#custom-hddled.blink2 {
+/* medium */
+#custom-hddled-1.flash2,
+#custom-hddled-2.flash2 {
     text-shadow:
-        0 0 3px #00ff44,
-        0 0 10px #00ff44;
+        0 0 1px #22dd22,
+        0 0 4px #22dd22;
 
-    animation: hddblink2 0.07s linear;
+    animation: ledflash2 0.04s linear;
 }
 
-#custom-hddled.blink3 {
+/* tail */
+#custom-hddled-1.flash1,
+#custom-hddled-2.flash1 {
     text-shadow:
-        0 0 4px #55ff00,
-        0 0 12px #55ff00;
+        0 0 1px #007700;
 
-    animation: hddblink3 0.05s linear;
+    animation: ledflash3 0.05s linear;
 }
 
-#custom-hddled.blink4 {
-    text-shadow:
-        0 0 2px #00cc66,
-        0 0 7px #00cc66;
-
-    animation: hddblink4 0.11s linear;
+/* idle */
+#custom-hddled-1.idle,
+#custom-hddled-2.idle {
+    opacity: 0.18;
 }
 
-#custom-hddled.idle {
-    text-shadow:
-        0 0 1px #332211;
-
-    opacity: 0.75;
-}
-
-/* POWER */
-@keyframes powerpulse {
-    0%   { opacity: 0.85; }
-    50%  { opacity: 1; }
-    100% { opacity: 0.85; }
-}
-
-/* HDD RETRO BLINKING */
-@keyframes hddblink1 {
+@keyframes ledflash1 {
     0%   { opacity: 1; }
-    50%  { opacity: 0.15; }
-    100% { opacity: 1; }
-}
-
-@keyframes hddblink2 {
-    0%   { opacity: 0.9; }
-    40%  { opacity: 0.25; }
+    40%  { opacity: 0.2; }
     100% { opacity: 0.9; }
 }
 
-@keyframes hddblink3 {
-    0%   { opacity: 1; }
-    25%  { opacity: 0.1; }
-    50%  { opacity: 1; }
-    75%  { opacity: 0.2; }
-    100% { opacity: 1; }
+@keyframes ledflash2 {
+    0%   { opacity: 0.8; }
+    50%  { opacity: 0.25; }
+    100% { opacity: 0.7; }
 }
 
-@keyframes hddblink4 {
-    0%   { opacity: 0.8; }
-    50%  { opacity: 0.3; }
-    100% { opacity: 0.8; }
+@keyframes ledflash3 {
+    0%   { opacity: 0.5; }
+    100% { opacity: 0.25; }
 }

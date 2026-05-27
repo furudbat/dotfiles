@@ -318,18 +318,34 @@
 	// HDD LEDs
 	"custom/powerled-1": {
 		"exec": "~/.config/waybar/themes/custom/scripts/power-led.sh nvme0n1",
-		"interval": 1,
+		"interval": 0.55,
 		"return-type": "json",
 		"escape": false,
 		"format": "{}",
-		"tooltip": false
+		"tooltip": true
 	},
 	"custom/hddled-1": {
 		"exec": "~/.config/waybar/themes/custom/scripts/hdd-led.sh nvme0n1",
-		"interval": 0.03,
+		"interval": 0.016,
 		"return-type": "json",
 		"escape": false,
 		"format": "{}",
-		"tooltip": false
+		"tooltip": true
+	},
+	"custom/powerled-2": {
+		"exec": "~/.config/waybar/themes/custom/scripts/power-led.sh sde",
+		"interval": 0.50,
+		"return-type": "json",
+		"escape": false,
+		"format": "{}",
+		"tooltip": true
+	},
+	"custom/hddled-2": {
+		"exec": "~/.config/waybar/themes/custom/scripts/hdd-led.sh sde",
+		"interval": 0.016,
+		"return-type": "json",
+		"escape": false,
+		"format": "{}",
+		"tooltip": true
 	}
 }

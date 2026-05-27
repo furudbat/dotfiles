@@ -7,10 +7,12 @@
 DEV="${1:-nvme0n1}"
 STATE="/tmp/waybar-hddled-$DEV"
 
-HOLD_MS=10
+MODEL="$(cat "/sys/block/$DEV/device/model" 2>/dev/null | xargs)"
+[[ -z "$MODEL" ]] && MODEL="$DEV"
+
+PULSE_MS=30
 
 # ----------------------------------------
-
 
 read_io() {
     awk '{print $3 + $7}' "/sys/block/$DEV/stat" 2>/dev/null
@@ -23,59 +25,44 @@ now_ms() {
 CUR=$(read_io)
 
 if [[ -z "$CUR" ]]; then
-    echo '{"text":"⬤","class":"off"}'
+    echo '{"text":"⬤","class":"idle"}'
     exit 1
 fi
 
 NOW=$(now_ms)
 
 if [[ ! -f "$STATE" ]]; then
-    echo "$CUR $NOW 0" > "$STATE"
-    echo '{"text":"<span foreground=\"#001100\">⬤</span>","class":"idle"}'
+    echo "$CUR 0" > "$STATE"
+
+    echo '{"text":"<span foreground=\"#003300\">⬤</span>","class":"idle"}'
     exit 0
 fi
 
-read -r PREV LAST_ACTIVE PHASE < "$STATE"
+read -r PREV LAST_PULSE < "$STATE"
 
-ACTIVE=0
-
+TRIGGER=0
 if (( CUR != PREV )); then
-    ACTIVE=1
-    LAST_ACTIVE=$NOW
-    PHASE=$(( (PHASE + 1) % 4 ))
+    TRIGGER=1
+    LAST_PULSE=$NOW
 fi
 
-DELTA=$((NOW - LAST_ACTIVE))
+echo "$CUR $LAST_PULSE" > "$STATE"
 
-if (( DELTA <= HOLD_MS )); then
-    ACTIVE=1
-fi
+DELTA=$((NOW - LAST_PULSE))
 
-echo "$CUR $LAST_ACTIVE $PHASE" > "$STATE"
-
-if (( ACTIVE )); then
-    case "$PHASE" in
-        0)
-            COLOR="#00ff99"
-            CLASS="blink1"
-            ;;
-        1)
-            COLOR="#00ff44"
-            CLASS="blink2"
-            ;;
-        2)
-            COLOR="#55ff00"
-            CLASS="blink3"
-            ;;
-        *)
-            COLOR="#00cc66"
-            CLASS="blink4"
-            ;;
-    esac
-
+# pulse decay stages
+if (( DELTA < 6 )); then
+    COLOR="#66ff66"
+    CLASS="flash3"
+elif (( DELTA < 14 )); then
+    COLOR="#33dd33"
+    CLASS="flash2"
+elif (( DELTA < 40 )); then
+    COLOR="#007700"
+    CLASS="flash1"
 else
     COLOR="#001100"
     CLASS="idle"
 fi
 
-echo "{\"text\":\"<span foreground='$COLOR'>⬤</span>\",\"class\":\"$CLASS\"}"
+echo "{\"text\":\"<span foreground='$COLOR'>⬤</span>\",\"class\":\"$CLASS\",\"tooltip\":\"$MODEL\"}"

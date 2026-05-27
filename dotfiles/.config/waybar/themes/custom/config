@@ -33,6 +33,8 @@
 		// Modules Right    
 		"modules-right": [
 			"group/hardware",
+			"custom/powerled-2",
+			"custom/hddled-2",
 			"custom/updates",
 			"custom/audio",
 			//"backlight",
