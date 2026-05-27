@@ -591,3 +591,24 @@ window#waybar.empty #window {
 #custom-ml4w-welcome {
     background-image: url("../../assets/ml4w-icon-white.svg");
 }
+
+
+/* -----------------------------------------------------
+ * HDD LED
+ * ----------------------------------------------------- */
+
+#custom-hddled {
+    font-size: 14px;
+    padding: 0 6px;
+}
+
+#custom-hddled.active {
+    text-shadow:
+        0 0 2px #00ff66,
+        0 0 3px #00ff68,
+        0 0 4px #00ff70;
+}
+
+#custom-hddled.idle {
+    text-shadow: 0 0 2px #440000;
+}

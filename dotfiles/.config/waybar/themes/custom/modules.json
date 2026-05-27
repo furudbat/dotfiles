@@ -315,4 +315,13 @@
 		"exec": "~/.config/hypr/scripts/hypridle.sh status",
 		"on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
 	},
+	"custom/hddled": {
+		"exec": "~/.config/waybar/themes/custom/scripts/hdd-led.sh nvme0n1",
+		"interval": 0,
+		"restart-interval": 0,
+		"return-type": "json",
+		"escape": false,
+		"format": "{}",
+		"tooltip": false
+	}
 }
