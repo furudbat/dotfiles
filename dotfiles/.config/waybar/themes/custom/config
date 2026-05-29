@@ -41,7 +41,7 @@
 			//"bluetooth",
 			"network",
 			//"battery",
-			//"power-profiles-daemon",
+			"power-profiles-daemon",
 			//"group/tools",
 			"tray",
 			"custom/hypridle",
