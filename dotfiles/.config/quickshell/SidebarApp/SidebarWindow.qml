@@ -6,6 +6,7 @@ import Quickshell.Services.Mpris
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Effects
 import qs.CustomTheme
 
 PanelWindow {
@@ -15,7 +16,7 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     exclusionMode: WlrLayershell.Ignore
     
-    implicitWidth: 380
+    implicitWidth: 420 // 380 + 40
     color: "transparent"
 
     property bool isHyprlandSettingsInstalled: false
@@ -27,8 +28,8 @@ PanelWindow {
     }
 
     margins { 
-        top: 50
-        bottom: 30
+        top: 67     // 87 - 20
+        bottom: 0   // 20 - 20
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
@@ -74,9 +75,8 @@ PanelWindow {
         function close(): void { root.isOpen = false } 
     }
 
-    // --- Check if flatpak is installed when window opens ---
     Process {
-        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-flatpak-installed com.ml4w.hyprlandsettings"]
+        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-command-exists hyprmod"]
         running: root.visible
         
         stdout: StdioCollector {
@@ -182,8 +182,18 @@ PanelWindow {
     // ==========================================
     Item {
         anchors.fill: parent
+        anchors.margins: 20
+
+        RectangularShadow {
+            id: shadow
+            anchors.fill: mainBgRect
+            radius: mainBgRect.radius
+            blur: 15
+            color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
+        }
 
         Rectangle {
+            id: mainBgRect
             anchors.fill: parent
             color: Theme.background
             border.color: Theme.primary
@@ -246,15 +256,16 @@ PanelWindow {
                     text: "Settings"
                     onClicked: {
                         root.isOpen = false
+                        // Quickshell.execDetached(["kitty", "--class", "dotfiles-floating", "-e", "ml4w-dotfiles-settings", "com.ml4w.dotfiles"])
                         Quickshell.execDetached(["bash", "-c", "qs -p " + Quickshell.env("HOME") + "/.local/share/ml4w-dotfiles-settings/quickshell ipc call settings toggle"])
                     }
                 }
                 ML4WButton { 
-                    text: "Hyprland"
+                    text: "HyprMod"
                     visible: root.isHyprlandSettingsInstalled 
                     onClicked: {
                         root.isOpen = false
-                        Quickshell.execDetached(["bash", "-c", "flatpak run com.ml4w.hyprlandsettings"])
+                        Quickshell.execDetached(["hyprmod"])
                     }
                 }
             }
@@ -655,6 +666,37 @@ PanelWindow {
                                 ? "rm -f ~/.config/ml4w/settings/dock-disabled"
                                 : "touch ~/.config/ml4w/settings/dock-disabled"
                                 console.log("Dock cmd: " + fileCmd)
+                                Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
+                            }
+                        }
+                        Item { implicitWidth: 28 } 
+                    }
+
+                    // --- DOCK AUTOHIDE ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Dock Autohide"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch { 
+                            id: dockAutohideSwitch
+                            property bool ready: false
+                            Process {
+                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/dock-autohide && echo 1 || echo 0"]
+                                running: root.isOpen 
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Dock Autohide: " + this.text.trim())
+                                        dockAutohideSwitch.checked = (this.text.trim() === "1")
+                                        dockAutohideSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                let fileCmd = checked 
+                                ? "mkdir -p ~/.config/ml4w/settings && touch ~/.config/ml4w/settings/dock-autohide"
+                                : "rm -f ~/.config/ml4w/settings/dock-autohide"
+                                console.log("Dock Autohide cmd: " + fileCmd)
                                 Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
                             }
                         }
