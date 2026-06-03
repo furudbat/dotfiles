@@ -7,7 +7,7 @@
 #
 
 # show packages NEWER then X days
-UPDATE_AGE_DAYS=7
+UPDATE_AGE_DAYS=28
 
 # Check if command exists
 _checkCommandExists() {
@@ -68,8 +68,12 @@ fi
 
 # Arch
 if [[ $(_checkCommandExists "pacman") == 0 ]]; then
+    shelly_installed="false"
     yay_installed="false"
     paru_installed="false"
+    if [[ $(_checkCommandExists "shelly") == 0 ]]; then
+        shelly_installed="true"
+    fi
     if [[ $(_checkCommandExists "yay") == 0 ]]; then
         yay_installed="true"
     fi
@@ -118,7 +122,20 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
         echo "⚠️ Some very recent updates were found."
     fi
 
-    if [[ $(_checkCommandExists "cachyos-hello") == 0 ]]; then
+    if [[ $shelly_installed == "true" ]]; then
+        echo ":: Arch News"
+        shelly news || true
+        echo
+    fi
+
+    if [[ $shelly_installed == "true" ]]; then
+        echo ":: Checking for system updates..."
+        shelly list-updates
+        echo
+        
+        echo ":: Running Shelly system updater..."
+        shelly upgrade
+    elif [[ $(_checkCommandExists "cachyos-hello") == 0 ]]; then
         echo ":: Running CachyOS system updater..."
         cachyos-hello fix update-system
     elif [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
@@ -140,7 +157,11 @@ echo
 
 # Flatpak
 echo ":: Searching for Flatpak updates..."
-flatpak update
+if [[ $(_checkCommandExists "shelly") == 0 ]]; then
+    shelly flatpak upgrade
+else
+    flatpak update
+fi
 echo
 
 # Reload Waybar
