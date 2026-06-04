@@ -54,7 +54,7 @@ PanelWindow {
     
     margins {
         right: 2
-        top: root.currentMargin * 2 + 20
+        top: root.currentMargin * 2 + 24
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.

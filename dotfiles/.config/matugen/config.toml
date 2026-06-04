@@ -29,6 +29,10 @@ input_path = '~/.config/matugen/templates/hyprland-colors.lua'
 output_path = '~/.config/hypr/colors.lua'
 post_hook = 'hyprctl reload'
 
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock-colors.conf'
+output_path = '~/.config/hypr/hyprlock/colors.conf'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
@@ -165,6 +169,9 @@ output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 input_path = './templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
 
+[templates.kde_colors]
+input_path = '~/.config/matugen/templates/kde-color.txt'
+output_path = '~/.config/quickshell/color.txt'
 
 # Choose the modified discord client you use and copy one of the templates below accordingly, 
 # if you are using another client that is not here and you know where `quickcss.css` is, 
