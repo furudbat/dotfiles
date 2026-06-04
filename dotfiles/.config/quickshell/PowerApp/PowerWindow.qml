@@ -53,8 +53,8 @@ PanelWindow {
     visible: isOpen || slideAnim.running
     
     margins {
-        right: 8
-        top: root.currentMargin * 2 + 6
+        right: 2
+        top: root.currentMargin * 2 + 20
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.
@@ -86,7 +86,7 @@ PanelWindow {
     // ==========================================
     Item {
         id: panelBg
-        implicitWidth: 80 
+        implicitWidth: 380
         implicitHeight: buttonLayout.implicitHeight + 40 
         anchors.centerIn: parent
 
