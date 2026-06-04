@@ -6,14 +6,14 @@
 
 hl.workspace_rule({
     workspace = "w[tv1]",
-    gapsout = 0,
-    gapsin = 0,
+    gaps_out = 0,
+    gaps_in = 0,
 })
 
 hl.workspace_rule({
     workspace = "f[1]",
-    gapsout = 0,
-    gapsin = 0,
+    gaps_out = 0,
+    gaps_in = 0,
 })
 
 hl.window_rule({
@@ -24,7 +24,7 @@ hl.window_rule({
 
     border_size = 0,
     rounding = 0,
-    floating = false,
+    float = false,
 })
 
 hl.window_rule({
@@ -35,16 +35,15 @@ hl.window_rule({
 
     border_size = 0,
     rounding = 0,
-    floating = false,
+    float = false,
 })
 
 -- =====================================================
 -- Hyprsplit
 -- =====================================================
 
-hl.plugin("hyprsplit", {
-    num_workspaces = 5,
-})
+local hs = require("hyprsplit")
+hs.config({ num_workspaces = 5 })
 
 -- =====================================================
 -- Workspace definitions
