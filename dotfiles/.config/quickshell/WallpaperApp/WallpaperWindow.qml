@@ -28,7 +28,7 @@ PanelWindow {
     }
 
     margins { 
-        top: 67
+        top: 65
         bottom: 0
     }
 
@@ -165,7 +165,7 @@ PanelWindow {
             implicitWidth: 200
             implicitHeight: 36
             color: control.highlighted ? Theme.primary : "transparent"
-            radius: 4
+            radius: 1
         }
     }
 
@@ -200,7 +200,7 @@ PanelWindow {
             color: Theme.background
             border.color: Theme.primary
             border.width: 2
-            radius: 10
+            radius: 2
             opacity: 0.95
             clip: true
         
@@ -230,7 +230,7 @@ PanelWindow {
                         background: Rectangle {
                             anchors.fill: parent
                             color: Theme.background
-                            radius: 8
+                            radius: 4
                             border.color: Theme.primary
                             border.width: 1
                         }
@@ -251,7 +251,7 @@ PanelWindow {
                                 color: Theme.background 
                                 border.color: Theme.primary 
                                 border.width: 1 
-                                radius: 6
+                                radius: 2
                             }
                             
                             ML4WMenuItem { 
@@ -341,7 +341,7 @@ PanelWindow {
                             background: Rectangle {
                                 anchors.fill: parent
                                 color: Theme.background
-                                radius: 10
+                                radius: 6
                                 border.color: Theme.primary
                                 border.width: 1
                             }
@@ -388,7 +388,7 @@ PanelWindow {
                                 }
                                 background: Rectangle {
                                     color: itemDelegate.highlighted ? Theme.primary : "transparent"
-                                    radius: 4
+                                    radius: 1
                                 }
                                 highlighted: transitionEffectComboBox.highlightedIndex === index
                             }
@@ -434,7 +434,7 @@ PanelWindow {
                                 color: Theme.background
                                 border.color: Theme.primary
                                 border.width: 1
-                                radius: 10
+                                radius: 6
                             }
 
                             popup: Popup {
@@ -456,7 +456,7 @@ PanelWindow {
                                     color: Theme.background
                                     border.color: Theme.primary
                                     border.width: 1
-                                    radius: 8
+                                    radius: 4
                                 }
                             }
                         }
@@ -533,14 +533,14 @@ PanelWindow {
                             
                             border.color: mouseArea.containsMouse ? Theme.primary : "transparent"
                             border.width: 2
-                            radius: 8
+                            radius: 4
                             clip: true
 
                             Rectangle {
                                 id: contentMask
                                 anchors.fill: parent
                                 anchors.margins: 2 
-                                radius: 6
+                                radius: 2
                                 visible: false
                             }
 
