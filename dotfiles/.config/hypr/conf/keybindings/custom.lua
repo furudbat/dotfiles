@@ -3,6 +3,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Applications
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("~/.config/ml4w/settings/terminal.sh"), { description = "Open the terminal" })
+hl.bind(mainMod .. " + ALT + RETURN", hl.dsp.exec_cmd("kitty"), { description = "Open the alternative terminal" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.config/ml4w/settings/browser.sh"), { description = "Open the browser" })
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/filemanager"), { description = "Open the filemanager" })
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/emojipicker.sh"), { description = "Open the emoji picker" })
@@ -24,20 +25,31 @@ local fr_keys = {
     "minus", "egrave", "underscore", "ccedilla", "agrave"
 }
 
--- Move active window to a workspace with mainMod + SHIFT + [1-5]
-local hs = require("hyprsplit")
-hs.config({ num_workspaces = 5 })
-for i = 1, 5 do
-    local key = i % 10
-    if is_fr then
-        key = fr_keys[i]
+if hl.plugin.hyprsplit ~= nil then
+    -- Move active window to a workspace with mainMod + SHIFT + [0-9]
+    local hs = require("hyprsplit")
+    for i = 1, 10 do
+        local key = i % 10
+        if is_fr then
+            key = fr_keys[i]
+        end
+        hl.bind(mainMod .. " + " .. key,             hs.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
+        hl.bind(mainMod .. " + SHIFT + " .. key,     hs.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
     end
-    hl.bind(mainMod .. " + " .. key,             hs.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hs.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
-end
 
-hl.bind("SUPER + " .. "g", hs.dsp.grab_rogue_windows())
-hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+    hl.bind("SUPER + " .. "g", hs.dsp.grab_rogue_windows())
+    hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+else
+    -- Move active window to a workspace with mainMod + SHIFT + [0-9]
+    for i = 1, 10 do
+        local key = i % 10 -- 10 maps to key 0
+        if is_fr then
+            key = fr_keys[i]
+        end
+        hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
+        hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
+    end
+end
 
 -- Windows
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("~/.config/hypr/scripts/killactive.sh"), { description = "Kill active window" })
@@ -78,7 +90,8 @@ hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("qs ipc call power toggle"), {
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --random"), { description = "Change the wallpaper" })
 hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app"), { description = "Open wallpaper selector" })
 hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-automation"), { description = "Start random wallpaper script" })
-hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.sh"), { description = "Open application launcher" })
+-- hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.sh"), { description = "Open application launcher" })
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.sh"), { description = "Open application launcher" })
 hl.bind(mainMod .. " + CTRL + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings.sh"), { description = "Show keybindings" })
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"), { description = "Reload waybar" })
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/bongocat/launch.sh"), { description = "Reload bongocat" })

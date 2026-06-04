@@ -1,2 +1,2 @@
-local name = "animation-fast.lua"
+local name = "animations-fast.lua"
 load_variant(name,"animations")

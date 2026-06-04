@@ -42,8 +42,10 @@ hl.window_rule({
 -- Hyprsplit
 -- =====================================================
 
-local hs = require("hyprsplit")
-hs.config({ num_workspaces = 5 })
+if hl.plugin.hyprsplit ~= nil then
+    local hs = require("hyprsplit")
+    hs.config({ num_workspaces = 5 })
+end
 
 -- =====================================================
 -- Workspace definitions
@@ -80,8 +82,8 @@ hl.window_rule({
 
 hl.workspace_rule({
     workspace = ws_gaming_2,
-    gapsout = 0,
-    gapsin = 0,
+    gaps_out = 0,
+    gaps_in = 0,
 })
 
 -- =====================================================
@@ -109,8 +111,8 @@ for _, ws in ipairs({
         workspace = ws,
         monitor = "DP-2",
         persistent = true,
-        gapsout = monitor_3_gaps_out,
-        gapsin = monitor_3_gaps_in,
+        gaps_out = monitor_3_gaps_out,
+        gaps_in = monitor_3_gaps_in,
     })
 
     hl.window_rule({
@@ -128,8 +130,8 @@ hl.workspace_rule({
     monitor = "DP-2",
     persistent = true,
     default = true,
-    gapsout = monitor_3_gaps_out,
-    gapsin = monitor_3_gaps_in,
+    gaps_out = monitor_3_gaps_out,
+    gaps_in = monitor_3_gaps_in,
 })
 
 -- =====================================================
