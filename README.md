@@ -57,30 +57,12 @@ The following projects have inspired me:
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
 - https://github.com/dianaw353/hyprland-configuration-rootfs
+- https://github.com/basecamp/omarchy
+- https://github.com/end-4/dots-hyprland
 
 and many more...
 
 ---
-
-## Install hyprland plugins
-
-- https://github.com/shezdy/hyprsplit
-- https://github.com/hyprwm/hyprland-plugins
-
-```bash
-hyprpm update
-```
-
-```bash
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm add https://github.com/shezdy/hyprsplit
-```
-
-### enable plugins
-
-```bash
-hyprpm enable hyprsplit
-```
 
 ## Desktop pets
 

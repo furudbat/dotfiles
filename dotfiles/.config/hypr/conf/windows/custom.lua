@@ -5,10 +5,10 @@ hl.config({
         border_size = 2,
         col = {
             -- active_border   = outline_variant,
-            active_border   = { colors = {"rgba(fed07cff)" "rgba(b18121ff)"}, angle = 90 },
+            active_border   = { colors = { "rgba(fed07cff)", "rgba(b18121ff)" }, angle = 90 },
             inactive_border = surface_container_low,
-            nogroup_border = on_primary_fixed
-            nogroup_border_active = "rgba(b18121ff)"
+            nogroup_border = on_primary_fixed,
+            nogroup_border_active = "rgba(b18121ff)",
         },
         resize_on_border = true,
         allow_tearing = false,

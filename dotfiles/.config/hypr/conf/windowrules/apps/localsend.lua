@@ -1,3 +1,3 @@
 -- Float LocalSend and fzf file picker.
-o.window("(Share|localsend)", { float = true, center = true })
-o.window("localsend", { size = { 1100, 700 } })
+hl.window_rule({ match = { class = "(Share|localsend)" } }, { float = true, center = true })
+hl.window_rule({ match = { class = "localsend" } }, { size = { 1100, 700 } })

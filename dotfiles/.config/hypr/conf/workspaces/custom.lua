@@ -30,11 +30,11 @@ local ws_art_4     = "20"
 -- Workspace rules
 -- =====================================================
 
-hl.workspace_rule({
-    workspace = "r[1-20]",
-    gaps_out = 0,
-    gaps_in = 0,
-})
+-- hl.workspace_rule({
+--     workspace = "r[1-20]",
+--     gaps_out = 0,
+--     gaps_in = 0,
+-- })
 
 -- Smart gaps / no gaps when only one tiled or fullscreen window
 hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 0, gaps_in = 0 })

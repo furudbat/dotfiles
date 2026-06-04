@@ -51,15 +51,16 @@ input_path = '~/.config/matugen/templates/gtk3-colors.css'
 output_path = '~/.themes/Material-Gnome/gtk-3.0/colors.css'
 #post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 #post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme Material-Gnome'
+#post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme breeze-{{mode}}'
+
+[templates.gtk4-theme]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
-
-[templates.gtk4-theme]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
 
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'

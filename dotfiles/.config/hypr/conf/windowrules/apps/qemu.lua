@@ -1,1 +1,1 @@
-o.window("qemu", { tag = "-default-opacity", opacity = "1 1" })
+hl.window_rule({ match = { class = "qemu" } }, { tag = "-default-opacity", opacity = "1 1" })

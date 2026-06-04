@@ -7,7 +7,7 @@
 #
 
 # show packages NEWER then X days
-UPDATE_AGE_DAYS=28
+UPDATE_AGE_DAYS=7
 
 # Check if command exists
 _checkCommandExists() {
@@ -61,59 +61,79 @@ fi
 # ----------------------------------------------------- 
 
 # Arch
-if [[ $(_checkCommandExists "pacman") == 0 ]]; then
+if _checkCommandExists "pacman"; then
     shelly_installed="false"
     yay_installed="false"
     paru_installed="false"
-    if [[ $(_checkCommandExists "shelly") == 0 ]]; then
+    if _checkCommandExists "shelly"; then
         shelly_installed="true"
     fi
-    if [[ $(_checkCommandExists "yay") == 0 ]]; then
+    if _checkCommandExists "yay"; then
         yay_installed="true"
     fi
     if _checkCommandExists "paru"; then
         paru_installed="true"
     fi
 
-    show_update_age_cutoff=$(date -d "$UPDATE_AGE_DAYS days ago" +%s)
     echo ":: Checking package update age..."
 
     warning_found=0
-    newest_age=-1
     updates_found=0
-
+    # Official repo updates
     while read -r pkg oldver newver; do
         updates_found=1
 
-        # remove repo prefix for pacman -Qi
         pkg_clean="${pkg#*/}"
-        install_date=$(LANG=C pacman -Qi "$pkg_clean" | awk -F': ' '/Installiert am|Install Date/ {print $2}')
-        [[ -z "$install_date" ]] && continue
 
-        install_epoch=$(LANG=C date -d "$install_date" +%s 2>/dev/null)
-        clean_date=$(echo "$install_date" | sed 's/^[A-Za-zäöüÄÖÜ]* //')
-        install_epoch=$(LANG=C date -d "$clean_date" +%s 2>/dev/null)
-        [[ -z "$install_epoch" ]] && continue
+        pkg_date=$(expac -S '%b' "$pkg_clean" 2>/dev/null)
+        [[ -z "$pkg_date" ]] && continue
 
-        diff_days=$(( ( $(date +%s) - install_epoch ) / 86400 ))
+        pkg_epoch=$(date -d "$pkg_date" +%s 2>/dev/null)
+        [[ -z "$pkg_epoch" ]] && continue
 
-        if (( newest_age == -1 || diff_days < newest_age )); then
-            newest_age=$diff_days
-        fi
+        age_days=$(( ($(date +%s) - pkg_epoch) / 86400 ))
 
-        if (( diff_days <= UPDATE_AGE_DAYS )); then
-            echo "⚠️ WARNING: $pkg_clean is NEW ($diff_days days old)"
+        if (( age_days <= UPDATE_AGE_DAYS )); then
+            echo "⚠️ WARNING: repo update $pkg_clean is only $age_days days old"
             warning_found=1
         fi
+    done < <(checkupdates 2>/dev/null)
 
-    done < <(pacman -Qu)
-    
+    # AUR updates
+    if [[ "$yay_installed" == "true" || "$paru_installed" == "true" ]]; then
+        while read -r pkg oldver newver; do
+            updates_found=1
+
+            lastmod=$(curl -fsS \
+                "https://aur.archlinux.org/rpc/v5/info?arg[]=$pkg" |
+                jq -r '.results[0].LastModified')
+
+            [[ -z "$lastmod" || "$lastmod" == "null" ]] && continue
+
+            age_days=$(( ($(date +%s) - lastmod) / 86400 ))
+
+            if (( age_days <= UPDATE_AGE_DAYS )); then
+                echo "⚠️ WARNING: AUR update $pkg is only $age_days days old"
+                warning_found=1
+            fi
+        done < <(
+            if [[ "$paru_installed" == "true" ]]; then
+                paru -Qua
+            else
+                yay -Qua
+            fi
+        )
+    fi
+
     if [[ $updates_found -eq 0 ]]; then
-        echo -e ":: All updates are stable"
+        echo ":: No updates available"
     elif [[ $warning_found -eq 0 ]]; then
-        echo -e ":: All updates are stable"
+        echo ":: All available updates are older than $UPDATE_AGE_DAYS days"
     else
-        echo "⚠️ Some very recent updates were found."
+        echo
+        echo "⚠️ Some updates are newer than $UPDATE_AGE_DAYS days."
+        echo "⚠️ Consider waiting before upgrading."
+        echo
     fi
 
     if [[ $shelly_installed == "true" ]]; then
@@ -129,7 +149,7 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
         
         echo ":: Running Shelly system updater..."
         shelly upgrade
-    elif [[ $(_checkCommandExists "cachyos-hello") == 0 ]]; then
+    elif _checkCommandExists "cachyos-hello"; then
         echo ":: Running CachyOS system updater..."
         cachyos-hello fix update-system
     elif [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
@@ -151,7 +171,7 @@ echo
 
 # Flatpak
 echo ":: Searching for Flatpak updates..."
-if [[ $(_checkCommandExists "shelly") == 0 ]]; then
+if _checkCommandExists "shelly"; then
     shelly flatpak upgrade
 else
     flatpak update

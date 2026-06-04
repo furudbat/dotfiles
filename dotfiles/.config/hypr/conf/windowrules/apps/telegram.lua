@@ -1,2 +1,2 @@
 -- Prevent Telegram from stealing focus on new messages.
-o.window("org.telegram.desktop", { focus_on_activate = false })
+hl.window_rule({ match = { class = "org.telegram.desktop" } }, { focus_on_activate = false })

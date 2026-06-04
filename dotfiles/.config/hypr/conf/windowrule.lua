@@ -1,2 +1,2 @@
-local name = "default.lua"
+local name = "custom.lua"
 load_variant(name,"windowrules")
