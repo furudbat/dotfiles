@@ -64,6 +64,13 @@ and many more...
 
 ---
 
+## Update Plugins
+
+```bash
+hyprpm update
+git subtree pull --prefix=dotfiles/.config/hypr/hyprsplit https://github.com/shezdy/hyprsplit.git main --squash
+```
+
 ## Desktop pets
 
 https://github.com/furudbat/wayland-vpets
