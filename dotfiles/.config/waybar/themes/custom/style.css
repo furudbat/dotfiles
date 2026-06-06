@@ -247,7 +247,11 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10,
-#custom-waybarthemes {
+#custom-waybarthemes,
+#custom-brightness-hdmi1,
+#brightness-dp1,
+#custom-brightness-dp2,
+#custom-brightness-dp3 {
     margin-right: 16px;
     font-size: 14px;
     font-weight: bold;
@@ -697,4 +701,19 @@ window#waybar.empty #window {
 @keyframes ledflash3 {
     0%   { opacity: 0.5; }
     100% { opacity: 0.25; }
+}
+
+
+/* -----------------------------------------------------
+ * Brightness
+ * ----------------------------------------------------- */
+
+#custom-brightness-hdmi1,
+#custom-brightness-dp1,
+#custom-brightness-dp2,
+#custom-brightness-dp3 {
+    font-size: 14px;
+    color: @textcolor;
+    border-radius: 12px;
+    margin: 0px 15px 0px 0px;
 }
