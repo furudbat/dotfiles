@@ -78,7 +78,6 @@ function MonitorRange:new(monitor)
                 if monitor == m then
                     base = i - 1 + #hyprsplit.monitor_priority_list
                     log("auto assigning base %d to monitor %s", base, monitor.name)
-                    -- notify_error("auto assigning base %d to monitor %s", base, monitor.name)
                 end
             end
         end
@@ -178,7 +177,6 @@ function hyprsplit.get_workspace_string(workspace_str)
         for i = range.min, range.max do
             local ws = hl.get_workspace(i)
             if ws == nil or ws.windows == 0 then
-                notify_error("empty %d", i)
                 return tostring(i)
             end
         end
