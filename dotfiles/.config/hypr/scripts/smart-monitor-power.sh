@@ -44,7 +44,7 @@ update_timeout_profiles() {
         "power-saver")
             log_msg "Applying Eco Strategy: Rapid multi-screen blanking enabled."
             for mon in "${TARGET_MONITORS[@]}"; do
-                WAKE_DELAY_REQ["$mon"]=5   
+                WAKE_DELAY_REQ["$mon"]=3   
                 DIM_75_TIME["$mon"]=100      
                 DIM_50_TIME["$mon"]=250     
                 DIM_25_TIME["$mon"]=360     
@@ -55,21 +55,21 @@ update_timeout_profiles() {
             log_msg "Applying Balanced Strategy: Normalized timeline profiles enabled."
             
             # --- HDMI-A-1 ---
-            WAKE_DELAY_REQ["HDMI-A-1"]=3
+            WAKE_DELAY_REQ["HDMI-A-1"]=2
             DIM_75_TIME["HDMI-A-1"]=360
             DIM_50_TIME["HDMI-A-1"]=400
             DIM_25_TIME["HDMI-A-1"]=500
             OFF_TIME["HDMI-A-1"]=3600
 
             # --- DP-2 ---
-            WAKE_DELAY_REQ["DP-2"]=3
+            WAKE_DELAY_REQ["DP-2"]=2
             DIM_75_TIME["DP-2"]=260
             DIM_50_TIME["DP-2"]=360
             DIM_25_TIME["DP-2"]=460
             OFF_TIME["DP-2"]=3600
 
             # --- DP-3 ---
-            WAKE_DELAY_REQ["DP-3"]=3
+            WAKE_DELAY_REQ["DP-3"]=2
             DIM_75_TIME["DP-3"]=200
             DIM_50_TIME["DP-3"]=360
             DIM_25_TIME["DP-3"]=400
