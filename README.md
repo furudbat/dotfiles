@@ -69,6 +69,7 @@ and many more...
 ```bash
 hyprpm update
 git subtree pull --prefix=dotfiles/.config/hypr/hyprsplit https://github.com/shezdy/hyprsplit.git main --squash
+hyprctl reload
 ```
 
 ## Desktop pets

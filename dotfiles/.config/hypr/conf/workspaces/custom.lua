@@ -27,6 +27,16 @@ local ws_music_4   = "19"
 local ws_art_4     = "20"
 
 -- =====================================================
+-- Hyprsplit
+-- =====================================================
+
+local ok_hs, hs = pcall(require, "hyprsplit")
+if ok_hs then
+    hs.monitor_priority({"HDMI-A-1", "DP-1", "DP-2", "DP-3"})
+    hs.config({ num_workspaces = 5 })
+end
+
+-- =====================================================
 -- Workspace rules
 -- =====================================================
 
@@ -43,15 +53,6 @@ hl.window_rule({ match = { float = false, workspace = "w[tv1]s[false]" }, border
 hl.window_rule({ match = { float = false, workspace = "w[tv1]s[false]" }, rounding = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]s[false]" }, border_size = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]s[false]" }, rounding = 0 })
-
--- =====================================================
--- Hyprsplit
--- =====================================================
-
-if hl.plugin.hyprsplit ~= nil then
-    local hs = require("hyprsplit")
-    hs.config({ num_workspaces = 5 })
-end
 
 -- =====================================================
 -- Gamemode workspace

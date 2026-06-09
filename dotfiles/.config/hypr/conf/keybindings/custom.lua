@@ -25,9 +25,9 @@ local fr_keys = {
     "minus", "egrave", "underscore", "ccedilla", "agrave"
 }
 
-if hl.plugin.hyprsplit ~= nil then
+local ok_hs, hs = pcall(require, "hyprsplit")
+if ok_hs then
     -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-    local hs = require("hyprsplit")
     for i = 1, 10 do
         local key = i % 10
         if is_fr then

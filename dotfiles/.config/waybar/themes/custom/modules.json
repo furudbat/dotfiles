@@ -1,9 +1,8 @@
 {
 	// Workspaces
 	"hyprland/workspaces": {
-		"sort-by-number": true,
+		"format": "{name}: {icon}",
 		"on-click": "activate",
-		"format": "{icon}",
 		"format-icons": {
 			// Monitor 2
 			"1": "󰖟 ",
@@ -36,11 +35,9 @@
 			"default": " ",
 			"empty": " "
 		},
-		"disable-scroll": true,
-		//"on-scroll-up": "hyprctl dispatch split:workspace r+1",
-		//"on-scroll-down": "hyprctl dispatch split:workspace r-1",
-		"tooltip": true,
-		"tooltip-format": "{name}",
+		"on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'r+1'})\"",
+		"on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'r-1'})\"",
+		"sort-by-number": true,
 		"all-outputs": false,
 		"active-only": false,
 		"outputs": [
