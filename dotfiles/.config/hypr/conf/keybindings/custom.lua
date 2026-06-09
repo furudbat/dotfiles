@@ -25,30 +25,14 @@ local fr_keys = {
     "minus", "egrave", "underscore", "ccedilla", "agrave"
 }
 
-local ok_hs, hs = pcall(require, "hyprsplit")
-if ok_hs then
-    -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-    for i = 1, 10 do
-        local key = i % 10
-        if is_fr then
-            key = fr_keys[i]
-        end
-        hl.bind(mainMod .. " + " .. key,             hs.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
-        hl.bind(mainMod .. " + SHIFT + " .. key,     hs.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    if is_fr then
+        key = fr_keys[i]
     end
-
-    hl.bind("SUPER + " .. "g", hs.dsp.grab_rogue_windows())
-    hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
-else
-    -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-    for i = 1, 10 do
-        local key = i % 10 -- 10 maps to key 0
-        if is_fr then
-            key = fr_keys[i]
-        end
-        hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
-        hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
-    end
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
 end
 
 -- Windows

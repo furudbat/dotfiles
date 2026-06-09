@@ -1,7 +1,7 @@
 {
 	// Workspaces
 	"hyprland/workspaces": {
-		"format": "{name}: {icon}",
+		"format": "{icon}",
 		"on-click": "activate",
 		"format-icons": {
 			// Monitor 2
@@ -358,11 +358,11 @@
 	"custom/brightness-dp2": {
 		"exec": "~/.config/hypr/scripts/get-brightness.sh DP-2",
 		"return-type": "json",
-		"interval": 5
+		"interval": 2
 	},
 	"custom/brightness-dp3": {
 		"exec": "~/.config/hypr/scripts/get-brightness.sh DP-3",
 		"return-type": "json",
-		"interval": 5
+		"interval": 2
 	}
 }

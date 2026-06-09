@@ -4,6 +4,7 @@ DEV="${1:-nvme0n1}"
 STATE="/tmp/waybar-hddled-$DEV"
 
 read_io() {
+    # read sectors read + written
     read -r _ _ r _ _ _ w _ < "/sys/block/$DEV/stat"
     echo $((r + w))
 }
@@ -15,18 +16,19 @@ if [[ -z "$CUR" ]]; then
     exit 1
 fi
 
-# epoch milliseconds without spawning `date`
-NOW=${EPOCHREALTIME/.}
-NOW=${NOW:0:13}
+# robust timestamp in milliseconds (no locale issues)
+NOW=$(date +%s%3N)
 
+# init state file
 if [[ ! -f "$STATE" ]]; then
-    echo "$CUR 0" > "$STATE"
+    echo "$CUR $NOW" > "$STATE"
     echo '{"text":"<span foreground=\"#003300\">⬤</span>","class":"idle"}'
     exit 0
 fi
 
 read -r PREV LAST_PULSE < "$STATE"
 
+# update pulse if IO changed
 if (( CUR != PREV )); then
     LAST_PULSE=$NOW
 fi
@@ -35,17 +37,18 @@ echo "$CUR $LAST_PULSE" > "$STATE"
 
 DELTA=$((NOW - LAST_PULSE))
 
-if (( DELTA < 6 )); then
+# color / class logic
+if (( DELTA < 600 )); then
     COLOR="#66ff66"
     CLASS="flash3"
-elif (( DELTA < 14 )); then
+elif (( DELTA < 2000 )); then
     COLOR="#33dd33"
     CLASS="flash2"
-elif (( DELTA < 40 )); then
+elif (( DELTA < 5000 )); then
     COLOR="#007700"
     CLASS="flash1"
 else
-    COLOR="#001100"
+    COLOR="#003300"
     CLASS="idle"
 fi
 

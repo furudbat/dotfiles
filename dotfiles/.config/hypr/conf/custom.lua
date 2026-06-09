@@ -1,2 +1,2 @@
-local name = "border-2.lua"
+local name = "custom.lua"
 load_variant(name,"windows")

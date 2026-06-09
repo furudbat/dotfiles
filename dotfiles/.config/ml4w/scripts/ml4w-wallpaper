@@ -253,17 +253,19 @@ else
         MATUGEN_BIN="matugen"
     fi
 
-    # Execute matugen
-    if [ "$THEME_PREF" -eq 1 ]; then
-        $MATUGEN_BIN image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    else
-        $MATUGEN_BIN image "$IMAGE_PATH" --source-color-index 0 -m "light"
-    fi
+    # Execute matugen 
+    if [ "$THEME_PREF" -eq 1 ]; then 
+        $MATUGEN_BIN image "$IMAGE_PATH" -m "dark" --source-color-index 0
+    else 
+        $MATUGEN_BIN image "$IMAGE_PATH" -m "light" --source-color-index 0
+    fi 
     info "Matugen updated"
+    sleep 1.75
 
     # Update Quickshell theme
     qs ipc call theme-manager reload
     info "Quickshell Theme updated"
+    sleep 0.25
 
     # Update ML4W Dotfiles Settings theme
     qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
@@ -293,9 +295,11 @@ else
     fi
 
     # Update SwayNC
-    sleep 0.1
+    sleep 0.25
     swaync-client -rs
     info "SwayNC refreshed"
+
+    sleep 1
 fi
 
 # Create blurred image
