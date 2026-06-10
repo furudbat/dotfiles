@@ -255,21 +255,22 @@ else
 
     # Execute matugen 
     if [ "$THEME_PREF" -eq 1 ]; then 
-        $MATUGEN_BIN image "$IMAGE_PATH" -m "dark" --source-color-index 0
+        $MATUGEN_BIN image "$IMAGE_PATH" -m "dark" --source-color-index 0 || true
     else 
-        $MATUGEN_BIN image "$IMAGE_PATH" -m "light" --source-color-index 0
+        $MATUGEN_BIN image "$IMAGE_PATH" -m "light" --source-color-index 0 || true
     fi 
     info "Matugen updated"
-    sleep 1.75
+    sleep 4
 
     # Update Quickshell theme
     qs ipc call theme-manager reload
     info "Quickshell Theme updated"
-    sleep 0.25
+    sleep 0.5
 
     # Update ML4W Dotfiles Settings theme
     qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
     info "ML4W Dotfiles Settings Theme updated"
+    sleep 0.5
 
     # Reload Waybar
     if pgrep -x "waybar" > /dev/null
@@ -282,6 +283,7 @@ else
         disown
     fi
     info "Waybar reloaded"
+    sleep 1
 
     # Reload nwg-dock-hyprland
     nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
@@ -292,6 +294,7 @@ else
     if type pywalfox >/dev/null 2>&1; then
         pywalfox update
         info "pywalfox updated"
+        sleep 5
     fi
 
     # Update SwayNC

@@ -5,13 +5,14 @@ log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - [RESTORE] $1" >> "$LOG_FILE"
 }
 
+PRIMARY_MONITOR="DP-1"
 declare -A DDC_DISPLAYS=( ["HDMI-A-1"]=2 ["DP-2"]=3 ["DP-3"]=4 )
 TARGET_MONITORS=("HDMI-A-1" "DP-2" "DP-3")
 
 log_msg "Selective restoration triggered to prevent flickering..."
 
 # 1. Ensure main workstation screen is on
-hyprctl dispatch dpms on DP-1 &>/dev/null
+hyprctl dispatch "hl.dsp.dpms({ action = \"disable\", monitor = \"$PRIMARY_MONITOR\" })" &>/dev/null
 
 # 2. Loop through screens and ONLY restore what is altered
 for mon in "${TARGET_MONITORS[@]}"; do
@@ -24,7 +25,7 @@ for mon in "${TARGET_MONITORS[@]}"; do
     # Check if monitor is actually blanked at the Hyprland driver level
     if [ "$CURRENT_STATUS" = "false" ]; then
         log_msg "$mon is suspended (OFF). Waking up and normalizing..."
-        hyprctl dispatch dpms on "$mon" &>/dev/null
+        hyprctl dispatch "hl.dsp.dpms({ action = \"enable\", monitor = \"$mon\" })" &>/dev/null
         ddcutil setvcp 10 100 --display "$DISP" --async &>/dev/null
     else
         ddcutil setvcp 10 100 --display "$DISP" --async &>/dev/null

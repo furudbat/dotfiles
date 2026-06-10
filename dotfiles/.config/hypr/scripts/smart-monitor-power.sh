@@ -235,8 +235,11 @@ while true; do
             elif [ "$curr_stage" != "OFF" ]; then
                 log_msg "SYSTEM LOCKED: Fast-tracking auxiliary screen $mon completely OFF"
                 stagger_bus_call
-                hyprctl dispatch dpms off "$mon" &>/dev/null
-                CURRENT_STAGE[$mon]="OFF"
+                # @FIXME: remove "pidof hyprlock || " -- https://github.com/hyprwm/hyprlock/issues/953
+                if ! pidof hyprlock >/dev/null; then
+                    hyprctl dispatch "hl.dsp.dpms({ action = \"disable\", monitor = \"$mon\" })" &>/dev/null
+                    CURRENT_STAGE[$mon]="OFF"
+                fi
                 ((ACTIVE_SCREENS_COUNT--))
             fi
             continue
@@ -302,8 +305,11 @@ while true; do
                     else
                         log_msg "TIMEOUT REACHED ($id_count s >= $t_off s): Turning $mon completely OFF"
                         stagger_bus_call
-                        hyprctl dispatch dpms off "$mon" &>/dev/null
-                        CURRENT_STAGE[$mon]="OFF"
+                        # @FIXME: remove "pidof hyprlock || " -- https://github.com/hyprwm/hyprlock/issues/953
+                        if ! pidof hyprlock >/dev/null; then
+                            hyprctl dispatch "hl.dsp.dpms({ action = \"disable\", monitor = \"$mon\" })" &>/dev/null
+                            CURRENT_STAGE[$mon]="OFF"
+                        fi
                         ((ACTIVE_SCREENS_COUNT--))
                     fi
                 fi
