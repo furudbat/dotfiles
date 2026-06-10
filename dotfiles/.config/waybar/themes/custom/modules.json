@@ -348,12 +348,12 @@
 	"custom/brightness-hdmi1": {
 		"exec": "~/.config/hypr/scripts/get-brightness.sh HDMI-A-1",
 		"return-type": "json",
-		"interval": 5
+		"interval": 2
 	},
 	"custom/brightness-dp1": {
 		"exec": "~/.config/hypr/scripts/get-brightness.sh DP-1",
 		"return-type": "json",
-		"interval": 5
+		"interval": 2
 	},
 	"custom/brightness-dp2": {
 		"exec": "~/.config/hypr/scripts/get-brightness.sh DP-2",

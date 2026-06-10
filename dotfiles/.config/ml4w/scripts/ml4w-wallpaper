@@ -180,10 +180,11 @@ fi
 if ! pgrep -x "awww-daemon" > /dev/null; then
     mkdir -p "$HOME/.cache/awww"
     info "Starting awww-daemon..."
+    sleep 5
     awww-daemon &
     
     # Give the daemon a brief moment to initialize before sending commands
-    sleep 1 
+    sleep 1
 fi
 
 # Write image path to cache file
@@ -223,9 +224,12 @@ fi
 if [ "$SKIP" = true ]; then
     info "Setting wallpaper skipped"
 else
-    info "Setting wallpaper: $IMAGE_PATH"
-    info "Using wallpaper effect $SETTINGS_TRANSITION_EFFECT"
-    awww img "$IMAGE_PATH" --transition-type $SETTINGS_TRANSITION_EFFECT
+    if pgrep -x awww-daemon >/dev/null; then
+        info "Setting wallpaper: $IMAGE_PATH"
+        info "Using wallpaper effect $SETTINGS_TRANSITION_EFFECT"
+        awww img "$IMAGE_PATH" --transition-type $SETTINGS_TRANSITION_EFFECT
+        sleep 3
+    fi
 fi
 
 SKIP_THEMING=false
@@ -305,6 +309,7 @@ else
     sleep 1
 fi
 
+sleep 1
 # Create blurred image
 magick "$IMAGE_PATH" -resize 75% "$BLURRED_WALLPAPER"
 info "$(basename "$IMAGE_PATH") resized to 75% -> $(basename "$BLURRED_WALLPAPER")"
