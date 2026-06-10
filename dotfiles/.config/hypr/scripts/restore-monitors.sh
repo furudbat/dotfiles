@@ -12,7 +12,8 @@ TARGET_MONITORS=("HDMI-A-1" "DP-2" "DP-3")
 log_msg "Selective restoration triggered to prevent flickering..."
 
 # 1. Ensure main workstation screen is on
-hyprctl dispatch "hl.dsp.dpms({ action = \"disable\", monitor = \"$PRIMARY_MONITOR\" })" &>/dev/null
+hyprctl dispatch "hl.dsp.dpms({ action = \"enable\", monitor = \"$PRIMARY_MONITOR\" })" &>/dev/null
+sleep 5
 
 # 2. Loop through screens and ONLY restore what is altered
 for mon in "${TARGET_MONITORS[@]}"; do
@@ -26,6 +27,7 @@ for mon in "${TARGET_MONITORS[@]}"; do
     if [ "$CURRENT_STATUS" = "false" ]; then
         log_msg "$mon is suspended (OFF). Waking up and normalizing..."
         hyprctl dispatch "hl.dsp.dpms({ action = \"enable\", monitor = \"$mon\" })" &>/dev/null
+        sleep 5
         ddcutil setvcp 10 100 --display "$DISP" --async &>/dev/null
     else
         ddcutil setvcp 10 100 --display "$DISP" --async &>/dev/null
@@ -35,5 +37,10 @@ for mon in "${TARGET_MONITORS[@]}"; do
         log_msg "$mon is already active. Skipping power commands to prevent flicker."
     fi
 done
+
+# 1. Ensure main workstation screen is on
+hyprctl dispatch "hl.dsp.dpms({ action = \"enable\", monitor = \"$PRIMARY_MONITOR\" })" &>/dev/null
+sleep 5
+ddcutil setvcp 10 100 --display "$PRIMARY_MONITOR" --async &>/dev/null
 
 log_msg "Selective restoration finished cleanly."
