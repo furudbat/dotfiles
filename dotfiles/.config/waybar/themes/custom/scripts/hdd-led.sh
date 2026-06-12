@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DEV="${1:-nvme0n1}"
-STATE="/tmp/waybar-hddled-$DEV"
+STATE="$XDG_RUNTIME_DIR/waybar-hddled-$DEV"
 
 read_io() {
     # read sectors read + written

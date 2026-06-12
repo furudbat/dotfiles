@@ -110,9 +110,13 @@ output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
-#post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
-post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/blueish.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/blueish.omp.json"
-
+jq --slurpfile palette ~/.config/ohmyposh/colors.json \
+   '. + $palette[0]' \
+   ~/.config/ohmyposh/blueish.omp.json \
+   > "${XDG_RUNTIME_DIR:-/tmp}/new_theme.json" \
+   && mv "${XDG_RUNTIME_DIR:-/tmp}/new_theme.json" \
+         ~/.config/ohmyposh/blueish.omp.json
+         
 [templates.ghostty]
 input_path = '~/.config/matugen/templates/ghostty'
 output_path = '~/.config/ghostty/themes/matugen'

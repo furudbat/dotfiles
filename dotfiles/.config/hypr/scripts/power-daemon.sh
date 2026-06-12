@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PIDFILE="/tmp/hypr-power-daemon.pid"
+PIDFILE="$XDG_RUNTIME_DIR/hypr-power-daemon.pid"
 
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
     exit 0
@@ -19,7 +19,7 @@ set_profile() {
 
     if [ "$STATE" != "$profile" ]; then
         STATE="$profile"
-        echo "$(date): switching to $profile" >> /tmp/power-daemon.log
+        echo "$(date): switching to $profile" >> $XDG_RUNTIME_DIR/power-daemon.log
         powerprofilesctl set "$profile"
     fi
 }

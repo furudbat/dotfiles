@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec 200>/tmp/bongocat-launch.lock
+exec 200>$XDG_RUNTIME_DIR/bongocat-launch.lock
 flock -n 200 || exit 0
 
 killall wpets || true

@@ -156,7 +156,7 @@ copy_wallpaper_to_sddm() {
 
     # Determine file type and convert if necessary
     MIME_TYPE=$(file --mime-type -b "$SOURCE_WALLPAPER")
-    TEMP_JPG="/tmp/current_wallpaper_sddm.jpg" # Changed temp file name to avoid conflict
+    TEMP_JPG="$XDG_RUNTIME_DIR/current_wallpaper_sddm.jpg" # Changed temp file name to avoid conflict
 
     if [[ "$MIME_TYPE" == "image/jpeg" ]]; then
         cp "$SOURCE_WALLPAPER" "$TEMP_JPG"

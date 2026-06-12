@@ -15,7 +15,7 @@ TARGET_WIDTH=700
 TARGET_WIDTH_MAX=1000
 TOP_GAP=100
 BOTTOM_GAP=100
-PREV_FOCUS_FILE="/tmp/sidepad-prev-focus"
+PREV_FOCUS_FILE="$XDG_RUNTIME_DIR/sidepad-prev-focus"
 
 # --- Script Variables ---
 HIDE_REQUESTED=0

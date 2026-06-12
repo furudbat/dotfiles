@@ -48,7 +48,7 @@ SELECTED=$(echo "$LIST" | fzf \
     )
 # --- 4. Action ---
 if [ -n "$SELECTED" ]; then
-    printf '{"action": "remove", "identifier": "fzf_preview"}\n' > /tmp/fzf-ueberzug.pipe 2>/dev/null
+    printf '{"action": "remove", "identifier": "fzf_preview"}\n' > $XDG_RUNTIME_DIR/fzf-ueberzug.pipe 2>/dev/null
     
     # Execute waypaper command
     # Source 1.1 confirms --wallpaper is the correct CLI option

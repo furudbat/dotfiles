@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_FILE="/tmp/smart_monitor.log"
+LOG_FILE="$XDG_RUNTIME_DIR/smart-monitor.log"
 log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - [RESTORE] $1" >> "$LOG_FILE"
 }
