@@ -652,7 +652,9 @@ window#waybar.empty #window {
 
 /* hottest pulse */
 #custom-hddled-1.flash3,
-#custom-hddled-2.flash3 {
+#custom-hddled-2.flash3,
+#custom-hddled-1.active,
+#custom-hddled-2.active  {
     text-shadow:
         0 0 2px #66ff66,
         0 0 6px #66ff66,
@@ -663,7 +665,9 @@ window#waybar.empty #window {
 
 /* medium */
 #custom-hddled-1.flash2,
-#custom-hddled-2.flash2 {
+#custom-hddled-2.flash2,
+#custom-hddled-1.blink,
+#custom-hddled-2.blink {
     text-shadow:
         0 0 1px #22dd22,
         0 0 4px #22dd22;
@@ -673,7 +677,9 @@ window#waybar.empty #window {
 
 /* tail */
 #custom-hddled-1.flash1,
-#custom-hddled-2.flash1 {
+#custom-hddled-2.flash1,
+#custom-hddled-1.idle-fade,
+#custom-hddled-2.idle-fade {
     text-shadow:
         0 0 1px #007700;
 
@@ -693,14 +699,14 @@ window#waybar.empty #window {
 }
 
 @keyframes ledflash2 {
-    0%   { opacity: 0.8; }
-    50%  { opacity: 0.25; }
-    100% { opacity: 0.7; }
+    0%   { opacity: 0.75; }
+    50%  { opacity: 0.2; }
+    100% { opacity: 0.65; }
 }
 
 @keyframes ledflash3 {
-    0%   { opacity: 0.5; }
-    100% { opacity: 0.25; }
+    0%   { opacity: 0.45; }
+    100% { opacity: 0.20; }
 }
 
 
