@@ -2,6 +2,8 @@
 -- Workspace definitions (Using raw absolute numbers)
 -- =====================================================
 
+local NUM_WORKSPACES_PER_MONITOR = 5
+
 -- Monitor 1 (e.g., HDMI-A-1)
 local ws_browser_1 = "6"
 local ws_coding_1  = "7"
@@ -126,3 +128,13 @@ hl.window_rule({
     rounding  = 0,
     opacity   = 1.0,
 })
+
+-- =====================================================
+-- Hyprsplit
+-- =====================================================
+
+local ok_hs, hs = pcall(require, "hyprsplit")
+if ok_hs then
+    hs.monitor_priority({"HDMI-A-1", "DP-1", "DP-2", "DP-3"})
+    hs.config({ num_workspaces = NUM_WORKSPACES_PER_MONITOR })
+end
