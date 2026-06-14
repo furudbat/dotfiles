@@ -34,6 +34,10 @@ _isInstalled() {
     return #false
 }
 
+get_epoch() {
+    date -d "$1" +%s 2>/dev/null
+}
+
 # ------------------------------------------------------
 # Confirm Start
 # ------------------------------------------------------
@@ -79,43 +83,95 @@ if _checkCommandExists "pacman"; then
 
     warning_found=0
     updates_found=0
-    # Official repo updates
+    
+    # ------------------------------------------------------
+    # OFFICIAL REPO PACKAGES (Arch)
+    # ------------------------------------------------------
     while read -r pkg oldver newver; do
         updates_found=1
 
         pkg_clean="${pkg#*/}"
 
-        pkg_date=$(expac -S '%b' "$pkg_clean" 2>/dev/null)
+        # Get package build date from repo database (more reliable than expac -S %b)
+        pkg_date=$(pacman -Si "$pkg_clean" 2>/dev/null | awk -F': ' '/Build Date/{print $2}')
+
         [[ -z "$pkg_date" ]] && continue
 
-        pkg_epoch=$(date -d "$pkg_date" +%s 2>/dev/null)
+        pkg_epoch=$(get_epoch "$pkg_date")
         [[ -z "$pkg_epoch" ]] && continue
 
-        age_days=$(( ($(date +%s) - pkg_epoch) / 86400 ))
+        age_days=$(( ( $(date +%s) - pkg_epoch ) / 86400 ))
+
+        #echo "$pkg_clean $age_days"
 
         if (( age_days <= UPDATE_AGE_DAYS )); then
             echo "⚠️ WARNING: repo update $pkg_clean is only $age_days days old"
             warning_found=1
         fi
+
     done < <(checkupdates 2>/dev/null)
 
-    # AUR updates
+    # ------------------------------------------------------
+    # AUR PACKAGES
+    # ------------------------------------------------------
     if [[ "$yay_installed" == "true" || "$paru_installed" == "true" ]]; then
+
         while read -r pkg oldver newver; do
             updates_found=1
 
-            lastmod=$(curl -fsS \
-                "https://aur.archlinux.org/rpc/v5/info?arg[]=$pkg" |
-                jq -r '.results[0].LastModified')
+            # ----------------------------
+            # detect -git packages
+            # ----------------------------
+            if [[ "$pkg" == *"-git" ]]; then
 
-            [[ -z "$lastmod" || "$lastmod" == "null" ]] && continue
+                echo ":: AUR git package detected: $pkg"
 
-            age_days=$(( ($(date +%s) - lastmod) / 86400 ))
+                # Try to resolve latest commit date from local repo if installed
+                if [[ -d "$HOME/.cache/yay/$pkg" || -d "$HOME/.cache/paru/clone/$pkg" ]]; then
 
-            if (( age_days <= UPDATE_AGE_DAYS )); then
-                echo "⚠️ WARNING: AUR update $pkg is only $age_days days old"
-                warning_found=1
+                    repo_dir="$HOME/.cache/yay/$pkg"
+                    [[ ! -d "$repo_dir" ]] && repo_dir="$HOME/.cache/paru/clone/$pkg"
+
+                    if [[ -d "$repo_dir/.git" ]]; then
+                        last_commit_date=$(git -C "$repo_dir" log -1 --format=%cI 2>/dev/null)
+
+                        [[ -z "$last_commit_date" ]] && continue
+
+                        commit_epoch=$(date -d "$last_commit_date" +%s 2>/dev/null)
+                        [[ -z "$commit_epoch" ]] && continue
+
+                        age_days=$(( ( $(date +%s) - commit_epoch ) / 86400 ))
+
+                        #echo "$pkg $age_days"
+
+                        if (( age_days <= UPDATE_AGE_DAYS )); then
+                            echo "⚠️ WARNING: git AUR package $pkg last commit is only $age_days days old"
+                            warning_found=1
+                        fi
+                    fi
+                fi
+
+            else
+                # ----------------------------
+                # normal AUR packages
+                # ----------------------------
+
+                lastmod=$(curl -fsS --max-time 5 \
+                    "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=$pkg" |
+                    jq -r '.results[0].LastModified')
+
+                [[ -z "$lastmod" || "$lastmod" == "null" ]] && continue
+
+                age_days=$(( ( $(date +%s) - lastmod ) / 86400 ))
+
+                #echo "$pkg $age_days"
+
+                if (( age_days <= UPDATE_AGE_DAYS )); then
+                    echo "⚠️ WARNING: AUR update $pkg is only $age_days days old"
+                    warning_found=1
+                fi
             fi
+
         done < <(
             if [[ "$paru_installed" == "true" ]]; then
                 paru -Qua
