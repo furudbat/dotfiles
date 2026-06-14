@@ -27,8 +27,8 @@ local fr_keys = {
 
 local ok_hs, hs = pcall(require, "hyprsplit")
 if ok_hs then
-    for i = 1, NUM_WORKSPACES_PER_MONITOR do
-        local key = i % NUM_WORKSPACES_PER_MONITOR -- n maps to key 0
+    for i = 1, NUM_WORKSPACES_PER_MONITOR+1 do
+        local key = i % (NUM_WORKSPACES_PER_MONITOR+1) -- n maps to key 0
         hl.bind("SUPER + " .. key, hs.dsp.focus({ workspace = i }))
         hl.bind("SUPER + SHIFT + " .. key, hs.dsp.window.move({ workspace = i, follow = false }))
     end
