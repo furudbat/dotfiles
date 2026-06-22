@@ -20,38 +20,55 @@ error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 # Ensure that cache folder exists
 mkdir -p $HOME/.cache
 
-# Set Wallpaper
-mkdir -p $CACHE_FOLDER
-if [ ! -f $CACHE_FILE ]; then
-    touch $CACHE_FILE
-    echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
-    info "Cache file created"
+# Kill any existing qs instances
+killall qs 2>/dev/null || true
 
-    ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
-else
-    $(cat $WALLPAPER_APP_FILE) --restore
-    sleep 0.75
-    info "Wallpapers restored"
-fi
-
-# Start Quickshell
-killall qs
-sleep 0.5
+# Start Quickshell first
+info "Starting Quickshell"
 qs &
+
+# Wait for qs process to be ready, then let IPC initialize
+info "Waiting for Quickshell..."
+timeout=15
+elapsed=0
+until pgrep -x qs >/dev/null 2>&1; do
+    sleep 0.2
+    elapsed=$((elapsed + 1))
+    if [ $elapsed -ge $((timeout * 5)) ]; then
+        warn "Quickshell did not start within ${timeout}s"
+        break
+    fi
+done
 sleep 0.5
+info "Quickshell ready"
+
+# Set wallpaper — qs is guaranteed ready for IPC calls
+info "Set wallpaper to cache file $(cat $CACHE_FILE)"
+~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
 
 # Start ML4W Settings App
+info "Starting ML4W Dotfiles Settings"
 PROFILE="com.ml4w.dotfiles" qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell &
 info "ML4W Dotfiles Settings started"
 
 # Start Quickshell Overview
+info "Starting Quickshell Overview"
 qs -p $HOME/.config/quickshell/overview &
 info "Quickshell Overview started"
 
 # Start ML4W Welcome App
+info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
-    sleep 3
-    qs ipc call welcome toggle
+    timeout=30
+    count=0
+    until qs ipc call welcome toggle >/dev/null 2>&1; do
+        (( count++ ))
+        if (( count >= timeout )); then
+            warn "Welcome IPC not available after ${timeout}s"
+            break
+        fi
+        sleep 1
+    done
     info "ML4W Welcome started"
 else
     info "ML4W Welcome disabled"

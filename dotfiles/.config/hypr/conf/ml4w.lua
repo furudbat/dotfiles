@@ -156,16 +156,6 @@ hl.window_rule({
     size = "1000 700"
 })
 
--- ML4W Sidepad
-hl.window_rule({
-    name = "dotfiles-sidepad",
-    match = {class = "dotfiles-sidepad"},
-    float = true,
-    pin = true,
-    center = true,
-    size = "1000 700"
-})
-
 -- Picture-in-Picture
 hl.window_rule({
     name = "Picture-in-Picture",
@@ -190,7 +180,6 @@ hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
--- XDG Desktop Portal
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
