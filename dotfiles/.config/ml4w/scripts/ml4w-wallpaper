@@ -50,6 +50,7 @@ show_help() {
     echo "  --notifications        Enable desktop notifications."
     echo "  --skip                 Skip setting the wallpaper with awww."
     echo "  --help                 Show this help message and exit."
+    echo "  --monitor PRIMARY      Update Theme based on PRIMARY monitor."
 }
 
 send_notification() {
