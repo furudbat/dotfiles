@@ -4,6 +4,8 @@
 # ------------------------------------------------------
 # inspired by Dave Plummer BlinkenDisk - https://x.com/davepl1968/status/2059320143994589539
 
+export LC_NUMERIC=C
+
 DEV="${1:-nvme0n1}"
 STATE="/dev/shm/waybar-power-led-$DEV"
 HDD_STATE="/dev/shm/waybar-hddled-$DEV"

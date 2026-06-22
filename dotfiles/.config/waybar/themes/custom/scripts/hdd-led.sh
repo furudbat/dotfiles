@@ -4,8 +4,21 @@
 # ------------------------------------------------------
 # inspired by Dave Plummer BlinkenDisk - https://x.com/davepl1968/status/2059320143994589539
 
+export LC_NUMERIC=C
+
+DEV="${1:-nvme0n1}"
+STATE="/dev/shm/waybar-hddled-$DEV"
+
+MODEL="$(cat "/sys/block/$DEV/device/model" 2>/dev/null | xargs)"
+[[ -z "$MODEL" ]] && MODEL="$DEV"
+
+if [[ ! -b "/dev/$DEV" ]]; then
+    echo '{"text":"<span foreground=\"#1a0800\">⬤</span>","class":"off"}'
+    exit 0
+fi
+
 read_io() {
-    read -r r _ _ _ w _ _ _ < "$STAT"
+    read -r r _ _ _ w _ _ _ < "$STATE"
     echo $(( r + w ))
 }
 
@@ -13,7 +26,7 @@ CUR=$(read_io 2>/dev/null) || {
     echo '{"text":"⬤","class":"idle"}'
     exit 1
 }
-NOW=${EPOCHREALTIME%.*}
+NOW=${EPOCHREALTIME%%[.,]*}
 # load state
 if [[ -f "$STATE" ]]; then
     read -r PREV ENERGY LAST_TS FLICKER < "$STATE"

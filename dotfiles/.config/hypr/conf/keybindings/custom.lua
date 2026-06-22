@@ -91,7 +91,7 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.
 hl.bind(mainMod .. " + CTRL + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings.sh"), { description = "Show keybindings" })
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"), { description = "Reload waybar" })
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/bongocat/launch.sh"), { description = "Reload bongocat" })
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.config/ml4w/scripts/restore-monitors"), { description = "Restore Monitors" })
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/restore-monitors.sh"), { description = "Restore Monitors" })
 hl.bind(mainMod .. " + CTRL + B", hl.dsp.exec_cmd("~/.config/waybar/toggle.sh"), { description = "Toggle waybar" })
 hl.bind(mainMod .. " + CTRL + V", hl.dsp.exec_cmd("~/.config/bongocat/toggle.sh"), { description = "Toggle bongocat" })
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/loadconfig.sh"), { description = "Reload hyprland config" })
