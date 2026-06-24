@@ -23,6 +23,31 @@ DDC_DISPLAYS["DP-3"]=4      # Optional fourth monitor
 TARGET_MONITORS=("HDMI-A-1" "DP-2" "DP-3")
 PRIMARY_FALLBACK_MONITOR="DP-1"
 
+set_refresh_saver() {
+    hyprctl keyword monitor "DP-1,2560x1440@60,2560x169,1"
+    hyprctl keyword monitor "HDMI-A-1,2560x1440@60,0x169,1"
+    hyprctl keyword monitor "DP-2,1920x1080@60,5120x0,1"
+}
+
+set_refresh_normal() {
+    hyprctl keyword monitor "DP-1,2560x1440@170,2560x169,1"
+    hyprctl keyword monitor "HDMI-A-1,2560x1440@100,0x169,1"
+    hyprctl keyword monitor "DP-2,1920x1080@100,5120x0,1"
+}
+
+set_brightness_if_needed() {
+    local mon="$1"
+    local target="$2"
+
+    [[ "${CURRENT_STAGE[$mon]}" == "$target" ]] && return
+
+    ddcutil setvcp 10 "$target" \
+        --display "${DDC_DISPLAYS[$mon]}" \
+        --async >/dev/null 2>&1
+
+    CURRENT_STAGE[$mon]="$target"
+}
+
 # Operational States Tracking Arrays
 declare -A IDLE_COUNTERS HOVER_COUNTERS CURRENT_STAGE LAST_PROFILE
 declare -A DIM_75_TIME DIM_50_TIME DIM_25_TIME OFF_TIME WAKE_DELAY_REQ
