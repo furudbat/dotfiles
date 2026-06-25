@@ -1,29 +1,52 @@
 [Control Panel\Colors]
 
-Background={{colors.surface.default.red}} {{colors.surface.default.green}} {{colors.surface.default.blue}}
+ActiveTitle={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
+GradientActiveTitle={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
 
-ButtonFace={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
-ButtonText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
+InactiveTitle={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
+GradientInactiveTitle={{colors.surface_container_high.default.red}} {{colors.surface_container_high.default.green}} {{colors.surface_container_high.default.blue}}
 
-Window={{colors.surface_container_high.default.red}} {{colors.surface_container_high.default.green}} {{colors.surface_container_high.default.blue}}
+Background={{colors.background.default.red}} {{colors.background.default.green}} {{colors.background.default.blue}}
+AppWorkspace={{colors.background.default.red}} {{colors.background.default.green}} {{colors.background.default.blue}}
+
+; Edit boxes, listviews, treeviews
+Window={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
 WindowText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
+
+TitleText={{colors.on_primary.default.red}} {{colors.on_primary.default.green}} {{colors.on_primary.default.blue}}
+InactiveTitleText={{colors.on_surface_variant.default.red}} {{colors.on_surface_variant.default.green}} {{colors.on_surface_variant.default.blue}}
+
+Menu={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
+MenuText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
+
+; Many controls derive colors from ButtonFace
+ButtonFace={{colors.surface_container_high.default.red}} {{colors.surface_container_high.default.green}} {{colors.surface_container_high.default.blue}}
+ButtonText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
 
 Hilight={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
 HilightText={{colors.on_primary.default.red}} {{colors.on_primary.default.green}} {{colors.on_primary.default.blue}}
 
-ButtonShadow={{colors.surface_variant.default.red}} {{colors.surface_variant.default.green}} {{colors.surface_variant.default.blue}}
-ButtonDkShadow={{colors.outline.default.red}} {{colors.outline.default.green}} {{colors.outline.default.blue}}
-ButtonLight={{colors.surface_bright.default.red}} {{colors.surface_bright.default.green}} {{colors.surface_bright.default.blue}}
+; Traditional Win32 bevel order
 ButtonHilight={{colors.surface_bright.default.red}} {{colors.surface_bright.default.green}} {{colors.surface_bright.default.blue}}
+ButtonLight={{colors.surface_container_high.default.red}} {{colors.surface_container_high.default.green}} {{colors.surface_container_high.default.blue}}
+ButtonShadow={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
+ButtonDkShadow={{colors.background.default.red}} {{colors.background.default.green}} {{colors.background.default.blue}}
 
 WindowFrame={{colors.outline.default.red}} {{colors.outline.default.green}} {{colors.outline.default.blue}}
 
-ActiveTitle={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
-InactiveTitle={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
-
-TitleText={{colors.on_primary.default.red}} {{colors.on_primary.default.green}} {{colors.on_primary.default.blue}}
-InactiveTitleText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
-
 Scrollbar={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
-Menu={{colors.surface.default.red}} {{colors.surface.default.green}} {{colors.surface.default.blue}}
-MenuText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
+
+GrayText={{colors.outline.default.red}} {{colors.outline.default.green}} {{colors.outline.default.blue}}
+
+InfoText={{colors.on_surface.default.red}} {{colors.on_surface.default.green}} {{colors.on_surface.default.blue}}
+InfoWindow={{colors.surface_container_high.default.red}} {{colors.surface_container_high.default.green}} {{colors.surface_container_high.default.blue}}
+
+MenuHilight={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
+MenuBar={{colors.surface_container.default.red}} {{colors.surface_container.default.green}} {{colors.surface_container.default.blue}}
+
+ButtonAlternateFace={{colors.surface_variant.default.red}} {{colors.surface_variant.default.green}} {{colors.surface_variant.default.blue}}
+
+HotTrackingColor={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
+
+ActiveBorder={{colors.primary.default.red}} {{colors.primary.default.green}} {{colors.primary.default.blue}}
+InactiveBorder={{colors.outline.default.red}} {{colors.outline.default.green}} {{colors.outline.default.blue}}

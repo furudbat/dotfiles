@@ -1,0 +1,60 @@
+# Name: Chicago95 xfwm4 Theme
+# Author: Grassmunk
+# License: GPL-3.0+
+# Changed slightly from Redmond to allow for a 
+# Rewritten 2020 to match whats happening in Windows 95 
+
+#activetitle
+active_color_1=#98ccf9
+active_color_2=#98ccf9
+
+#inactivetitle
+inactive_color_1=#1c2024
+inactive_color_2=#1c2024
+
+#activetext
+active_text_color=#003350
+
+#inactivetext
+inactive_text_color=#c2c7ce
+
+#buttonface
+active_mid_1=#272a2e
+inactive_mid_1=#272a2e
+
+#buttonLight
+active_hilight_1=#272a2e
+inactive_hilight_1=#272a2e
+
+#buttonhilight
+active_hilight_2=#363a3e
+inactive_hilight_2=#363a3e
+
+#activeborder
+active_border_color=#98ccf9
+inactive_border_color=#8c9198
+
+#buttonShadow
+active_shadow_2=#1c2024
+inactive_shadow_2=#1c2024
+
+#buttonDKShadow
+active_shadow_1=#101417
+inactive_shadow_1=#101417
+
+#buttontext
+active_mid_2=#e0e3e8
+inactive_mid_2=#e0e3e8
+
+button_layout=O|HMC
+button_offset=2
+button_spacing=0
+full_width_title=true
+maximized_offset=2
+show_app_icon=true
+title_alignment=left
+title_horizontal_offset=2
+title_vertical_offset_active=1
+title_vertical_offset_inactive=1
+
+frame_border_top=8

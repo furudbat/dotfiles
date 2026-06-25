@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Matugen (Chicago 95 Variant)
+Type=X-GNOME-Metatheme
+Comment=A theme with Windows from 1995.
+
+[X-GNOME-Metatheme]
+GtkTheme=Matugen (Chicago 95 Variant)
+MetacityTheme=Matugen (Chicago 95 Variant)
+IconTheme=Matugen (Chicago 95 Variant)
+CursorTheme=Matugen (Chicago 95 Variant)
+CursorSize=32
+
