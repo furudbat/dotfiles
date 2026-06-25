@@ -13,7 +13,7 @@ output_path = '~/.config/ml4w/colors/colors.json'
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors-matugen.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
+post_hook = 'command -v pkill >/dev/null && pkill -SIGUSR1 kitty || true'
 
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
@@ -22,12 +22,12 @@ output_path = '~/.config/btop/themes/matugen.theme'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+post_hook = 'command -v hyprctl >/dev/null && hyprctl reload || true'
 
 [templates.hyprland-lua]
 input_path = '~/.config/matugen/templates/hyprland-colors.lua'
 output_path = '~/.config/hypr/colors.lua'
-post_hook = 'hyprctl reload'
+post_hook = 'command -v hyprctl >/dev/null && hyprctl reload || true'
 
 [templates.hyprlock]
 input_path = '~/.config/matugen/templates/hyprlock-colors.conf'
@@ -36,7 +36,7 @@ output_path = '~/.config/hypr/hyprlock/colors.conf'
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
+post_hook = 'command -v pkill >/dev/null && pkill -SIGUSR2 waybar || true'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
@@ -65,7 +65,7 @@ post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
-post_hook = 'pywalfox update'
+post_hook = 'command -v pywalfox >/dev/null && pywalfox update >/dev/null 2>&1 || true'
 
 [templates.swaync]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -100,22 +100,22 @@ input_path = '~/.config/matugen/templates/onprimary'
 output_path = '~/.config/ml4w/colors/onprimary'
 
 [templates.ml4w_dotfiles_settings]
-input_path  = "./templates/colors.json"
+input_path  = "~/.config/matugen/templates/colors.json"
 output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
 
 [templates.quickshell_overview]
-input_path  = "./templates/quickshell-overview.qml"
+input_path  = "~/.config/matugen/templates/quickshell-overview.qml"
 output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
 
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
-jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/blueish.omp.json > "${XDG_RUNTIME_DIR:-/tmp}/new_theme.json" && mv "${XDG_RUNTIME_DIR:-/tmp}/new_theme.json" ~/.config/ohmyposh/blueish.omp.json
-         
+post_hook = '~/.config/matugen/scripts/update-ohmyposh.fish'
+
 [templates.ghostty]
 input_path = '~/.config/matugen/templates/ghostty'
 output_path = '~/.config/ghostty/themes/matugen'
-post_hook = 'pkill -SIGUSR1 ghostty'
+#post_hook = 'command -v pkill >/dev/null && pkill -SIGUSR1 ghostty || true'
 
 
 [templates.micro]
@@ -129,44 +129,44 @@ output_path = '~/.config/alacritty/colors.toml'
 [templates.dunst]
 input_path = '~/.config/matugen/templates/dunstrc-colors'
 output_path = '~/.config/dunst/dunstrc'
-post_hook = 'dunstctl reload'
+post_hook = 'command -v dunstctl >/dev/null && dunstctl reload >/dev/null 2>&1 || true'
 
 [templates.mako]
 input_path = '~/.config/matugen/templates/mako'
 output_path = '~/.config/mako/mako-colors'
-post_hook = 'makoctl reload'
+post_hook = 'command -v makoctl >/dev/null && makoctl reload >/dev/null 2>&1 || true'
 
 [templates.obsidian]
 input_path = '~/.config/matugen/templates/obsidian-theme.css'
 output_path = '~/.config/obsidian/theme.css'
 
 #[templates.fish]
-#input_path = './templates/fish-colors.theme'
+#input_path = '~/.config/matugen/templates/fish-colors.theme'
 #output_path = '~/.config/fish/themes/Matugen.theme'
 
 [templates.fish]
-input_path = './templates/colors.fish'
+input_path = '~/.config/matugen/templates/colors.fish'
 output_path = '~/.config/fish/conf.d/magugen_colors.fish'
 
 [templates.neovim]
-input_path = './templates/neovim/template.lua'
+input_path = '~/.config/matugen/templates/neovim/template.lua'
 output_path = '~/.config/nvim/generated.lua'
-post_hook = 'pkill -SIGUSR1 nvim'
+post_hook = 'command -v pkill >/dev/null && pkill -SIGUSR1 nvim || true'
 
 [templates.qt5ct]
-input_path = './templates/qtct-colors.conf'
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
 
 [templates.qt6ct]
-input_path = './templates/qtct-colors.conf'
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
 
 [templates.kvantum_kvconfig]
-input_path = './templates/kvantum-colors.kvconfig'
+input_path = '~/.config/matugen/templates/kvantum-colors.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
 [templates.kvantum_svg]
-input_path = './templates/kvantum-colors.svg'
+input_path = '~/.config/matugen/templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
 
 [templates.kde_colors]
@@ -178,17 +178,21 @@ output_path = '~/.config/quickshell/color.txt'
 # feel free to modify the `output_path` to your client's path.
 
 [templates.vesktop] # vesktop client
-input_path = './templates/midnight-discord.css'
+input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.var/app/dev.vencord.Vesktop/config/vesktop/settings/quickCss.css' # for flatpak installation
 
 [templates.legcord] # legcord (old armcord) client
-input_path = './templates/midnight-discord.css'
+input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.var/app/xyz.armcord.ArmCord/config/armcord/quickCss.css' # for flatpak installation
 
 [templates.material-discord]
-input_path = './templates/Material-Discord.theme.css'
+input_path = '~/.config/matugen/templates/Material-Discord.theme.css'
 output_path = '~/.config/BetterDiscord/themes/Material-Discord.theme.css'
 
 [templates.sddm]
 input_path = '~/.config/matugen/templates/sddm.conf'
 output_path = '~/.cache/ml4w/hyprland-dotfiles/sddm.conf'
+
+[templates.Chicago95]
+input_path = '~/.config/matugen/templates/Matugen-Chicago95.theme'
+output_path = '~/.config/Chicago95/themes/Matugen.theme'
