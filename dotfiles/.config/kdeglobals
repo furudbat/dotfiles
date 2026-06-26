@@ -92,7 +92,7 @@ ForegroundVisited=179,13,191
 
 [General]
 ColorScheme=SweetAmbarBlue
-ColorSchemeHash=9d38eb71ded8ff549da26d57d7cbab9164da243a
+ColorSchemeHash=f6df0e9f12a4783afd65d81532865d4d86848c5e
 LastUsedCustomAccentColor=184,117,220
 TerminalApplication=/usr/bin/ghostty --gtk-single-instance=true
 TerminalService=com.mitchellh.ghostty.desktop
@@ -110,7 +110,7 @@ Theme=BesotHaiku
 
 [KDE]
 AnimationDurationFactor=0.75
-LookAndFeelPackage=ReactionaryMEDark
+LookAndFeelPackage=90s Tamer
 contrast=4
 frameContrast=0.2
 
