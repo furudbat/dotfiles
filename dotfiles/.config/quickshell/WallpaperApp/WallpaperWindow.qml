@@ -328,7 +328,22 @@ PanelWindow {
             radius: 8
             opacity: 0.95
             clip: true
-        
+
+            // Gradient border (outer)
+            gradient: Gradient {
+                orientation: Gradient.Vertical
+                GradientStop { position: 0.0; color: Theme.primary }
+                GradientStop { position: 1.0; color: Theme.on_primary }
+            }
+
+            // Background fill (inner), inset by the border thickness
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 2
+                radius: parent.radius - anchors.margins
+                color: Theme.background
+            }
+
         ColumnLayout {
             anchors.fill: parent
             anchors.margins: 15

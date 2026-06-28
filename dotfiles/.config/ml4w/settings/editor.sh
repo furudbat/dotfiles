@@ -1,1 +1,1 @@
-flatpak run org.gnome.TextEditor
+flatpak run org.gnome.TextEditor "$@"

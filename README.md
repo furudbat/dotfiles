@@ -2,6 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
+<<<<<<< HEAD
 PLEASE NOTE: The ML4W OS 2.13.0 has been updated to the new Hyprland lua configuration. Issues and bugs can occur. 
 
 Known Issues: 
@@ -10,6 +11,9 @@ Known Issues:
 ![screenshot 5](assets/screenshot5.jpg)
 
 ![screenshot 6](assets/screenshot6.jpg)
+=======
+<img width="2560" height="1440" alt="image" src="https://ml4w.com/os/screen-2140.jpg" />
+>>>>>>> 2900e703a48d40df71eeaf870c1980cda3dfc406
 
 ## Installation and Documentation
 
@@ -30,11 +34,9 @@ Arch, Fedora and openSuse Tumblweed are directly supported.
 
 ### Test and install with the ML4W OS Live ISO
 
-> Currently only available with ML4W OS 2.12.2. Will be updated very soon to 2.13.0
-
 Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
 
-<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.12.0-x86_64.iso">Download the ML4W ISO</a>
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.14.0-x86_64.iso">Download the ML4W ISO</a>
 
 You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
 
@@ -59,6 +61,7 @@ The following projects have inspired me:
 - https://github.com/dianaw353/hyprland-configuration-rootfs
 - https://github.com/basecamp/omarchy
 - https://github.com/end-4/dots-hyprland
+- https://www.youtube.com/@saneAspect
 
 and many more...
 
