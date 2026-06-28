@@ -7,91 +7,96 @@ ContrastAmount=0.65
 ContrastEffect=1
 Enable=
 IntensityAmount=0.1
-IntensityEffect=2
+IntensityEffect=0
 
 [ColorEffects:Inactive]
-ChangeSelectionColor=true
+ChangeSelectionColor=false
 Color=112,111,110
-ColorAmount=0.025000000000000001
-ColorEffect=2
-ContrastAmount=0.10000000000000001
-ContrastEffect=2
-Enable=false
+ColorAmount=-0.9500000000000001
+ColorEffect=0
+ContrastAmount=0.1
+ContrastEffect=0
+Enable=true
 IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=64,69,82
-BackgroundNormal=49,54,61
-DecorationFocus=0,114,255
-DecorationHover=0,114,255
+BackgroundAlternate=17,18,22
+BackgroundNormal=22,24,29
+DecorationFocus=60,120,255
+DecorationHover=16,166,212
 ForegroundActive=61,174,233
-ForegroundInactive=102,106,115
+ForegroundInactive=242,243,243
 ForegroundLink=41,128,185
-ForegroundNegative=237,37,78
-ForegroundNeutral=255,106,0
-ForegroundNormal=195,199,209
-ForegroundPositive=113,247,159
-ForegroundVisited=82,148,226
+ForegroundNegative=67,205,189
+ForegroundNeutral=95,125,205
+ForegroundNormal=254,254,254
+ForegroundPositive=156,83,198
+ForegroundVisited=127,140,141
+
+[Colors:Complementary]
+BackgroundAlternate=17,18,22
+BackgroundNormal=17,18,22
+DecorationFocus=55,67,80
 
 [Colors:Selection]
-BackgroundAlternate=29,153,243
-BackgroundNormal=0,114,255
-DecorationFocus=0,114,255
-DecorationHover=0,114,255
+BackgroundAlternate=60,120,255
+BackgroundNormal=60,120,255
+DecorationFocus=60,120,255
+DecorationHover=16,166,212
 ForegroundActive=252,252,252
-ForegroundInactive=211,218,227
+ForegroundInactive=252,253,253
 ForegroundLink=253,188,75
-ForegroundNegative=237,37,78
-ForegroundNeutral=255,106,0
+ForegroundNegative=67,205,189
+ForegroundNeutral=95,125,205
 ForegroundNormal=254,254,254
-ForegroundPositive=113,247,159
+ForegroundPositive=156,83,198
 ForegroundVisited=189,195,199
 
 [Colors:Tooltip]
-BackgroundAlternate=47,52,63
-BackgroundNormal=53,57,69
-DecorationFocus=0,114,255
-DecorationHover=0,114,255
+BackgroundAlternate=17,18,22
+BackgroundNormal=17,18,22
+DecorationFocus=60,120,255
+DecorationHover=16,166,212
 ForegroundActive=61,174,233
-ForegroundInactive=102,106,115
+ForegroundInactive=242,243,243
 ForegroundLink=41,128,185
-ForegroundNegative=237,37,78
-ForegroundNeutral=255,106,0
-ForegroundNormal=211,218,227
-ForegroundPositive=113,247,159
-ForegroundVisited=82,148,226
+ForegroundNegative=67,205,189
+ForegroundNeutral=95,125,205
+ForegroundNormal=252,253,253
+ForegroundPositive=156,83,198
+ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=31,35,51
-BackgroundNormal=16,16,19
-DecorationFocus=0,114,255
-DecorationHover=0,114,255
-ForegroundActive=0,193,228
-ForegroundInactive=102,106,115
-ForegroundLink=82,148,226
-ForegroundNegative=237,37,78
-ForegroundNeutral=255,106,0
-ForegroundNormal=211,218,227
-ForegroundPositive=113,247,159
-ForegroundVisited=124,183,255
+BackgroundAlternate=17,18,22
+BackgroundNormal=17,18,22
+DecorationFocus=60,120,255
+DecorationHover=16,166,212
+ForegroundActive=61,174,233
+ForegroundInactive=242,243,243
+ForegroundLink=31,140,236
+ForegroundNegative=67,205,189
+ForegroundNeutral=95,125,205
+ForegroundNormal=254,254,254
+ForegroundPositive=156,83,198
+ForegroundVisited=127,140,141
 
 [Colors:Window]
-BackgroundAlternate=47,52,63
-BackgroundNormal=28,28,33
-DecorationFocus=0,114,255
-DecorationHover=0,114,255
+BackgroundAlternate=17,18,22
+BackgroundNormal=17,18,22
+DecorationFocus=60,120,255
+DecorationHover=16,166,212
 ForegroundActive=61,174,233
-ForegroundInactive=102,106,115
+ForegroundInactive=242,243,243
 ForegroundLink=41,128,185
-ForegroundNegative=237,37,78
-ForegroundNeutral=255,106,0
-ForegroundNormal=211,218,227
-ForegroundPositive=113,247,159
-ForegroundVisited=179,13,191
+ForegroundNegative=67,205,189
+ForegroundNeutral=95,125,205
+ForegroundNormal=252,253,253
+ForegroundPositive=156,83,198
+ForegroundVisited=127,140,141
 
 [General]
-ColorScheme=SweetAmbarBlue
+ColorScheme=Carl
 ColorSchemeHash=f6df0e9f12a4783afd65d81532865d4d86848c5e
 LastUsedCustomAccentColor=184,117,220
 TerminalApplication=/usr/bin/ghostty --gtk-single-instance=true
@@ -106,11 +111,11 @@ smallestReadableFont=Noto Sans ,9,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 toolBarFont=Noto Sans ,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 
 [Icons]
-Theme=BesotHaiku
+Theme=BesotHaiku-2
 
 [KDE]
 AnimationDurationFactor=0.75
-LookAndFeelPackage=90s Tamer
+LookAndFeelPackage=ReactionaryMEDark
 contrast=4
 frameContrast=0.2
 
@@ -132,16 +137,16 @@ Speedbar Width=168
 View Style=Simple
 
 [Shortcuts]
-FullScreen=Meta+F
+FullScreen=
 
 [Sounds]
 Theme=Windows-Sounds-for-Plasma
 
 [WM]
-activeBackground=47,52,63
-activeBlend=47,52,63
+activeBackground=17,18,22
+activeBlend=17,18,22
 activeFont=Noto Sans ,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
-activeForeground=211,218,227
-inactiveBackground=47,52,63
-inactiveBlend=47,52,63
-inactiveForeground=102,106,115
+activeForeground=237,240,242
+inactiveBackground=17,18,22
+inactiveBlend=17,18,22
+inactiveForeground=181,182,182
