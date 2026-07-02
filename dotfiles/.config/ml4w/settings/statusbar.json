@@ -2,7 +2,8 @@
     "bar": {
         "height": 40,
         "reservedHeight": 72,
-        "enabled": false
+        "enabled": false,
+        "alwaysExpanded": false
     },
     "pill": {
         "collapsedWidth": 0,
@@ -11,9 +12,9 @@
         "animationDuration": 350
     },
     "modules": {
-        "left":   ["terminal", "workspaces"],
+        "left":   ["workspaces", "terminal"],
         "center": ["launcher", "clock", "swaync"],
-        "right":  ["updates", "systemtray", "logo", "power"]
+        "right":  ["updates", "volume", "systemtray", "logo", "power"]
     },
     "border": {
         "width": 2,
@@ -21,7 +22,7 @@
         "colorBottom": ""
     },
     "opacity": {
-        "collapsed": 0.5,
+        "collapsed": 0.6,
         "expanded": 0.8
     },
     "clock": {
