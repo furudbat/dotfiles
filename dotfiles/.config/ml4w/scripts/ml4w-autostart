@@ -21,6 +21,17 @@ error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 # Ensure that cache folder exists
 mkdir -p $HOME/.cache
 
+# Set Wallpaper
+mkdir -p $CACHE_FOLDER
+if [ ! -f $CACHE_FILE ]; then
+    touch $CACHE_FILE
+    echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
+    info "Cache file created"
+fi
+
+# Start nmapplet
+nm-applet --indicator &
+
 # Kill any existing qs instances
 killall qs 2>/dev/null || true
 
