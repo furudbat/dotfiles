@@ -124,7 +124,7 @@ Automatically select filename extension=true
 Breadcrumb Navigation=true
 Decoration position=2
 Show Full Path=false
-Show Inline Previews=true
+Show Inline Previews=false
 Show Preview=false
 Show Speedbar=true
 Show hidden files=true
@@ -133,7 +133,7 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=168
-View Style=Simple
+View Style=DetailTree
 
 [Shortcuts]
 FullScreen=

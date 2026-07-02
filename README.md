@@ -98,3 +98,11 @@ stow -d ./ -t ~/ dotfiles
 - https://x.com/bixclowart/status/1891526837957709948
 - https://x.com/Akamine_Naoki/status/1800832906853752899
 - https://www.pixiv.net/en/users/33749051
+
+
+### KDE Theming
+
+- [Reactionary Plus](https://store.kde.org/p/2138468)
+- [Reactionary ME Dark](https://store.kde.org/p/2331485)
+- [Besot Haiku Icons](https://store.kde.org/p/2158619)
+- [Chicago95](https://github.com/grassmunk/Chicago95)
