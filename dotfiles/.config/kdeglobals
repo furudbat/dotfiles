@@ -96,8 +96,7 @@ ForegroundPositive=156,83,198
 ForegroundVisited=127,140,141
 
 [General]
-ColorScheme=Carl
-ColorSchemeHash=f6df0e9f12a4783afd65d81532865d4d86848c5e
+ColorSchemeHash=43c05a93da8f1967d2659e3c00d09a3a4787cafd
 LastUsedCustomAccentColor=184,117,220
 TerminalApplication=/usr/bin/ghostty --gtk-single-instance=true
 TerminalService=com.mitchellh.ghostty.desktop
@@ -111,7 +110,7 @@ smallestReadableFont=Noto Sans ,9,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 toolBarFont=Noto Sans ,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 
 [Icons]
-Theme=BesotHaiku-2
+Theme=BesotHaiku
 
 [KDE]
 AnimationDurationFactor=0.75

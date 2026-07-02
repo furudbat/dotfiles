@@ -1,5 +1,7 @@
+MenuBar=Disabled
+
 [DetailsMode]
-PreviewSize=32
+PreviewSize=64
 
 [FoldersPanel]
 HiddenFilesShown=true
@@ -18,7 +20,7 @@ Places Icons Static Size=22
 MenuBar=Disabled
 
 [PreviewSettings]
-Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,avif,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,heif,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,librsvg,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer,gsf-office
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,windowsexethumbnail,imagethumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,jpegthumbnail,kraorathumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,directorythumbnail,gsthumbnail,rawthumbnail,fontthumbnail,svgthumbnail,ffmpegthumbs,gsf-office
 
 [UiSettings]
 ColorScheme=Win98Dark
