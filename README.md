@@ -2,18 +2,9 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
-<<<<<<< HEAD
-PLEASE NOTE: The ML4W OS 2.13.0 has been updated to the new Hyprland lua configuration. Issues and bugs can occur. 
-
-Known Issues: 
-- Click on numbers on waybar will not change the workspace. Waybar update is needed (already announced). Please use the key binding SUPER+x instead.
-
 ![screenshot 5](assets/screenshot5.jpg)
 
 ![screenshot 6](assets/screenshot6.jpg)
-=======
-<img width="2560" height="1440" alt="image" src="https://ml4w.com/os/screen-2140.jpg" />
->>>>>>> 2900e703a48d40df71eeaf870c1980cda3dfc406
 
 ## Installation and Documentation
 
