@@ -27,9 +27,9 @@ PanelWindow {
         bottom: true
     }
 
-    margins { 
-        top: 67     // 87 - 20
-        bottom: 0   // 20 - 20
+    margins {
+        top: 52
+        bottom: 0
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---

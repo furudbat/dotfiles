@@ -49,10 +49,11 @@ PanelWindow {
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
         "modules":{ "left": ["terminal", "workspaces"],
                     "center": ["launcher", "clock", "swaync"],
-                    "right": ["updates", "volume", "systemtray", "logo", "power"] },
+                    "right": ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
-        "clock":  { "format": "HH:mm" }
+        "clock":  { "format": "HH:mm" },
+        "workspaces": { "count": 5 }
     })
 
     property var settings: defaultSettings
@@ -208,7 +209,12 @@ PanelWindow {
     // Each module name in the settings file maps to the component placed into
     // the left/center/right groups. Unknown names load nothing.
     Component { id: cTerminal;   TerminalModule {} }
-    Component { id: cWorkspaces; WorkspacesModule {} }
+    Component {
+        id: cWorkspaces
+        WorkspacesModule {
+            minWorkspaces: root.settings.workspaces.count
+        }
+    }
     Component { id: cLauncher;   LauncherModule {} }
     Component {
         id: cClock
@@ -248,6 +254,15 @@ PanelWindow {
             onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
         }
     }
+    Component {
+        id: cBattery
+        BatteryModule {
+            // Rebuild the keyboard navigation list when the module hides or
+            // reappears (it only shows while running on battery power).
+            onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
+        }
+    }
+    Component { id: cPowerProfile; PowerProfileModule {} }
 
     readonly property var moduleComponents: ({
         "terminal":   cTerminal,
@@ -258,8 +273,10 @@ PanelWindow {
         "systemtray": cSystemTray,
         "logo":       cLogo,
         "power":      cPower,
-        "updates":    cUpdates,
-        "volume":     cVolume
+        "updates":      cUpdates,
+        "volume":       cVolume,
+        "battery":      cBattery,
+        "powerprofile": cPowerProfile
     })
 
     // --- KEYBOARD NAVIGATION ---
