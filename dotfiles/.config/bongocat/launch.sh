@@ -21,7 +21,7 @@ if [ ! -f $HOME/.config/ml4w/settings/waybar-disabled ]; then
     wpets-all --watch-config --config ~/.config/bongocat/screen3.bongocat.conf --strict --nr 4                      2>&1 > ~/.cache/bongocat/4.screen3.log &
     wpets-pkmn --watch-config --config ~/.config/bongocat/screen4.bongocat.conf --strict --nr 5                     2>&1 > ~/.cache/bongocat/5.screen4.log &
     sleep 3 && wpets-all --watch-config --config ~/.config/bongocat/cpu.screen4.bongocat.conf --strict --nr 6       2>&1 > ~/.cache/bongocat/6.cpu.screen4.log &
-    #sleep 4 && wpets-pkmn --watch-config --config ~/.config/bongocat/bottom.screen4.bongocat.conf --strict --nr 7    2>&1 > ~/.cache/bongocat/5.screen4.log &
+    sleep 4 && wpets-pkmn --watch-config --config ~/.config/bongocat/bottom.screen4.bongocat.conf --strict --nr 7   2>&1 > ~/.cache/bongocat/5.screen4.log &
 else
     echo ":: Waybar disabled"
 fi
