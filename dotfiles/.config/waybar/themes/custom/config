@@ -27,20 +27,21 @@
 		],
 		// Modules Center
 		"modules-center": [
+			"custom/empty",
 			"hyprland/window",
 			"custom/empty"
 		],
 		// Modules Right    
 		"modules-right": [
 			//"group/hardware",
-			"custom/powerled-2",
-			"custom/hddled-2",
+			//"custom/powerled-2",
+			//"custom/hddled-2",
 			"custom/updates",
 			"custom/brightness-hdmi1",
 			"custom/audio",
 			//"backlight",
 			//"bluetooth",
-			"network",
+			//"network",
 			//"battery",
 			"power-profiles-daemon",
 			//"group/tools",
@@ -81,6 +82,7 @@
 		],
 		// Modules Center
 		"modules-center": [
+			"custom/empty",
 			"hyprland/window",
 			"custom/empty"
 		],
@@ -93,13 +95,13 @@
 			"custom/audio",
 			//"backlight",
 			//"bluetooth",
-			"network",
+			//"network",
 			//"battery",
-			"power-profiles-daemon",
-			"custom/space",
-			"group/hardware#extended",
+			"group/hardware#extended-2",
 			//"group/tools",
 			//"tray",
+			"custom/space",
+			"power-profiles-daemon",
 			"custom/notification",
 			"custom/ml4w-welcome",
 			"clock#with-tooltip",
@@ -134,6 +136,7 @@
 		],
 		// Modules Center
 		"modules-center": [
+			"custom/empty",
 			"hyprland/window",
 			"custom/empty"
 		],
@@ -185,6 +188,7 @@
 		],
 		// Modules Center
 		"modules-center": [
+			"custom/empty",
 			"hyprland/window",
 			"custom/empty"
 		],

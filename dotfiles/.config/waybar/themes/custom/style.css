@@ -424,8 +424,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #hardware {
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 #disk,#memory,#cpu,#language {
@@ -433,14 +433,15 @@ window#waybar.empty #window {
     padding: 0px;
     font-size:14px;
     color: @on_background;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 #disk span,
 #memory span,
 #cpu span,
 #language span {
-    margin: 2px 0px;
-    padding: 2px;
+    min-width: 90px;
+    font-family: monospace;
+    padding: 0 6px;
 }
 #cpu span {
     min-width: 40px;
@@ -448,9 +449,27 @@ window#waybar.empty #window {
 #cpu {
     min-width: 130px;
 }
+/*
 #cpu span.cpu-usage {
     min-width: 40px;
 }
+*/
+#cpu,
+#cpu.bars {
+    margin: 4px 8px 4px 0;
+    padding: 0 6px;
+    color: @on_background;
+    font-family: monospace;
+}
+#cpu,
+#cpu.bars {
+    font-size: 22px;
+    font-family: monospace;
+}
+#cpu.bars {
+    font-size: 14px;
+}
+
 #power-profiles-daemon {
     min-width: 20px;
 }

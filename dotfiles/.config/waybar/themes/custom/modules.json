@@ -159,7 +159,7 @@
 	},
 	"cpu#bars": {
 		"interval": 5,
-		"format": "  {icon0} {icon1} {icon2} {icon3} <span>{usage}</span>%",
+		"format": "  {icon0} {icon1} {icon2} {icon3} {usage}%",
 		"format-icons": [
 			"▁",
 			"▂",
@@ -248,6 +248,13 @@
 		"modules": [
 			"cpu#bars",
 			"memory#usage"
+		]
+	},
+	"group/hardware#extended-2": {
+		"orientation": "horizontal",
+		"modules": [
+			"memory#usage",
+			"cpu#bars"
 		]
 	},
 	"keyboard-state#numlock": {
@@ -364,5 +371,26 @@
 		"exec": "~/.config/hypr/scripts/get-brightness.sh DP-3",
 		"return-type": "json",
 		"interval": 10
+	},
+	// SwayNC
+	"custom/notification": {
+		"tooltip-format": "Left: Notifications\nRight: Do not disturb",
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "",
+			"none": "",
+			"dnd-notification": "",
+			"dnd-none": "",
+			"inhibited-notification": "",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
 	}
 }
