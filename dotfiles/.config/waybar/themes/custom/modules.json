@@ -392,5 +392,12 @@
 		"on-click": "swaync-client -t -sw",
 		"on-click-right": "swaync-client -d -sw",
 		"escape": true
+	},
+	"custom/cava": {
+		"exec": "~/.config/waybar/themes/custom/scripts/cava.sh",
+		"return-type": "json",
+		"restart-interval": 0,
+		"format": "{}",
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
 	}
 }

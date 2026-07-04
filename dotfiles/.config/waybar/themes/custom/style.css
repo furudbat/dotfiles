@@ -361,6 +361,13 @@ window#waybar.empty #window {
  * Custom Modules
  * ----------------------------------------------------- */
 
+#custom-cava {
+    margin: 0px 20px 0px 0px;
+    font-size: 20px;
+    color: @inverse_primary;
+    padding: 0;
+}
+
 #custom-appmenuicon {
     font-size: 18px;
     color: @on_surface;

@@ -23,7 +23,7 @@
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
-			"custom/empty"
+			"custom/space"
 		],
 		// Modules Center
 		"modules-center": [
@@ -48,7 +48,9 @@
 			"tray",
 			"custom/hypridle",
 			"custom/notification",
-			"custom/ml4w-welcome",
+			"custom/cava",
+			"custom/space",
+			//"custom/ml4w-welcome",
 			"clock#with-tooltip",
 			"custom/exit",
 			"custom/right-border"
@@ -78,7 +80,7 @@
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
-			"custom/empty"
+			"custom/space"
 		],
 		// Modules Center
 		"modules-center": [
@@ -132,7 +134,7 @@
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
-			"custom/empty"
+			"custom/space"
 		],
 		// Modules Center
 		"modules-center": [
@@ -184,7 +186,7 @@
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
-			"custom/empty"
+			"custom/space"
 		],
 		// Modules Center
 		"modules-center": [
