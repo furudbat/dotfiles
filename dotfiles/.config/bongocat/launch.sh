@@ -10,22 +10,22 @@ killall wpets-dm || true
 pkill wpets-dm || true
 killall wpets-pkmn || true
 pkill wpets-pkmn || true
-sleep 2
+sleep 5
 
 # Check if waybar-disabled file exists
 if [ ! -f $HOME/.config/ml4w/settings/waybar-disabled ]; then
     # NOTE: add more wpets here
     wpets-dm --watch-config --config ~/.config/bongocat/screen1.bongocat.conf --strict --nr 1                       2>&1 > ~/.cache/bongocat/1.screen1.log &
-    sleep 1 && wpets-all --watch-config --config ~/.config/bongocat/audio.screen1.bongocat.conf --strict --nr 2     2>&1 > ~/.cache/bongocat/2.audio.screen1.log &
+    sleep 2 && wpets-all --watch-config --config ~/.config/bongocat/audio.screen1.bongocat.conf --strict --nr 2     2>&1 > ~/.cache/bongocat/2.audio.screen1.log &
 
     wpets-all --watch-config --config ~/.config/bongocat/screen2.bongocat.conf --strict --nr 3                      2>&1 > ~/.cache/bongocat/3.screen2.log &
-    sleep 2 && wpets-pkmn --watch-config --config ~/.config/bongocat/cpu.screen2.bongocat.conf --strict --nr 4      2>&1 > ~/.cache/bongocat/4.cpu.screen2.log &
+    sleep 3 && wpets-pkmn --watch-config --config ~/.config/bongocat/cpu.screen2.bongocat.conf --strict --nr 4      2>&1 > ~/.cache/bongocat/4.cpu.screen2.log &
 
     wpets-all --watch-config --config ~/.config/bongocat/screen3.bongocat.conf --strict --nr 5                      2>&1 > ~/.cache/bongocat/5.screen3.log &
 
     wpets-pkmn --watch-config --config ~/.config/bongocat/screen4.bongocat.conf --strict --nr 6                     2>&1 > ~/.cache/bongocat/6.screen4.log &
-    sleep 3 && wpets-all --watch-config --config ~/.config/bongocat/cpu.screen4.bongocat.conf --strict --nr 7       2>&1 > ~/.cache/bongocat/7.cpu.screen4.log &
-    sleep 4 && wpets-pkmn --watch-config --config ~/.config/bongocat/bottom.screen4.bongocat.conf --strict --nr 8   2>&1 > ~/.cache/bongocat/8.SOMA is goartescreen4.log &
+    sleep 4 && wpets-all --watch-config --config ~/.config/bongocat/cpu.screen4.bongocat.conf --strict --nr 7       2>&1 > ~/.cache/bongocat/7.cpu.screen4.log &
+    sleep 5 && wpets-pkmn --watch-config --config ~/.config/bongocat/bottom.screen4.bongocat.conf --strict --nr 8   2>&1 > ~/.cache/bongocat/8.SOMA is goartescreen4.log &
 else
     echo ":: Waybar disabled"
 fi
