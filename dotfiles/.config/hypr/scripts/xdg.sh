@@ -46,6 +46,12 @@ if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
     sleep $_sleep1
 fi
 
+# Start xdg-desktop-portal-kde
+if [ -f /usr/lib/xdg-desktop-portal-kde ]; then
+    /usr/lib/xdg-desktop-portal-kde &
+    sleep $_sleep2
+fi
+
 # Start xdg-desktop-portal
 /usr/lib/xdg-desktop-portal &
 sleep $_sleep2
@@ -55,6 +61,9 @@ systemctl --user start pipewire
 systemctl --user start wireplumber
 systemctl --user start xdg-desktop-portal
 systemctl --user start xdg-desktop-portal-hyprland
+
+export XDG_MENU_PREFIX=plasma-
+kbuildsycoca6 --noincremental
 
 # Run waybar
 sleep $_sleep3
