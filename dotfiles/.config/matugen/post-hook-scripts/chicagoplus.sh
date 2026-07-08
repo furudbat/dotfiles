@@ -3,7 +3,7 @@
 set -e
 
 # dont forget to set CHICAGO_PLUS_DIR in .bashrc_custom
-CHICAGO_PLUS_DIR="${CHICAGO_PLUS_DIR:-~/Projects/Chicago95/Plus}"
+CHICAGO_PLUS_DIR="${CHICAGO_PLUS_DIR:-${XDG_PROJECTS_DIR:-$HOME}/Chicago95/Plus}"
 THEME="$HOME/.config/Chicago95/themes/Matugen.theme"
 
 # Do nothing if ChicagoPlus is missing

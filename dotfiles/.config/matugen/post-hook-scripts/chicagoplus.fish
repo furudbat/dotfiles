@@ -1,8 +1,12 @@
 #!/usr/bin/env fish
 
 # dont forget to set CHICAGO_PLUS_DIR in config.fish
-set -q CHICAGO_PLUS_DIR; or set CHICAGO_PLUS_DIR "$HOME/Chicago95/Plus"
+if not set -q CHICAGO_PLUS_DIR
+    set -q XDG_PROJECTS_DIR
+    or set XDG_PROJECTS_DIR "$HOME/Projects"
 
+    set CHICAGO_PLUS_DIR "$XDG_PROJECTS_DIR/Chicago95/Plus"
+end
 set THEME "$HOME/.config/Chicago95/themes/Matugen.theme"
 
 # optional: silently skip

@@ -12,7 +12,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,filebrowser,window,run";
-    font:                       "Fira Sans 11";
+    font:                       "Noto Sans 11";
     show-icons:                 true;
     display-drun:                " ";
     display-run:                 " ";
@@ -68,14 +68,14 @@ mainbox {
     padding:                     0em;
     orientation:                 horizontal;
     children:                    [ "imagebox" , "listbox" ];
-    background-color:            @background;
+    background-color:            @surface;
     /*background-color:            transparent;*/
     /*background-image:            @current-image;*/
 }
 
 imagebox {
     padding:                     20px;
-    background-color:            @on-secondary;
+    background-color:            @secondary;
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
     border-radius:               0;
@@ -101,18 +101,20 @@ mode-switcher {
 
 button {
     padding:                     15px;
-    border-radius:               2px;
+    border-radius:               1px;
     border:                      0;    
     cursor:                      pointer;
-    background-color:            @background;
-    text-color:                  @on-surface;
+    background-color:            @tertiary-fixed-variant;
+    text-color:                  @on-tertiary-fixed;
 }
 
 button selected {
     padding:                     15px;
-    border-radius:               2px;    
-    background-color:            @surface;
-    text-color:                  @on-surface;
+    border-radius:               1px;    
+    background-color:            @tertiary;
+    text-color:                  @on-tertiary;
+    border:                      @border-width;
+    border-color:                @active-border;
 }
 
 // Inputs //
@@ -120,8 +122,8 @@ inputbar {
     enabled:                     true;
     margin: 1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    border-radius:               2px;
-    background-color:            @surface;
+    border-radius:               1px;
+    background-color:            @surface-bright;
 }
 
 textbox-prompt-colon {
@@ -129,7 +131,7 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "  ";
     padding:                     1em 0.3em 0 0;
-    text-color:                  @on-surface;
+    text-color:                  @on-surface-variant;
     background-color:            transparent;
 }
 
@@ -150,8 +152,8 @@ listbox {
     spacing:                     0em;
     orientation:                 horizontal;
     children:                    [ "listview" ];
-    background-color:            @on-primary;
-    border-radius:               2px;
+    background-color:            @surface;
+    border-radius:               1px;
 }
 
 listview {
@@ -184,9 +186,9 @@ element {
 }
 
 element selected.normal {
-    background-color:            @surface;
-    text-color:                  @on-surface;
-    border-radius:               4px;
+    background-color:            @primary;
+    text-color:                  @on-primary;
+    border-radius:               2px;
 }
 
 element normal.normal {
@@ -247,8 +249,8 @@ element-text {
 
 // Error message //
 error-message {
-    text-color:                  @on-surface;
-    background-color:            @background;
+    text-color:                  @on-error;
+    background-color:            @error;
     text-transform:              capitalize;
     children:                    [ "textbox" ];
 }

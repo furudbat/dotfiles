@@ -1,52 +1,52 @@
 [Control Panel\Colors]
 
-ActiveTitle=152 204 249
-GradientActiveTitle=152 204 249
+ActiveTitle=42 99 139
+GradientActiveTitle=42 99 139
 
-InactiveTitle=28 32 36
-GradientInactiveTitle=39 42 46
+InactiveTitle=235 238 243
+GradientInactiveTitle=230 232 238
 
-Background=16 20 23
-AppWorkspace=16 20 23
+Background=247 249 255
+AppWorkspace=247 249 255
 
 ; Edit boxes, listviews, treeviews
-Window=28 32 36
-WindowText=224 227 232
+Window=235 238 243
+WindowText=24 28 32
 
-TitleText=0 51 80
-InactiveTitleText=194 199 206
+TitleText=255 255 255
+InactiveTitleText=66 71 77
 
-Menu=28 32 36
-MenuText=224 227 232
+Menu=235 238 243
+MenuText=24 28 32
 
 ; Many controls derive colors from ButtonFace
-ButtonFace=39 42 46
-ButtonText=224 227 232
+ButtonFace=230 232 238
+ButtonText=24 28 32
 
-Hilight=152 204 249
-HilightText=0 51 80
+Hilight=42 99 139
+HilightText=255 255 255
 
 ; Traditional Win32 bevel order
-ButtonHilight=54 58 62
-ButtonLight=39 42 46
-ButtonShadow=28 32 36
-ButtonDkShadow=16 20 23
+ButtonHilight=247 249 255
+ButtonLight=230 232 238
+ButtonShadow=235 238 243
+ButtonDkShadow=247 249 255
 
-WindowFrame=140 145 152
+WindowFrame=114 120 126
 
-Scrollbar=28 32 36
+Scrollbar=235 238 243
 
-GrayText=140 145 152
+GrayText=114 120 126
 
-InfoText=224 227 232
-InfoWindow=39 42 46
+InfoText=24 28 32
+InfoWindow=230 232 238
 
-MenuHilight=152 204 249
-MenuBar=28 32 36
+MenuHilight=42 99 139
+MenuBar=235 238 243
 
-ButtonAlternateFace=66 71 77
+ButtonAlternateFace=222 227 234
 
-HotTrackingColor=152 204 249
+HotTrackingColor=42 99 139
 
-ActiveBorder=152 204 249
-InactiveBorder=140 145 152
+ActiveBorder=42 99 139
+InactiveBorder=114 120 126

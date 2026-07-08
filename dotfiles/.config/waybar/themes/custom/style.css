@@ -9,14 +9,14 @@
  * -----------------------------------------------------
 */@import '../../../../.config/waybar/colors.css';
 @define-color backgroundlight @surface;
-@define-color backgrounddark @surface;
-@define-color workspacesbackground1 @surface;
+@define-color backgrounddark @background;
+@define-color workspacesbackground1 @background;
 @define-color workspacesbackground2 @secondary;
-@define-color bordercolor @on_surface;
-@define-color textcolor1 @on_surface;
-@define-color textcolor2 @surface;
-@define-color textcolor3 @on_surface;
-@define-color iconcolor @surface;
+@define-color bordercolor @primary;
+@define-color textcolor1 @on_background;
+@define-color textcolor2 @on_secondary;
+@define-color textcolor3 @on_primary;
+@define-color iconcolor @on_background;
 
 /* -----------------------------------------------------
  * General
@@ -94,7 +94,7 @@ button:hover {
     margin: 2px 1px 3px 1px;
     padding: 2px 4px;
     border: 0px;
-    color: @on_background;
+    color: @on_primary_fixed;
     min-width: 20px;
     box-shadow: none;
     text-shadow: none;
@@ -112,7 +112,7 @@ button:hover {
     background: none;
     border: none;
     padding: 2px 4px;
-    color: @source_color;
+    color: @primary;
     font-weight: bolder;
     min-width: 20px;
 }
@@ -126,7 +126,7 @@ button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
     background: none;
-    color: @tertiary_fixed;
+    color: @on_primary_fixed_variant;
     /*min-width: 22px;*/
 }
 
@@ -185,7 +185,7 @@ tooltip label {
 #window {
     margin: 0px 15px 0px 0px;
     border-radius: 8px;
-    color:@textcolor;
+    color: @on_background;
     font-size:14px;
     font-weight:normal;
 }
@@ -255,7 +255,7 @@ window#waybar.empty #window {
     margin-right: 16px;
     font-size: 14px;
     font-weight: bold;
-    color: @on_surface;
+    color: @on_background;
 }
 
 #custom-space {
@@ -282,7 +282,8 @@ window#waybar.empty #window {
 }
 
 #custom-hypridle.notactive {
-    color: #dc2f2f;
+    font-weight: bold;
+    color: #e90000;
 }
 
 #custom-settings {
@@ -335,7 +336,7 @@ window#waybar.empty #window {
     margin: 2px 15px 2px 0px;
     font-size:20px;
     font-family: "Material Icons";
-    color: @on_surface;
+    color: @on_background;
     opacity: 0.8;
 }
 
@@ -347,14 +348,14 @@ window#waybar.empty #window {
     margin-right: 15px;
     font-size: 16px;
     font-weight: bold;
-    color: @on_surface;
+    color: @on_background;
 }
 
 #idle_inhibitor.activated {
     margin-right: 15px;
     font-size: 14px;
     font-weight: bold;
-    color: #dc2f2f;
+    color: @error;
 }
 
 /* -----------------------------------------------------
@@ -370,13 +371,13 @@ window#waybar.empty #window {
 
 #custom-appmenuicon {
     font-size: 18px;
-    color: @on_surface;
+    color: @on_background;
     margin: 0px 20px 0px -5px;
     min-width: 15px;
 }
 #custom-appmenuicon:hover {
     font-size: 22px;
-    color: @on_surface_variant;
+    color: @inverse_surface;
     margin: 0px 20px 0px -5px;
     min-width: 15px;
 }
@@ -404,6 +405,7 @@ window#waybar.empty #window {
 }
 
 #custom-updates.green {
+    color: #30c146;
 }
 
 #custom-updates.yellow {
@@ -502,7 +504,7 @@ window#waybar.empty #window {
 
 #clock {
     font-size: 15px;
-    color: @textcolor;
+    color: @on_background;
     margin: 0px 15px 0px 0px;
     opacity: 0.95;
 }
@@ -513,7 +515,7 @@ window#waybar.empty #window {
 
 #backlight {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 0px 15px 0px 0px;
     background-color: @blur_background;
@@ -525,13 +527,13 @@ window#waybar.empty #window {
 
 #pulseaudio {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 0px 15px 0px 0px;
 }
 
 #pulseaudio.muted {
-    color: @textcolor;
+    color: @on_background;
 }
 
 /* -----------------------------------------------------
@@ -540,17 +542,17 @@ window#waybar.empty #window {
 
 #network {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 0px 15px 0px 0px;
 }
 
 #network.ethernet {
-    color: @textcolor;
+    color: @on_background;
 }
 
 #network.wifi {
-    color: @textcolor;
+    color: @on_background;
 }
 
 /* -----------------------------------------------------
@@ -559,7 +561,7 @@ window#waybar.empty #window {
  
 #bluetooth, #bluetooth.on, #bluetooth.connected {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 10px 15px 10px 0px;
 }
@@ -576,13 +578,13 @@ window#waybar.empty #window {
 
 #battery {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 10px 15px 10px 0px;
 }
 
 #battery.charging, #battery.plugged {
-    color: @textcolor;
+    color: @on_background;
 }
 
 @keyframes blink {
@@ -615,11 +617,11 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: @error;
 }
 
 #custom-ml4w-welcome {
-    background-image: url("../../assets/ml4w-icon-white.svg");
+    background-image: url("../../assets/ml4w-icon.svg");
 }
 
 
@@ -745,7 +747,7 @@ window#waybar.empty #window {
 #custom-brightness-dp2,
 #custom-brightness-dp3 {
     font-size: 14px;
-    color: @textcolor;
+    color: @on_background;
     border-radius: 12px;
     margin: 0px 15px 0px 0px;
 }

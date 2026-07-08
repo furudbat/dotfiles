@@ -30,10 +30,10 @@
 .control-center {
   background: @base;
   background-color: @surface;
-  border-radius: 4px;
+  border-radius: 1px;
   border: 2px solid @bordercolor;
   padding: 8px 8px 0 8px;
-  opacity: 0.95;
+  opacity: 1.0;
 }
 
 /* === Buttons grid === */
@@ -47,13 +47,13 @@
   padding: 1.3rem 4rem;
   background: @buttoncolor;
   color: @on_primary_fixed;
-  border-radius: 4px;
+  border-radius: 1px;
   border: 2px solid @bordercolor;
   font-size: 15em;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @hoverbutton;
+  background: @active_border;
   color: @text;
 }
 
@@ -61,13 +61,19 @@
   background: @activebutton;
   color: @on_primary;
 }
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
+  background: @inverse_on_surface;
+  color: @outline_variant;
+  border: 2px solid @outline;
+}
+
 
 /* === Brightness === */
 .widget-backlight,
 .widget-volume {
   padding: 12px 16px;
   margin: 0px 12px 12px 12px;
-  border-radius: 2px;
+  border-radius: 1px;
   background: @surface_custom;
 }
 
@@ -82,12 +88,12 @@
 .widget-volume trough highlight {
   background: @primary;
   border: 2px solid @primary;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 /* === Music Player === */
 .widget-mpris {
-  border-radius: 2px;
+  border-radius: 1px;
   margin: 2px 12px 12px 12px;
   align-items: center;
   color: alpha(#000000, 0.8);
@@ -95,10 +101,11 @@
 
 .widget-mpris button {
   background: @surface_custom;
-  border-radius: 4px;
+  border-radius: 1px;
   padding: 4px;
   margin: 20px 2px;
   color: alpha(#000000, 0.8);
+  cursor: pointer;
 }
 
 .widget-mpris button:hover {
@@ -106,7 +113,7 @@
 }
 
 .widget-mpris-player {
-  border-radius: 2px;
+  border-radius: 1px;
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -115,7 +122,7 @@
 }
 
 .widget-mpris-album-art {
-  border-radius: 800px;
+  border-radius: 400px;
   margin: 8px 0 0 8px;
 }
 
@@ -145,13 +152,27 @@
 }
 
 .widget-title button {
-  background: @surface_container;
+  background: @tertiary_fixed;
+  color: @on_tertiary_fixed;
   border-radius: 2px;
   padding: 4px 16px;
+
+  border-top: 1px solid @on_surface;
+  border-left: 1px solid @on_surface;
+  border-right: 1px solid @on_surface_variant;
+  border-bottom: 1px solid @on_surface_variant;
 }
 
 .widget-title button:hover {
-  background: @hovercolor;
+  background: @tertiary_fixed_dim;
+}
+
+.widget-title button:active,
+.widget-title button:checked {
+  border-top: 1px solid @inverse_surface;
+  border-left: 1px solid @inverse_surface;
+  border-right: 1px solid @on_surface;
+  border-bottom: 1px solid @on_surface;
 }
 
 /* === Do Not Disturb === */
@@ -165,15 +186,16 @@
   background: @buttoncolor;
   border-radius: 1px;
   box-shadow: none;
+  cursor: pointer;
 }
 
 .widget-dnd > switch:hover {
-  background: @hovercolor;
+  background: @active_border;
 }
 
 .widget-dnd > switch:checked {
-  background: @buttoncolor;
-  color: @on_primary;
+  background: @error;
+  color: @on_error_container;
 }
 
 .widget-dnd > switch slider {
@@ -183,13 +205,13 @@
 }
 
 .widget-dnd > switch:checked slider {
-  background: @inverse_primary;
+  background: @on_error_container;
 }
 
 /* === Notifications === */
 .control-center .notification-row .notification-background .notification.low {
   background-color: @surface;
-  border-radius: 4px;
+  border-radius: 1px;
   margin: 5px 0px;
   padding: 16px 10px;
   border: 1px solid @outline;
@@ -197,7 +219,7 @@
 }
 .control-center .notification-row .notification-background .notification.normal {
   background-color: @surface;
-  border-radius: 4px;
+  border-radius: 1px;
   margin: 5px 0px;
   padding: 16px 10px;
   border: 2px solid @primary;
@@ -205,7 +227,7 @@
 }
 .control-center .notification-row .notification-background .notification.critical {
   background-color: @error_container;
-  border-radius: 4px;
+  border-radius: 1px;
   margin: 5px 0px;
   padding: 16px 10px;
   border: 3px solid @error;
@@ -228,7 +250,7 @@
 trough highlight {
   background: @primary;
   border: 2px solid @primary_fixed;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 /* === Notification Groups === */
@@ -249,7 +271,7 @@ trough highlight {
 .notification-group-collapse-button,
 .notification-group-close-all-button {
   background: @surface_container;
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 5px;
 }
 

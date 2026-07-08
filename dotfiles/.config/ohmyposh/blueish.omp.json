@@ -134,7 +134,7 @@
   "final_space": true,
   "version": 4,
   "palette": {
-    "color0": "#101417",
+    "color0": "#f7f9ff",
     "color1": "",
     "color2": "",
     "color3": "",
@@ -144,11 +144,11 @@
     "color7": "",
     "color8": "",
     "color9": "",
-    "color10": "#98ccf9",
+    "color10": "#2a638b",
     "color11": "",
     "color12": "",
     "color13": "#001e31",
     "color14": "",
-    "color15": "#e0e3e8"
+    "color15": "#181c20"
   }
 }

@@ -2,6 +2,7 @@ MenuBar=Disabled
 
 [DetailsMode]
 PreviewSize=64
+RightPadding=0
 
 [FoldersPanel]
 HiddenFilesShown=true
@@ -23,4 +24,4 @@ MenuBar=Disabled
 Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,windowsexethumbnail,imagethumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,jpegthumbnail,kraorathumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,directorythumbnail,gsthumbnail,rawthumbnail,fontthumbnail,svgthumbnail,ffmpegthumbs,gsf-office
 
 [UiSettings]
-ColorScheme=Win98Dark
+ColorScheme=Win98dim

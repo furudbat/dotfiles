@@ -62,9 +62,10 @@ systemctl --user start wireplumber
 systemctl --user start xdg-desktop-portal
 systemctl --user start xdg-desktop-portal-hyprland
 
-export XDG_MENU_PREFIX=plasma-
-kbuildsycoca6 --noincremental
-
 # Run waybar
 sleep $_sleep3
 # ~/.config/waybar/launch.sh
+
+sleep $_sleep4
+export XDG_MENU_PREFIX=plasma-
+kbuildsycoca6 --noincremental
