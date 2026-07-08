@@ -23,7 +23,7 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "CaskaydiaCove Nerd Font", "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Noto Sans Semibold", "JetBrainsMono Nerd Font", "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
 }
@@ -94,7 +94,7 @@ button:hover {
     margin: 2px 1px 3px 1px;
     padding: 2px 4px;
     border: 0px;
-    color: @on_primary_fixed;
+    color: @primary;
     min-width: 20px;
     box-shadow: none;
     text-shadow: none;
@@ -112,7 +112,7 @@ button:hover {
     background: none;
     border: none;
     padding: 2px 4px;
-    color: @primary;
+    color: @active_border;
     font-weight: bolder;
     min-width: 20px;
 }
@@ -126,7 +126,7 @@ button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
     background: none;
-    color: @on_primary_fixed_variant;
+    color: @primary_fixed;
     /*min-width: 22px;*/
 }
 
@@ -264,6 +264,12 @@ window#waybar.empty #window {
     margin: 2px 0px;
     font-size: 12px;
 }
+#custom-space-half {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 2px 0px;
+    font-size: 8px;
+}
 
 #custom-tools {
     margin-right: 12px;
@@ -312,12 +318,12 @@ window#waybar.empty #window {
 
 
 #custom-ml4w-welcome {
-    background-image: url("../assets/ml4w-icon.svg");
+    background-image: url("../assets/ml4w-icon-white.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     padding-right: 20px;
-    margin: 5px 15px 5px 0px;
+    margin: 8px 15px 8px 0px;
 }
 
 #custom-ml4w-hyprland-settings {
@@ -325,7 +331,7 @@ window#waybar.empty #window {
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 16px;
-    margin: 5px 15px 5px 0px;
+    margin: 8px 15px 8px 0px;
 }
 
 /* -----------------------------------------------------
@@ -376,8 +382,7 @@ window#waybar.empty #window {
     min-width: 15px;
 }
 #custom-appmenuicon:hover {
-    font-size: 22px;
-    color: @inverse_surface;
+    color: @primary_fixed;
     margin: 0px 20px 0px -5px;
     min-width: 15px;
 }
@@ -621,7 +626,7 @@ window#waybar.empty #window {
 }
 
 #custom-ml4w-welcome {
-    background-image: url("../../assets/ml4w-icon.svg");
+    background-image: url("../../assets/ml4w-icon-white.svg");
 }
 
 

@@ -5,11 +5,15 @@
 @define-color hovercolor alpha(@surface_container_high,0.95);
 @define-color activecolor @primary_container;
 
-@define-color buttoncolor alpha(@inverse_primary,0.45);
-@define-color hoverbutton alpha(@inverse_primary,0.75);
+@define-color buttoncolor alpha(@inverse_primary,0.55);
+@define-color buttonfontcolor @on_primary;
+@define-color hoverbutton alpha(@source_color,0.95);
 @define-color activebutton @inverse_primary;
+@define-color hoveractivebutton alpha(@inverse_primary,0.85);
 
 @define-color bordercolor @primary;
+@define-color activebordercolor @primary_fixed;
+
 @define-color fontcolor @on_surface;
 @define-color text @on_surface;
 
@@ -18,7 +22,7 @@
   font-size: 1rem;
   font-weight: 900;
   all: unset;
-  font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans Semibold", "JetBrainsMono Nerd Font", "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   transition: 200ms;
 }
 
@@ -38,6 +42,7 @@
   .notification-background
   .notification {
     background-color: @surface;
+    color: @on_surface;
     border-radius: 2px;
     opacity: 1.0;
     margin: 10px;
@@ -97,6 +102,7 @@
   .notification-action {
     border-radius: 0.20rem;
     background-color: alpha(@surface, 0.95);
+    color: @on_surface;
     margin: 0.4rem;
     border: 1px solid transparent;
 }
@@ -109,6 +115,7 @@
   > *
   .notification-action:hover {
     background-color: @surface_dim;
+    color: @on_surface;
     border: 1px solid @primary;
 }
 
@@ -120,7 +127,7 @@
   > *
   .notification-action:active {
     background-color: @primary;
-    color: @text;
+    color: @on_primary;
 }
 
 /* === Summary and body text === */
@@ -160,15 +167,17 @@
   .notification-background
   .close-button:active {
     background-color: @primary;
-    color: @text;
+    color: @on_primary;
 }
 
 /* === Progress bar colors === */
 .notification.critical progress {
   background-color: @primary;
+    color: @on_primary;
 }
 
 .notification.low progress,
 .notification.normal progress {
   background-color: @primary;
+    color: @on_primary;
 }

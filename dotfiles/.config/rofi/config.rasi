@@ -68,14 +68,14 @@ mainbox {
     padding:                     0em;
     orientation:                 horizontal;
     children:                    [ "imagebox" , "listbox" ];
-    background-color:            @surface;
+    background-color:            @background;
     /*background-color:            transparent;*/
     /*background-image:            @current-image;*/
 }
 
 imagebox {
     padding:                     20px;
-    background-color:            @secondary;
+    background-color:            @surface-container;
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
     border-radius:               0;
@@ -104,17 +104,16 @@ button {
     border-radius:               1px;
     border:                      0;    
     cursor:                      pointer;
-    background-color:            @tertiary-fixed-variant;
-    text-color:                  @on-tertiary-fixed;
+    background-color:            @surface;
+    text-color:                  @on-surface;
 }
 
 button selected {
     padding:                     15px;
     border-radius:               1px;    
-    background-color:            @tertiary;
-    text-color:                  @on-tertiary;
+    background-color:            @inverse-surface;
+    text-color:                  @inverse-on-surface;
     border:                      @border-width;
-    border-color:                @active-border;
 }
 
 // Inputs //
@@ -123,7 +122,7 @@ inputbar {
     margin: 1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
     border-radius:               1px;
-    background-color:            @surface-bright;
+    background-color:            @secondary;
 }
 
 textbox-prompt-colon {
@@ -131,7 +130,7 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "  ";
     padding:                     1em 0.3em 0 0;
-    text-color:                  @on-surface-variant;
+    text-color:                  @on-secondary;
     background-color:            transparent;
 }
 
@@ -139,7 +138,7 @@ entry {
     enabled:                     true;
     spacing:                     1em;
     padding:                     1em;
-    text-color:                  @on-surface;
+    text-color:                  @on-secondary;
     cursor:                      text;
     placeholder:                 "Search";
     background-color:            transparent;
@@ -186,8 +185,8 @@ element {
 }
 
 element selected.normal {
-    background-color:            @primary;
-    text-color:                  @on-primary;
+    background-color:            @on-primary;
+    text-color:                  @primary-fixed;
     border-radius:               2px;
 }
 

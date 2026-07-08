@@ -97,3 +97,7 @@ stow -d ./ -t ~/ dotfiles
 - [Reactionary ME Dark](https://store.kde.org/p/2331485)
 - [Besot Haiku Icons](https://store.kde.org/p/2158619)
 - [Chicago95](https://github.com/grassmunk/Chicago95)
+
+### GTK Theming
+
+- [Sheet](https://www.gnome-look.org/p/2325213)

@@ -5,26 +5,26 @@
 # -------------------------
 # Basic Colors
 # -------------------------
-set --global fish_color_autosuggestion 72787e
+set --global fish_color_autosuggestion 8c9198
 set --global fish_color_cancel -r
-set --global fish_color_command 2a638b
-set --global fish_color_comment 72787e
+set --global fish_color_command 98ccf9
+set --global fish_color_comment 8c9198
 set --global fish_color_cwd green
 set --global fish_color_cwd_root red
 set --global fish_color_end d1bfe7
-set --global fish_color_error ba1a1a
-set --global fish_color_escape 72787e
+set --global fish_color_error ffb4ab
+set --global fish_color_escape 8c9198
 set --global fish_color_history_current --bold
 set --global fish_color_host normal
 set --global fish_color_host_remote yellow
-set --global fish_color_keyword 2a638b
-set --global fish_color_match 66587b
+set --global fish_color_keyword 98ccf9
+set --global fish_color_match d1bfe7
 set --global fish_color_normal normal
-set --global fish_color_operator 66587b
-set --global fish_color_option 98ccf9
-set --global fish_color_param 98ccf9
-set --global fish_color_quote 50606f
-set --global fish_color_redirection 98ccf9
+set --global fish_color_operator d1bfe7
+set --global fish_color_option 2a638b
+set --global fish_color_param 2a638b
+set --global fish_color_quote b8c8d9
+set --global fish_color_redirection 2a638b
 
 # -------------------------
 # Search and Selection

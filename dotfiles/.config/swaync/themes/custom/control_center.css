@@ -8,10 +8,14 @@
 @define-color activecolor @primary_container;
 
 @define-color buttoncolor alpha(@inverse_primary,0.45);
-@define-color hoverbutton alpha(@inverse_primary,0.75);
+@define-color buttonfontcolor @on_primary;
+@define-color hoverbutton alpha(@source_color,0.85);
 @define-color activebutton @inverse_primary;
+@define-color hoveractivebutton alpha(@inverse_primary,0.75);
 
 @define-color bordercolor @primary;
+@define-color activebordercolor @primary_fixed;
+
 @define-color fontcolor @on_surface;
 @define-color text @on_surface;
 
@@ -20,7 +24,7 @@
   color: @text;
   font-size: 1rem;
   font-weight: 900;
-  font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
+  font-family: "Noto Sans Semibold", "JetBrainsMono Nerd Font", "Fira Sans Semibold", "Font Awesome 7 Free",
   "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands",
   FontAwesome;
   transition: 200ms;
@@ -46,25 +50,25 @@
   margin: 7px 7px 7px 7px;
   padding: 1.3rem 4rem;
   background: @buttoncolor;
-  color: @on_primary_fixed;
+  color: @buttonfontcolor;
   border-radius: 1px;
   border: 2px solid @bordercolor;
   font-size: 15em;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @active_border;
-  color: @text;
+  background: @hoverbutton;
+  color: @buttonfontcolor;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
   background: @activebutton;
-  color: @on_primary;
+  color: @buttonfontcolor;
 }
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
-  background: @inverse_on_surface;
-  color: @outline_variant;
-  border: 2px solid @outline;
+  background: @hoveractivebutton;
+  color: @buttonfontcolor;
+  border: 2px solid @activebordercolor;
 }
 
 
@@ -152,8 +156,8 @@
 }
 
 .widget-title button {
-  background: @tertiary_fixed;
-  color: @on_tertiary_fixed;
+  background: @tertiary_container;
+  color: @on_tertiary_container;
   border-radius: 2px;
   padding: 4px 16px;
 
@@ -164,7 +168,8 @@
 }
 
 .widget-title button:hover {
-  background: @tertiary_fixed_dim;
+  background: @primary_container;
+  color: @on_primary_container;
 }
 
 .widget-title button:active,
@@ -190,12 +195,17 @@
 }
 
 .widget-dnd > switch:hover {
-  background: @active_border;
+  background: @source_color;
+  color: @on_error_container;
 }
 
 .widget-dnd > switch:checked {
   background: @error;
   color: @on_error_container;
+}
+.widget-dnd > switch:hover:checked {
+  background: @error;
+  color: @on_error;
 }
 
 .widget-dnd > switch slider {
@@ -206,6 +216,7 @@
 
 .widget-dnd > switch:checked slider {
   background: @on_error_container;
+  color: @on_error;
 }
 
 /* === Notifications === */
@@ -260,7 +271,7 @@ trough highlight {
 }
 .notification-group-headers {
   font-weight: 900;
-  font-size: 0
+  font-size: 0;
 }
 
 .notification-group-icon {

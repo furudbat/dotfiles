@@ -1,6 +1,6 @@
 [ColorEffects:Disabled]
 ChangeSelectionColor=
-Color=56,56,56
+Color=40,40,40
 ColorAmount=0
 ColorEffect=0
 ContrastAmount=0.65
@@ -11,7 +11,7 @@ IntensityEffect=2
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
-Color=112,111,110
+Color=64,64,64
 ColorAmount=0.025
 ColorEffect=2
 ContrastAmount=0.1
@@ -21,22 +21,22 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=255,85,127
-BackgroundNormal=192,192,192
-DecorationFocus=54,62,65
-DecorationHover=124,122,117
+BackgroundAlternate=80,80,80
+BackgroundNormal=64,64,64
+DecorationFocus=120,120,120
+DecorationHover=100,100,100
 ForegroundActive=61,174,233
 ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=24,22,18
+ForegroundNormal=230,230,230
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:Complementary]
-BackgroundAlternate=59,64,69
-BackgroundNormal=49,54,59
+BackgroundAlternate=50,50,50
+BackgroundNormal=38,38,38
 DecorationFocus=30,146,255
 DecorationHover=181,138,230
 ForegroundActive=147,206,233
@@ -44,16 +44,16 @@ ForegroundInactive=175,176,179
 ForegroundLink=157,55,230
 ForegroundNegative=231,76,60
 ForegroundNeutral=253,188,75
-ForegroundNormal=239,240,241
+ForegroundNormal=235,235,235
 ForegroundPositive=46,204,113
 ForegroundVisited=61,174,230
 
 [Colors:Header]
-BackgroundAlternate=192,192,192
-BackgroundNormal=192,192,192
+BackgroundAlternate=48,48,48
+BackgroundNormal=48,48,48
 
 [Colors:Selection]
-BackgroundAlternate=129,243,155
+BackgroundAlternate=90,90,90
 BackgroundNormal=0,0,128
 DecorationFocus=255,85,127
 DecorationHover=130,130,130
@@ -81,22 +81,22 @@ ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=230,231,232
-BackgroundNormal=234,234,234
-DecorationFocus=255,255,255
+BackgroundAlternate=60,60,60
+BackgroundNormal=32,32,32
+DecorationFocus=200,200,200
 DecorationHover=0,152,215
 ForegroundActive=61,174,233
 ForegroundInactive=127,140,141
 ForegroundLink=41,128,185
 ForegroundNegative=248,85,85
 ForegroundNeutral=246,116,0
-ForegroundNormal=24,22,18
+ForegroundNormal=235,235,235
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:Window]
-BackgroundAlternate=192,192,192
-BackgroundNormal=192,192,192
+BackgroundAlternate=64,64,64
+BackgroundNormal=48,48,48
 DecorationFocus=23,255,127
 DecorationHover=130,130,130
 ForegroundActive=231,147,233
@@ -104,13 +104,13 @@ ForegroundInactive=127,140,141
 ForegroundLink=11,185,55
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=24,22,18
+ForegroundNormal=230,230,230
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [General]
-ColorScheme=Win98dim
-ColorSchemeHash=43c05a93da8f1967d2659e3c00d09a3a4787cafd
+ColorScheme=Win98Dark
+ColorSchemeHash=b6662b7c21e09d5833deb8d484b98565a8407e12
 LastUsedCustomAccentColor=184,117,220
 TerminalApplication=/usr/bin/ghostty --gtk-single-instance=true
 TerminalService=com.mitchellh.ghostty.desktop
@@ -124,11 +124,11 @@ smallestReadableFont=Noto Sans ,9,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 toolBarFont=Noto Sans ,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 
 [Icons]
-Theme=Haiku
+Theme=BesotHaiku
 
 [KDE]
 AnimationDurationFactor=0.75
-LookAndFeelPackage=org.magpie.reactplus.desktop
+LookAndFeelPackage=Reactionary95Dark
 contrast=2
 frameContrast=0.2
 
@@ -156,10 +156,10 @@ FullScreen=
 Theme=Windows-Sounds-for-Plasma
 
 [WM]
-activeBackground=246,247,248
-activeBlend=252,252,252
+activeBackground=48,48,48
+activeBlend=64,64,64
 activeFont=Noto Sans ,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
-activeForeground=34,95,104
-inactiveBackground=44,44,44
-inactiveBlend=75,71,67
-inactiveForeground=166,166,166
+activeForeground=210,210,210
+inactiveBackground=32,32,32
+inactiveBlend=55,55,55
+inactiveForeground=160,160,160

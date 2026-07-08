@@ -79,7 +79,11 @@
 	},
 	"custom/space": {
 		"format": " ",
-		"tooltip": false,
+		"tooltip": false
+	},
+	"custom/space-half": {
+		"format": " ",
+		"tooltip": false
 	},
 	// Updates Count
 	"custom/updates": {
@@ -399,5 +403,12 @@
 		"restart-interval": 0,
 		"format": "{}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+	},
+	// Rofi Application Launcher
+	"custom/appmenuicon": {
+		"format": "",
+		"on-click": "sleep 0.2;rofi -show drun -replace",
+		"on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+		"tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
 	}
 }

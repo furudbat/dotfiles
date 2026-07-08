@@ -46,12 +46,13 @@ output_path = '~/.config/rofi/colors.rasi'
 input_path = '~/.config/matugen/templates/Matugen-Chicago95.theme'
 output_path = '~/.config/Chicago95/themes/Matugen.theme'
 #post_hook = '~/.config/matugen/post-hook-scripts/chicagoplus.sh'
-# [templates.gtk3-theme]
-# input_path = '~/.config/matugen/templates/gtk3-colors.css'
-# output_path = '~/.themes/Material-Gnome/gtk-3.0/colors.css'
-# [templates.gtk4-theme]
-# input_path = '~/.config/matugen/templates/gtk-colors.css'
-# output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
+
+[templates.gtk3-theme-Sheet-Blue-Dark-accent]
+input_path = '~/.config/matugen/templates/Sheet-Blue-Dark/accent-blue.css'
+output_path = '~/.themes/Sheet-Blue-Dark/gtk-3.0/accent/matugen.css'
+[templates.gtk3-theme-Sheet-Blue-Dark-schema]
+input_path = '~/.config/matugen/templates/Sheet-Blue-Dark/schema-dark.css'
+output_path = '~/.themes/Sheet-Blue-Dark/gtk-3.0/scheme/matugen.css'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk3-colors.css'

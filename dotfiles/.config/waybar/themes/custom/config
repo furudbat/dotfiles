@@ -20,6 +20,7 @@
 		// Modules Left
 		"modules-left": [
 			"custom/left-border",
+			"custom/space-half",
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
@@ -77,6 +78,7 @@
 		// Modules Left
 		"modules-left": [
 			"custom/left-border",
+			"custom/space-half",
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
@@ -131,6 +133,8 @@
 		],
 		// Modules Left
 		"modules-left": [
+			"custom/left-border",
+			"custom/space-half",
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
@@ -183,6 +187,8 @@
 		],
 		// Modules Left
 		"modules-left": [
+			"custom/left-border",
+			"custom/space-half",
 			"custom/appmenuicon",
 			"hyprland/workspaces",
 			//"group/quicklinks",
@@ -209,8 +215,8 @@
 			"custom/space",
 			"group/hardware#extended",
 			//"group/tools",
-			"custom/notification",
-			"custom/ml4w-welcome",
+			//"custom/notification",
+			//"custom/ml4w-welcome",
 			"clock#with-tooltip",
 			"custom/exit",
 			"custom/right-border"

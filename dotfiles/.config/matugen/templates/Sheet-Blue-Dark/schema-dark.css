@@ -1,0 +1,105 @@
+@define-color text #EEE;
+
+@define-color window-bg #111;
+@define-color alt-bg #222;
+@define-color window-separator #333;
+
+@define-color titlebutton-hover #222;
+@define-color closebutton-hover #e52525;
+
+@define-color button-bg #222;
+@define-color button-border #4a4a4a;
+@define-color button-bg-hover #323940;
+@define-color button-border-hover #0078D7;
+@define-color button-bg-active #242a30;
+@define-color button-border-active #005499;
+
+@define-color entry-border #242424;
+@define-color combo-border #545454;
+
+@define-color close-button-hover #e81123;
+@define-color close-button-active #f1707a;
+
+@define-color radio-bg #383838;
+@define-color radio-border #bbb;
+
+@define-color scrollbar-bg #242424;
+@define-color scrollbar-bar #4a4a4a;
+
+@define-color scale-bg #4a4a4a;
+@define-color scale-slider #0078D7;
+
+@define-color progress-bg #4a4a4a;
+@define-color progress-color #06B025;
+@define-color progress-border #555;
+
+
+@define-color text {{colors.on_background.dark.hex}};
+@define-color list-text {{colors.on_primary.dark.hex}};
+@define-color window-bg {{colors.background.dark.hex}};
+@define-color button-border-hover {{colors.source_color.dark.hex}};
+@define-color button-border-active {{colors.on_primary.dark.hex}};
+@define-color scale-slider {{colors.source_color.dark.hex}};
+
+/* Accents */
+@define-color accent_color {{colors.primary.dark.hex}};
+@define-color accent_hover_color rgba({{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}}, 0.08);
+@define-color accent_vibrant_hover_color rgba({{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}}, 0.18);
+@define-color accent_active_color rgba({{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}}, 0.1);
+@define-color accent_vibrant_active_color rgba({{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}}, 0.2);
+@define-color accent_fg_color {{colors.on_primary.dark.hex}};
+@define-color accent_bg_color {{colors.primary.dark.hex}};
+@define-color destructive_bg_color {{colors.error_container.dark.hex}};
+@define-color destructive_fg_color {{colors.on_error_container.dark.hex}};
+@define-color destructive_color {{colors.error.dark.hex}};
+@define-color success_bg_color #374B3E;
+@define-color success_fg_color #D1E9D6;
+@define-color success_color #B5CCBA;
+/* Base surfaces */
+@define-color window_bg_color {{colors.background.dark.hex}};
+@define-color window_fg_color {{colors.on_background.dark.hex}};
+@define-color headerbar_bg_color {{colors.surface_container.dark.hex}};
+@define-color headerbar_backdrop_color {{colors.surface_container.dark.hex}};
+@define-color headerbar_fg_color {{colors.on_surface.dark.hex}};
+@define-color card_bg_color {{colors.surface_container.dark.hex}};
+@define-color card_fg_color {{colors.on_surface.dark.hex}};
+@define-color sidebar_bg_color {{colors.background.dark.hex}};
+@define-color sidebar_fg_color {{colors.on_surface.dark.hex}};
+@define-color sidebar_row_active_bg_color {{colors.secondary_container.dark.hex}};
+@define-color sidebar_row_active_fg_color {{colors.on_secondary_container.dark.hex}};
+@define-color secondary_sidebar_bg_color {{colors.surface_container_low.dark.hex}};
+@define-color secondary_sidebar_backdrop_color {{colors.surface_container_low.dark.hex}};
+@define-color secondary_sidebar_fg_color {{colors.on_surface_variant.dark.hex}};
+@define-color sidebar_border_color @sidebar_bg_color;
+@define-color sidebar_backdrop_color @sidebar_bg_color;
+@define-color view_bg_color {{colors.surface_container_lowest.dark.hex}};
+@define-color view_fg_color {{colors.on_surface.dark.hex}};
+@define-color overview_bg_color {{colors.surface_container_lowest.dark.hex}};
+@define-color overview_fg_color {{colors.on_surface.dark.hex}};
+/* Popups */
+@define-color popover_bg_color {{colors.surface_container_highest.dark.hex}};
+@define-color popover_fg_color {{colors.on_surface.dark.hex}};
+@define-color popover_fg_hover_color rgba({{colors.on_surface.dark.red}}, {{colors.on_surface.dark.green}}, {{colors.on_surface.dark.blue}}, 0.08);
+@define-color dialog_bg_color {{colors.surface_container_high.dark.hex}};
+@define-color dialog_fg_color {{colors.on_surface.dark.hex}};
+@define-color thumbnail_bg_color {{colors.surface_container_high.dark.hex}};
+@define-color thumbnail_fg_color {{colors.on_surface.dark.hex}};
+
+/* Material */
+@define-color inverse_on_surface {{colors.inverse_on_surface.dark.hex}};
+@define-color inverse_primary {{colors.inverse_primary.dark.hex}};
+@define-color inverse_surface {{colors.inverse_surface.dark.hex}};
+@define-color surface_container_highest {{colors.surface_container_highest.dark.hex}};
+@define-color surface_container_high {{colors.surface_container_high.dark.hex}};
+@define-color on_surface_variant {{colors.on_surface_variant.dark.hex}};
+@define-color surface_variant {{colors.surface_variant.dark.hex}};
+
+@define-color outline {{colors.outline.dark.hex}};
+
+/* Material state layers */
+@define-color inverse_on_surface_hover rgba({{colors.inverse_on_surface.dark.red}}, {{colors.inverse_on_surface.dark.green}}, {{colors.inverse_on_surface.dark.blue}}, 0.08);
+@define-color inverse_on_surface_active rgba({{colors.inverse_on_surface.dark.red}}, {{colors.inverse_on_surface.dark.green}}, {{colors.inverse_on_surface.dark.blue}}, 0.18);
+@define-color inverse_primary_hover rgba({{colors.inverse_primary.dark.red}}, {{colors.inverse_primary.dark.green}}, {{colors.inverse_primary.dark.blue}}, 0.08);
+@define-color inverse_primary_active rgba({{colors.inverse_primary.dark.red}}, {{colors.inverse_primary.dark.green}}, {{colors.inverse_primary.dark.blue}}, 0.18);
+
+@define-color active_border_color #fed07c;
