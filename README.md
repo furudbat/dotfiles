@@ -89,6 +89,7 @@ stow -d ./ -t ~/ dotfiles
 - https://x.com/bixclowart/status/1891526837957709948
 - https://x.com/Akamine_Naoki/status/1800832906853752899
 - https://www.pixiv.net/en/users/33749051
+- https://www.deviantart.com/cwk34/art/Digimon-Adventure-Tags-and-Crests-342756675
 
 
 ### KDE Theming

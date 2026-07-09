@@ -1,6 +1,6 @@
 {
     "bar": {
         "enabled": false,
-        "alwaysExpanded": false
+        "alwaysExpanded": true
     }
 }

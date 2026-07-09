@@ -851,6 +851,7 @@ PanelWindow {
                     }
 
                     // --- DOCK ---
+                    /*
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Dock"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
@@ -880,8 +881,10 @@ PanelWindow {
                         }
                         Item { implicitWidth: 28 }
                     }
+                    */
 
                     // --- DOCK AUTOHIDE ---
+                    /*
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Dock Autohide"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
@@ -911,6 +914,7 @@ PanelWindow {
                         }
                         Item { implicitWidth: 28 }
                     }
+                    */
 
                     // --- GAMEMODE ---
                     RowLayout {
@@ -1022,6 +1026,65 @@ PanelWindow {
                             }
                         }
                     }
+
+                    // --- THEME by color---
+                    RowLayout {
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            Layout.fillWidth: true
+
+                            columns: 8
+                            columnSpacing: 14
+                            rowSpacing: 8
+
+                            Repeater {
+                                property var crests: [
+                                    { color: "#f18f2e", image: "../shared/sprites/crests_01.png" },
+                                    { color: "#4b8af3", image: "../shared/sprites/crests_02.png" },
+                                    { color: "#f12e46", image: "../shared/sprites/crests_03.png" },
+                                    { color: "#ae64db", image: "../shared/sprites/crests_04.png" },
+                                    { color: "#8af34b", image: "../shared/sprites/crests_05.png" },
+                                    { color: "#bfcfe0", image: "../shared/sprites/crests_06.png" },
+                                    { color: "#f3ca4b", image: "../shared/sprites/crests_07.png" },
+                                    { color: "#f34b9f", image: "../shared/sprites/crests_08.png" }
+                                ]
+                                model: crests
+
+                                delegate: Button {
+                                    Layout.preferredWidth: 30
+                                    Layout.preferredHeight: 30
+                                    padding: 0
+
+                                    background: Rectangle {
+                                        color: "transparent"
+                                    }
+
+                                    contentItem: Image {
+                                        anchors.fill: parent
+                                        source: modelData.image
+                                        fillMode: Image.PreserveAspectFit
+                                        smooth: false
+                                        mipmap: false
+                                    }
+
+                                    HoverHandler {
+                                        cursorShape: Qt.PointingHandCursor
+                                    }
+
+                                    onClicked: {
+                                        root.isOpen = false
+                                        Quickshell.execDetached([
+                                            "bash",
+                                            "-c",
+                                            Quickshell.env("HOME") +
+                                            "/.config/ml4w/scripts/ml4w-matugen '" + modelData.color + "'"
+                                        ])
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -1030,13 +1093,16 @@ PanelWindow {
                 Layout.preferredHeight: 120  // adjust size
 
                 Image {
+                    anchors.topMargin: 15
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 50
+                    anchors.bottomMargin: 10
 
                     source: "../shared/sprites/agumon-hakase.png"
                     fillMode: Image.PreserveAspectFit
-                    smooth: true
+                    smooth: false
+                    mipmap: false
+                    asynchronous: true
                 }
             }
         }
