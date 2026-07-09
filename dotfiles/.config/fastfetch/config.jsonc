@@ -4,7 +4,7 @@
     "logo": {
         "type": "auto",
         "source": "~/.config/fastfetch/logo10x.png",
-        "width": 16,
+        "width": 30,
         "padding": {
             "top": 1,
             "right": 4,
@@ -16,68 +16,86 @@
     },
     "modules": [
         {
-            "key": "╭───────────╮",
+            "key": "┌────────────┐",
             "type": "custom"
         },
         {
-            "key": "│ {#34}󰅐 uptime  {#keys}│",
+            "key": "│ {#34}󰥔 boottime {#keys}│",
+            "type": "command",
+            "text": "t=$(systemd-analyze | sed -n 's/.*= //p'); if [[ $t =~ ([0-9]+)min[[:space:]]+([0-9.]+)s ]]; then awk -v m=\"${BASH_REMATCH[1]}\" -v s=\"${BASH_REMATCH[2]}\" 'BEGIN{printf \"%.2f sec\", m*60+s}'; else echo \"$t\" | tr -d 's'; fi"
+        },
+        {
+            "key": "│ {#34}󰅐 uptime   {#keys}│",
             "type": "uptime"
         },
         {
             "type": "command",
-            "key": "│ {#34}󱦟 os age  {#keys}│",
+            "key": "│ {#34}󱦟 os age   {#keys}│",
             "keyColor": "magenta",
             "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
         },
         {
-            "key": "│ {#34}{icon} distro  {#keys}│",
+            "key": "│ {#34}{icon} distro   {#keys}│",
             "type": "os"
         },
         {
-            "key": "│ {#34} kernel  {#keys}│",
+            "key": "│ {#34} kernel   {#keys}│",
             "type": "kernel"
         },
         {
-            "key": "│ {#34} wm      {#keys}│",
+            "key": "│ {#34} wm       {#keys}│",
             "type": "wm"
         },
         {
-            "key": "│ {#34}󰇄 desktop {#keys}│",
+            "key": "│ {#34}󰇄 desktop  {#keys}│",
             "type": "de"
         },
         {
-            "key": "│ {#34} term    {#keys}│",
+            "key": "│ {#34} term     {#keys}│",
             "type": "terminal"
         },
         {
-            "key": "│ {#34} shell   {#keys}│",
+            "key": "│ {#34} shell    {#keys}│",
             "type": "shell"
         },
         {
-            "key": "│ {#34}󰍛 cpu     {#keys}│",
+            "key": "│ {#34}󰍛 cpu      {#keys}│",
             "type": "cpu",
             "showPeCoreCount": true
         },
         {
-            "key": "│ {#34}󰉉 disk    {#keys}│",
+            "key": "│ {#34} memory   {#keys}│",
+            "type": "memory"
+        },
+        {
+            "key": "│ {#34}󰓡 swap     {#keys}│",
+            "type": "swap"
+        },
+        {
+            "key": "│ {#34}󰢮 gpu      {#keys}│",
+            "type": "gpu",
+            "hideType": "integrated"
+        },
+        {
+            "key": "│ {#34} board    {#keys}│",
+            "type": "board"
+        },
+        {
+            "key": "│ {#34}󰉉 disk     {#keys}│",
             "type": "disk",
             "folders": "/"
         },
         {
-            "key": "│ {#34} memory  {#keys}│",
-            "type": "memory"
-        },
-        {
-            "key": "├───────────┤",
+            "key": "├────────────┤",
             "type": "custom"
         },
         {
-            "key": "│ {#34} colors  {#keys}│",
+            "key": "│ {#34} colors   {#keys}│",
             "type": "colors",
             "symbol": "circle"
         },
         {
-            "key": "╰───────────╯",
+            "key": "└────────────┘",
             "type": "custom"
         }
     ]

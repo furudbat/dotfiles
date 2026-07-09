@@ -2,74 +2,99 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "height": 10,
-    "width": 20,
+    "width": 30,
     "padding": {
-      "top": 1
+        "top": 1,
+        "right": 4,
+        "left": 3
     }
   },
     "display": {
         "separator": " "
     },
     "modules": [
-      {
-          "key": "╭───────────╮",
-          "type": "custom"
-      },
-      {
-          "key": "│ {#33}󰅐 uptime  {#keys}│",
-          "type": "uptime"
-      },
-      {
-          "key": "│ {#34}{icon} distro  {#keys}│",
-          "type": "os"
-      },
-      {
-          "key": "│ {#35} kernel  {#keys}│",
-          "type": "kernel"
-      },
-      {
-          "key": "│ {#36} wm      {#keys}│",
-          "type": "wm"
-      },
-      {
-          "key": "│ {#36}󰇄 desktop {#keys}│",
-          "type": "de"
-      },
-      {
-          "key": "│ {#31} term    {#keys}│",
-          "type": "terminal"
-      },
-      {
-          "key": "│ {#32} shell   {#keys}│",
-          "type": "shell"
-      },
-      {
-          "key": "│ {#33}󰍛 cpu     {#keys}│",
-          "type": "cpu",
-          "showPeCoreCount": true
-      },
-      {
-          "key": "│ {#34}󰉉 disk    {#keys}│",
-          "type": "disk",
-          "folders": "/"
-      },
-      {
-          "key": "│ {#36} memory  {#keys}│",
-          "type": "memory"
-      },
-      {
-          "key": "├───────────┤",
-          "type": "custom"
-      },
-      {
-          "key": "│ {#39} colors  {#keys}│",
-          "type": "colors",
-          "symbol": "circle"
-      },
-      {
-          "key": "╰───────────╯",
-          "type": "custom"
-      }
-  ]
+        {
+            "key": "┌────────────┐",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#34}󰥔 boottime {#keys}│",
+            "type": "command",
+            "text": "t=$(systemd-analyze | sed -n 's/.*= //p'); if [[ $t =~ ([0-9]+)min[[:space:]]+([0-9.]+)s ]]; then awk -v m=\"${BASH_REMATCH[1]}\" -v s=\"${BASH_REMATCH[2]}\" 'BEGIN{printf \"%.2f sec\", m*60+s}'; else echo \"$t\" | tr -d 's'; fi"
+        },
+        {
+            "key": "│ {#34}󰅐 uptime   {#keys}│",
+            "type": "uptime"
+        },
+        {
+            "type": "command",
+            "key": "│ {#34}󱦟 os age   {#keys}│",
+            "keyColor": "magenta",
+            "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
+        },
+        {
+            "key": "│ {#34}{icon} distro   {#keys}│",
+            "type": "os"
+        },
+        {
+            "key": "│ {#34} kernel   {#keys}│",
+            "type": "kernel"
+        },
+        {
+            "key": "│ {#34} wm       {#keys}│",
+            "type": "wm"
+        },
+        {
+            "key": "│ {#34}󰇄 desktop  {#keys}│",
+            "type": "de"
+        },
+        {
+            "key": "│ {#34} term     {#keys}│",
+            "type": "terminal"
+        },
+        {
+            "key": "│ {#34} shell    {#keys}│",
+            "type": "shell"
+        },
+        {
+            "key": "│ {#34}󰍛 cpu      {#keys}│",
+            "type": "cpu",
+            "showPeCoreCount": true
+        },
+        {
+            "key": "│ {#34} memory   {#keys}│",
+            "type": "memory"
+        },
+        {
+            "key": "│ {#34}󰓡 swap     {#keys}│",
+            "type": "swap"
+        },
+        {
+            "key": "│ {#34}󰢮 gpu      {#keys}│",
+            "type": "gpu",
+            "hideType": "integrated"
+        },
+        {
+            "key": "│ {#34} board    {#keys}│",
+            "type": "board"
+        },
+        {
+            "key": "│ {#34}󰉉 disk     {#keys}│",
+            "type": "disk",
+            "folders": "/"
+        },
+        {
+            "key": "├────────────┤",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#34} colors   {#keys}│",
+            "type": "colors",
+            "symbol": "circle"
+        },
+        {
+            "key": "└────────────┘",
+            "type": "custom"
+        }
+    ]
 }
