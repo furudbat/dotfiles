@@ -77,11 +77,11 @@ PanelWindow {
 
     margins {
         right: 2
-        top: root.currentMargin * 2 + 24
+        top: root.currentMargin * 2 + 32
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.
-    property real currentMargin: isOpen ? 0 : -170
+    property real currentMargin: isOpen ? 0 : -150
 
     // This automatically animates currentMargin whenever it changes!
     Behavior on currentMargin {

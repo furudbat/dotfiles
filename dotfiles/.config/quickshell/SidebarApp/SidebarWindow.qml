@@ -27,11 +27,6 @@ PanelWindow {
         bottom: true
     }
 
-    margins {
-        top: 52
-        bottom: 0
-    }
-
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
     HyprlandFocusGrab {
         windows: [root]
@@ -57,13 +52,16 @@ PanelWindow {
     property bool isOpen: false
     visible: isOpen || slideAnim.running
 
-    margins { right: root.currentMargin }
-    property real currentMargin: isOpen ? 15 : -450 
+    margins { 
+        right: root.currentMargin + 4
+        top: 32
+    }
+    property real currentMargin: isOpen ? 0 : -500
 
     Behavior on currentMargin {
         NumberAnimation {
             id: slideAnim
-            duration: 350
+            duration: 300
             easing.type: Easing.OutQuint
         }
     }
@@ -137,7 +135,7 @@ PanelWindow {
         indicator: Rectangle {
             implicitWidth: 48
             implicitHeight: 26
-            radius: 6
+            radius: 4
             color: parent.checked ? Theme.primary : Theme.background
             border.color: Theme.primary
             border.width: 1
@@ -216,7 +214,10 @@ PanelWindow {
     // ==========================================
     Item {
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.margins: 0
+        anchors.rightMargin: 4
+        anchors.topMargin: 20
+        anchors.bottomMargin: 32
 
         RectangularShadow {
             id: shadow
@@ -253,8 +254,8 @@ PanelWindow {
 
         ColumnLayout {
             anchors.fill: parent
-            anchors.margins: 20
-            spacing: 20
+            anchors.margins: 18
+            spacing: 18
 
             // --- TOP BAR (Light/Dark, Screenshot & Color Picker) ---
             RowLayout {
@@ -341,7 +342,7 @@ PanelWindow {
                 ColumnLayout {
                     id: mainContentColumn
                     width: scrollView.width
-                    spacing: 20
+                    spacing: 16
 
                     // --- SLIDERS (Loudness & Brightness) ---
                     ColumnLayout {
@@ -1035,8 +1036,8 @@ PanelWindow {
                             Layout.fillWidth: true
 
                             columns: 8
-                            columnSpacing: 14
-                            rowSpacing: 8
+                            columnSpacing: 18
+                            rowSpacing: 6
 
                             Repeater {
                                 property var crests: [
@@ -1054,7 +1055,7 @@ PanelWindow {
                                 delegate: Button {
                                     Layout.preferredWidth: 30
                                     Layout.preferredHeight: 30
-                                    padding: 0
+                                    padding: 4
 
                                     background: Rectangle {
                                         color: "transparent"

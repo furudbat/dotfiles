@@ -73,10 +73,11 @@ PanelWindow {
     }
     
     // Animate between your specific 87px top margin and off-screen (-800)
-    property real currentTopMargin: isOpen ? 67 : -820 
+    property real currentTopMargin: isOpen ? 0 : -820 
 
     margins {
-        top: root.currentTopMargin
+        right: 2
+        top: root.currentTopMargin * 2 + 32
     }
 
     Behavior on currentTopMargin {
