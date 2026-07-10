@@ -19,7 +19,7 @@ read_io() {
 
 CUR=$(read_io 2>/dev/null)
 if [[ -z "$CUR" ]]; then
-    echo '{"text":"⬤","class":"idle"}'
+    echo '{"text":"","class":"idle"}'
     exit 1
 fi
 
@@ -29,7 +29,7 @@ NOW=$(date +%s%3N)
 # init state file
 if [[ ! -f "$STATE" ]]; then
     echo "$CUR $NOW" > "$STATE"
-    echo '{"text":"<span foreground=\"#003300\">⬤</span>","class":"idle"}'
+    echo '{"text":"","class":"idle"}'
     exit 0
 fi
 
@@ -59,4 +59,4 @@ else
     CLASS="idle"
 fi
 
-echo "{\"text\":\"<span foreground='$COLOR'>⬤</span>\",\"class\":\"$CLASS\"}"
+echo "{\"text\":\"\",\"class\":\"$CLASS\",\"tooltip\":\"$MODEL\"}"

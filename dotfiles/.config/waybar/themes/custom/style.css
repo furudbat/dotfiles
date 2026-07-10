@@ -657,14 +657,55 @@ window#waybar.empty #window {
 
 /* POWER LED */
 
+#custom-powerled-1.off,
+#custom-powerled-2.off {
+    color:#330000;
+}
+
 #custom-powerled-1,
 #custom-powerled-2 {
-    text-shadow:
-        0 0 1px #ff0000,
-        0 0 2px #ff2200,
-        0 0 4px #ff3300;
+    color:#cc0000;
+}
 
-    animation: powersimmer 5.5s ease-in-out infinite;
+#custom-powerled-1.power,
+#custom-powerled-2.power {
+    color:#ee1111;
+    text-shadow:
+        0 0 1px #dd0000,
+        0 0 2px #dd2200,
+        0 0 4px #dd3300;
+
+    animation: powersimmer 4.5s ease-in-out infinite;
+}
+#custom-powerled-1.power1,
+#custom-powerled-2.power1 {
+    color:#ee1111;
+    text-shadow:
+        0 0 1px #dd0000,
+        0 0 2px #dd2200,
+        0 0 4px #dd3300;
+
+    animation: powersimmer 4.4s ease-in-out infinite;
+}
+#custom-powerled-1.power2,
+#custom-powerled-2.power2 {
+    color: #AA1111;
+    text-shadow:
+        0 0 1px #990000,
+        0 0 2px #992200,
+        0 0 4px #993300;
+
+    animation: powersimmer 4.3s ease-in-out infinite;
+}
+#custom-powerled-1.power3,
+#custom-powerled-2.power3 {
+    color: #ff1100;
+    text-shadow:
+        0 0 1px #ff1100,
+        0 0 2px #ff3300,
+        0 0 4px #ff4400;
+
+    animation: powersimmer 4.2s ease-in-out infinite;
 }
 
 @keyframes powersimmer {
@@ -679,8 +720,7 @@ window#waybar.empty #window {
 
 #custom-hddled-1,
 #custom-hddled-2 {
-    font-size: 14px;
-    padding: 0 2px;
+    color: #003300;
 }
 
 /* hottest pulse */
@@ -688,12 +728,13 @@ window#waybar.empty #window {
 #custom-hddled-2.flash3,
 #custom-hddled-1.active,
 #custom-hddled-2.active  {
+    color: #66ff66;
     text-shadow:
         0 0 2px #66ff66,
         0 0 6px #66ff66,
         0 0 8px #66ff66;
 
-    animation: ledflash1 0.03s linear;
+    animation: ledflash1 0.02s linear;
 }
 
 /* medium */
@@ -701,11 +742,12 @@ window#waybar.empty #window {
 #custom-hddled-2.flash2,
 #custom-hddled-1.blink,
 #custom-hddled-2.blink {
+    color: #33dd33;
     text-shadow:
         0 0 1px #22dd22,
         0 0 4px #22dd22;
 
-    animation: ledflash2 0.04s linear;
+    animation: ledflash2 0.03s linear;
 }
 
 /* tail */
@@ -713,10 +755,11 @@ window#waybar.empty #window {
 #custom-hddled-2.flash1,
 #custom-hddled-1.idle-fade,
 #custom-hddled-2.idle-fade {
+    color: #007700;
     text-shadow:
         0 0 1px #007700;
 
-    animation: ledflash3 0.05s linear;
+    animation: ledflash3 0.04s linear;
 }
 
 /* idle */
