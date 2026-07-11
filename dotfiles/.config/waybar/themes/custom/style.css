@@ -56,7 +56,7 @@ window#waybar.hidden {
 }
 
 .modules-left {
-    padding-left: 10px;
+    padding-left: 12px;
 }
 
 /* -----------------------------------------------------
@@ -79,7 +79,7 @@ button:hover {
 
 #workspaces {
     margin: 2px 1px 3px 1px;
-    padding: 0px 1px;
+    padding: 0px 2px;
     border-radius: 8px;
     border: 0px;
     font-weight: bold;
@@ -252,7 +252,7 @@ window#waybar.empty #window {
 #brightness-dp1,
 #custom-brightness-dp2,
 #custom-brightness-dp3 {
-    margin-right: 16px;
+    margin-right: 18px;
     font-size: 14px;
     font-weight: bold;
     color: @on_background;
@@ -272,15 +272,15 @@ window#waybar.empty #window {
 }
 
 #custom-tools {
-    margin-right: 12px;
+    margin-right: 14px;
 }
 
 #custom-hyprshade {
-    margin-right: 12px;
+    margin-right: 14px;
 }
 
 #custom-hypridle {
-    margin-right:16px;
+    margin-right:18px;
 }
 
 #custom-hypridle.active {
@@ -293,15 +293,15 @@ window#waybar.empty #window {
 }
 
 #custom-settings {
-    margin-right: 15px;
+    margin-right: 16px;
 }
 
 #custom-browser {
-    margin-right: 12px;
+    margin-right: 14px;
 }
 
 #custom-wallpaper {
-    margin-right: 14px;
+    margin-right: 16px;
 }
 
 #custom-chatgpt {
@@ -312,16 +312,17 @@ window#waybar.empty #window {
     padding-right: 23px;
 }
 
-#custom-waybarthemes,#custom-system {
-    margin-right: 15px;
+#custom-waybarthemes,
+#custom-system {
+    margin-right: 16px;
 }
 
 
 #custom-ml4w-welcome {
-    background-image: url("../assets/ml4w-icon-white.svg");
+    background-image: none;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 0;
     padding-right: 20px;
     margin: 8px 15px 8px 0px;
 }
@@ -339,9 +340,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-notification {
-    margin: 2px 15px 2px 0px;
-    font-size:20px;
-    font-family: "Material Icons";
+    margin: 2px 16px 2px 0px;
+    font-size: 20px;
+    /*font-family: "Material Icons";*/
     color: @on_background;
     opacity: 0.8;
 }
@@ -623,10 +624,6 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: @error;
-}
-
-#custom-ml4w-welcome {
-    background-image: url("../../assets/ml4w-icon-white.svg");
 }
 
 

@@ -1,16 +1,43 @@
-# ML4W OS - Dotfiles for Hyprland
+# Personal Digimon Rice - based on ML4W
+
+Personal Tamer based rice based on ML4W with custom Desktop Pets, some Digimon and Pokemon sprites sprinkled in.
+
+![screenshot 1](assets/screenshot_20260710_120136.jpg)
+
+![screenshot 2](assets/screenshot_20260710_122913.jpg)
+
+![screenshot 3](assets/screenshot_20260710_122428.jpg)
+
+## Desktop pets
+
+**https://github.com/furudbat/wayland-vpets**
+
+![Digimon Greymon - Demo animated](https://raw.githubusercontent.com/furudbat/wayland-vpets/refs/heads/main/assets/digimon-demo.gif)  
+
+### KDE Theming
+
+- [Reactionary Plus](https://store.kde.org/p/2138468)
+- [Reactionary ME Dark](https://store.kde.org/p/2331485)
+- [Besot Haiku Icons](https://store.kde.org/p/2158619)
+- [Chicago95](https://github.com/grassmunk/Chicago95)
+
+### GTK Theming
+
+- [Sheet](https://www.gnome-look.org/p/2325213)
+
+
+
+---
+
+## ML4W OS - Dotfiles for Hyprland
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
-![screenshot 5](assets/screenshot5.jpg)
-
-![screenshot 6](assets/screenshot6.jpg)
-
-## Installation and Documentation
+### Installation and Documentation
 
 You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://ml4w.com/os/</b>
 
-### Quick Installation
+#### Quick Installation
 
 Copy one of the following commands into your terminal:
 
@@ -23,7 +50,7 @@ bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release (only Hyprland 0.5
 ```
 Arch, Fedora and openSuse Tumblweed are directly supported.
 
-### Test and install with the ML4W OS Live ISO
+#### Test and install with the ML4W OS Live ISO
 
 Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
 
@@ -31,7 +58,7 @@ Test the ML4W OS without risk on your computer or in a Virtual Machine with the 
 
 You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
 
-## Special Thanks
+### Special Thanks
 
 I want to say thank you to all contributors of the ML4W OS and all other Developers who are creating awesome configurations for our favorite Tiling Window Manager Hyprland. Your support, the testing of every version and all your valuable Pull Requests with improvements and bug fixes have repeatedly improved the overall project and increased its relevance and quality.
 
@@ -42,7 +69,7 @@ https://github.com/harilvfs for supporting me in creating the new Wiki https://m
 https://github.com/dwilliam62 for all your support and testings since the start of the Project
 and so many more...
 
-## Inspirations
+### Inspirations
 
 The following projects have inspired me:
 
@@ -58,6 +85,9 @@ and many more...
 
 ---
 
+
+_Not really usable for a general purpose, like sone things are sill hardcoded and Hardware Setup_
+
 ## Update Plugins
 
 ```bash
@@ -65,12 +95,6 @@ hyprpm update
 git subtree pull --prefix=dotfiles/.config/hypr/hyprsplit https://github.com/shezdy/hyprsplit.git main --squash
 hyprctl reload
 ```
-
-## Desktop pets
-
-https://github.com/furudbat/wayland-vpets
-
-![Digimon Greymon - Demo animated](https://raw.githubusercontent.com/furudbat/wayland-vpets/refs/heads/main/assets/digimon-demo.gif)  
 
 ## Stow
 
@@ -89,15 +113,3 @@ stow -d ./ -t ~/ dotfiles
 - https://x.com/bixclowart/status/1891526837957709948
 - https://x.com/Akamine_Naoki/status/1800832906853752899
 - https://www.pixiv.net/en/users/33749051
-
-
-### KDE Theming
-
-- [Reactionary Plus](https://store.kde.org/p/2138468)
-- [Reactionary ME Dark](https://store.kde.org/p/2331485)
-- [Besot Haiku Icons](https://store.kde.org/p/2158619)
-- [Chicago95](https://github.com/grassmunk/Chicago95)
-
-### GTK Theming
-
-- [Sheet](https://www.gnome-look.org/p/2325213)
